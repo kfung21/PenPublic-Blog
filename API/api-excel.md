@@ -11,7 +11,7 @@ This guide shows how to integrate PenPublic API data directly into Excel using V
 
 Here's the simplest way to test the API and get your first data:
 
-```vba
+```vb
 Sub HelloPenPublic()
     Dim response As String
     response = MakeAPICall("/api/v1/jobs", "state=CA&limit=1")
@@ -50,7 +50,7 @@ End Function
 
 ### Extract Value from API Response (No JSON Parser Needed!)
 
-```vba
+```vb
 Function ExtractValue(json As String, fieldName As String) As String
     Dim startPos As Long
     Dim endPos As Long
@@ -91,7 +91,7 @@ End Function
 
 Get jobs and display key fields:
 
-```vba
+```vb
 Sub GetJobs()
     Dim response As String
     Dim jobsData As String
@@ -150,7 +150,7 @@ End Sub
 
 Get quick market statistics:
 
-```vba
+```vb
 Sub GetMarketSummary()
     Dim response As String
     Dim ws As Worksheet
@@ -224,7 +224,7 @@ End Sub
 
 Interactive job search:
 
-```vba
+```vb
 Sub SearchJobsInteractive()
     Dim state As String
     Dim minSalary As String
@@ -261,7 +261,7 @@ End Sub
 
 Simple dashboard with key metrics:
 
-```vba
+```vb
 Sub CreateDashboard()
     Dim ws As Worksheet
     Dim response As String
@@ -341,7 +341,7 @@ End Sub
 
 Compare job markets across states:
 
-```vba
+```vb
 Sub CompareStates()
     Dim response As String
     Dim states As Variant
@@ -399,7 +399,7 @@ End Sub
 
 Add basic error handling to your API calls:
 
-```vba
+```vb
 Function MakeAPICallSafe(endpoint As String, params As String) As String
     On Error GoTo ErrorHandler
     
@@ -416,7 +416,7 @@ End Function
 
 Show progress for long operations:
 
-```vba
+```vb
 Application.StatusBar = "Loading data..."
 ' Your code here
 Application.StatusBar = False
@@ -426,7 +426,7 @@ Application.StatusBar = False
 
 Save as macro-enabled workbook:
 
-```vba
+```vb
 Sub SaveWorkbook()
     ActiveWorkbook.SaveAs Filename:="PenPublic_Analysis_" & Format(Date, "yyyymmdd") & ".xlsm", _
                          FileFormat:=xlOpenXMLWorkbookMacroEnabled
@@ -455,7 +455,7 @@ End Sub
 
 To see what the API is returning:
 
-```vba
+```vb
 Sub DebugAPIResponse()
     Dim response As String
     response = MakeAPICall("/api/v1/jobs", "state=CA&limit=1")
