@@ -1,0 +1,409 @@
+/* ============================================================
+   PenPublic — Handbook / Wiki Theme
+   Authoritative, clean, reference-quality design
+   ============================================================ */
+
+/* --- Color System --- */
+:root {
+  /* Navy-slate brand palette */
+  --pp-navy-900: #0f1b2d;
+  --pp-navy-800: #162340;
+  --pp-navy-700: #1d3557;
+  --pp-navy-600: #264673;
+  --pp-navy-500: #2f5a8f;
+  --pp-navy-400: #457fba;
+  --pp-navy-300: #6ba3d6;
+  --pp-navy-200: #a3c9e8;
+  --pp-navy-100: #d4e5f4;
+  --pp-navy-50: #edf3f9;
+
+  /* Warm gold accent — the "pen" in PenPublic */
+  --pp-gold-600: #b8860b;
+  --pp-gold-500: #d4a017;
+  --pp-gold-400: #e8b84a;
+  --pp-gold-300: #f0d080;
+  --pp-gold-100: #faf0d4;
+
+  /* Semantic greens for "tip" blocks */
+  --pp-green-600: #1a7a4c;
+  --pp-green-100: #e0f5eb;
+
+  /* Override VitePress brand colors */
+  --vp-c-brand-1: var(--pp-navy-600);
+  --vp-c-brand-2: var(--pp-navy-500);
+  --vp-c-brand-3: var(--pp-navy-700);
+  --vp-c-brand-soft: rgba(29, 53, 87, 0.12);
+
+  --vp-c-tip-1: var(--pp-green-600);
+  --vp-c-tip-soft: var(--pp-green-100);
+
+  /* Button overrides */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #fff;
+  --vp-button-brand-bg: var(--pp-navy-700);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #fff;
+  --vp-button-brand-hover-bg: var(--pp-navy-600);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #fff;
+  --vp-button-brand-active-bg: var(--pp-navy-800);
+
+  /* Hero name gradient */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--pp-navy-700) 0%, var(--pp-navy-500) 50%, var(--pp-gold-500) 100%);
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, var(--pp-navy-700) 50%, var(--pp-gold-500) 50%);
+  --vp-home-hero-image-filter: blur(44px);
+
+  /* Custom block tip */
+  --vp-custom-block-tip-border: var(--pp-navy-200);
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--pp-navy-50);
+  --vp-custom-block-tip-code-bg: rgba(29, 53, 87, 0.08);
+}
+
+.dark {
+  --vp-c-brand-1: var(--pp-navy-300);
+  --vp-c-brand-2: var(--pp-navy-200);
+  --vp-c-brand-3: var(--pp-navy-400);
+  --vp-c-brand-soft: rgba(107, 163, 214, 0.16);
+
+  --vp-button-brand-bg: var(--pp-navy-500);
+  --vp-button-brand-hover-bg: var(--pp-navy-400);
+  --vp-button-brand-active-bg: var(--pp-navy-600);
+
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--pp-navy-200) 0%, var(--pp-gold-400) 100%);
+
+  --vp-custom-block-tip-border: rgba(107, 163, 214, 0.25);
+  --vp-custom-block-tip-bg: rgba(29, 53, 87, 0.2);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(68px);
+  }
+}
+
+/* --- Typography --- */
+
+/* Headings use Source Serif 4 — editorial, authoritative */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.VPHero .name,
+.VPHero .text,
+.VPFeature .title {
+  font-family: 'Source Serif 4', 'Georgia', serif !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Body uses DM Sans — clean, modern */
+.vp-doc,
+.vp-doc p,
+.vp-doc li,
+.vp-doc td,
+.vp-doc th,
+.VPHero .tagline,
+.VPFeature .details {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Nav and sidebar use DM Sans too */
+.VPNav,
+.VPNavBarTitle,
+.VPSidebar,
+.VPDocAside {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* --- Heading Styles — wiki / handbook feel --- */
+
+.vp-doc h1 {
+  font-size: 2rem;
+  border-bottom: 3px solid var(--pp-navy-700);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dark .vp-doc h1 {
+  border-bottom-color: var(--pp-navy-400);
+}
+
+.vp-doc h2 {
+  font-size: 1.45rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 0.35rem;
+  margin-top: 2.5rem;
+}
+
+.vp-doc h3 {
+  font-size: 1.15rem;
+  color: var(--pp-navy-600);
+  margin-top: 1.75rem;
+}
+
+.dark .vp-doc h3 {
+  color: var(--pp-navy-300);
+}
+
+/* --- Sidebar refinements --- */
+
+/* Left sidebar — category labels */
+.VPSidebar .group .title {
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pp-navy-600);
+}
+
+.dark .VPSidebar .group .title {
+  color: var(--pp-navy-300);
+}
+
+/* Active sidebar link — gold left border accent */
+.VPSidebar .VPSidebarItem.is-active > .item > .link > .text {
+  color: var(--pp-navy-700);
+  font-weight: 600;
+}
+
+.dark .VPSidebar .VPSidebarItem.is-active > .item > .link > .text {
+  color: var(--pp-navy-200);
+}
+
+/* --- Right "On this page" outline sidebar --- */
+
+.VPDocAsideOutline {
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.VPDocAsideOutline .outline-link {
+  font-size: 0.82rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.VPDocAsideOutline .outline-link.active {
+  color: var(--pp-navy-600);
+  font-weight: 600;
+}
+
+.dark .VPDocAsideOutline .outline-link.active {
+  color: var(--pp-navy-300);
+}
+
+/* --- Content area refinements --- */
+
+/* Better line height for reading dense wiki content */
+.vp-doc p {
+  line-height: 1.75;
+}
+
+.vp-doc li {
+  line-height: 1.65;
+}
+
+/* Links — navy with gold hover */
+.vp-doc a {
+  color: var(--pp-navy-600);
+  text-decoration-color: var(--pp-navy-200);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.vp-doc a:hover {
+  color: var(--pp-gold-600);
+  text-decoration-color: var(--pp-gold-400);
+}
+
+.dark .vp-doc a {
+  color: var(--pp-navy-300);
+  text-decoration-color: rgba(107, 163, 214, 0.35);
+}
+
+.dark .vp-doc a:hover {
+  color: var(--pp-gold-400);
+  text-decoration-color: var(--pp-gold-400);
+}
+
+/* --- Tables — clean handbook style --- */
+
+.vp-doc table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+}
+
+.vp-doc th {
+  background: var(--pp-navy-50);
+  color: var(--pp-navy-800);
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 2px solid var(--pp-navy-200);
+}
+
+.dark .vp-doc th {
+  background: rgba(29, 53, 87, 0.3);
+  color: var(--pp-navy-100);
+  border-bottom-color: var(--pp-navy-400);
+}
+
+.vp-doc tr:nth-child(even) td {
+  background: var(--pp-navy-50);
+}
+
+.dark .vp-doc tr:nth-child(even) td {
+  background: rgba(29, 53, 87, 0.1);
+}
+
+/* --- Blog list card style --- */
+
+.blog-list .blog-post {
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding: 1.5rem 0;
+  transition: background 0.15s ease;
+}
+
+.blog-list .blog-post:hover {
+  background: var(--pp-navy-50);
+  margin: 0 -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 8px;
+}
+
+.dark .blog-list .blog-post:hover {
+  background: rgba(29, 53, 87, 0.15);
+}
+
+.blog-list .post-title h2 {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  color: var(--pp-navy-700);
+  transition: color 0.15s ease;
+}
+
+.dark .blog-list .post-title h2 {
+  color: var(--pp-navy-200);
+}
+
+.blog-list .post-title:hover h2 {
+  color: var(--pp-gold-600);
+}
+
+.dark .blog-list .post-title:hover h2 {
+  color: var(--pp-gold-400);
+}
+
+/* Tag buttons — pill style with navy scheme */
+.blog-list .tag-button {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--pp-navy-200);
+  color: var(--pp-navy-600);
+  background: var(--pp-navy-50);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  transition: all 0.15s ease;
+}
+
+.blog-list .tag-button:hover {
+  background: var(--pp-navy-100);
+  border-color: var(--pp-navy-300);
+}
+
+.blog-list .tag-button.active {
+  background: var(--pp-navy-700);
+  color: #fff;
+  border-color: var(--pp-navy-700);
+}
+
+.dark .blog-list .tag-button {
+  border-color: var(--pp-navy-500);
+  color: var(--pp-navy-200);
+  background: rgba(29, 53, 87, 0.25);
+}
+
+.dark .blog-list .tag-button.active {
+  background: var(--pp-navy-500);
+  border-color: var(--pp-navy-400);
+}
+
+/* --- Navbar refinements --- */
+
+.VPNavBar .title {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* --- Footer --- */
+
+.VPFooter {
+  border-top: 2px solid var(--pp-navy-100);
+}
+
+.dark .VPFooter {
+  border-top-color: var(--pp-navy-700);
+}
+
+.VPFooter .message {
+  font-family: 'Source Serif 4', Georgia, serif !important;
+  font-style: italic;
+  color: var(--pp-navy-500);
+}
+
+/* --- Home page hero refinements --- */
+
+.VPHero .tagline {
+  font-size: 1.15rem !important;
+  color: var(--pp-navy-500);
+  max-width: 520px;
+}
+
+.dark .VPHero .tagline {
+  color: var(--pp-navy-300);
+}
+
+/* --- Info/warning boxes — handbook callout style --- */
+
+.vp-doc .custom-block {
+  border-radius: 6px;
+  font-size: 0.92rem;
+}
+
+.vp-doc .custom-block.info {
+  background: var(--pp-navy-50);
+  border-color: var(--pp-navy-200);
+}
+
+.dark .vp-doc .custom-block.info {
+  background: rgba(29, 53, 87, 0.15);
+  border-color: var(--pp-navy-500);
+}
+
+/* --- Responsive: ensure outline works on mobile --- */
+
+/* Mobile: the outline shows in hamburger menu automatically via VitePress */
+/* Desktop: right sidebar "On this page" is always visible */
+
+@media (max-width: 959px) {
+  .vp-doc h1 {
+    font-size: 1.65rem;
+  }
+  .vp-doc h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* --- Search modal brand color --- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--pp-navy-600) !important;
+}
