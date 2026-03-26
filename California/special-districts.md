@@ -1,0 +1,60 @@
+---
+title: Miscellaneous Special Districts
+---
+
+## Miscellaneous Special Districts 
+- Access Services Incorporated
+- Alliance of Schools for Cooperative Insurance Programs
+- American River Flood Control District
+- Area 12 Agency on Aging
+- Association of California Water Agencies
+- Association of California Water Agencies - Joint Powers Insurance Authority
+- Beta Healthcare Group Risk Management Authority
+- Brannan-Andrus Levee Maintenance District
+- Broadmoor Police Protection District
+- California Association for Park And Recreation Indemnity
+- California Authority of Racing Fairs
+- California Fairs Financing Authority
+- California Firefighter's Joint Apprenticeship Committee
+- California Joint Powers Insurance Authority
+- California Joint Powers Risk Management Authority
+- Capitol Area Development Authority
+- Central Coast Water Authority
+- Central Sierra Child Support Agency
+- Colusa County One-Stop Partnership
+- Compass Community Credit Union
+- Cooperative Personnel Services
+- CRA/LA, A Designated Local Authority
+- Dairy Council of California
+- Human Rights/Fair Housing Commission of The City And County of Sacramento
+- Independent Cities Association, Inc.
+- Intergovernmental Training And Development Center
+- League of California Cities
+- Local Agency Formation Commission of Monterey County
+- Local Agency Formation Commission of Solano County
+- Los Angeles County Area 'E' Civil Defense And Disaster Board
+- Los Angeles Memorial Coliseum Commission
+- Los Angeles Regionalized Insurance Services Authority
+- Main San Gabriel Basin Watermaster
+- Management of Emeryville Services Authority
+- McKinleyville Community Services District
+- Mother Lode Job Training Agency
+- Municipal Pooling Authority
+- National Orange Show
+- North Central Counties Consortium
+- North Coast Railroad Authority
+- Northern California Special Districts Insurance Authority
+- Regional Water Authority
+- Rural County Representatives of California
+- Sacramento Public Library Authority
+- Santa Clarita Valley School Food Services Agency
+- Southeast Area Social Services Funding Authority
+- Successor Agency to the Redevelopment Agency of the City & County of San Francisco
+- Successor Agency to the Redevelopment Agency of the City of Fresno
+- Tri-Dam Project
+- Trindel Insurance Fund
+- West Contra Costa Transportation Advisory Committee
+- West End Communications Authority
+- Yolo County Federal Credit Union
+- Yolo County Public Agency Risk Management Insurance Authority
+- Yolo Emergency Communications Agency

@@ -1,0 +1,47 @@
+---
+title: Medical & Health Districts
+---
+
+## Medical & Health Districts
+- Alameda Alliance for Health
+- Alta California Regional Center, Inc.
+- Beach Cities Health District
+- Butte County In-Home Supportive Services Public Authority
+- Camarillo Health Care District
+- Cambria Community Healthcare District
+- Central Valley Regional Center, Inc.
+- Coastal Developmental Services Fdn Dba Westside Regional Center
+- Coast Life Support District
+- Connecting Point
+- Exeter District Ambulance
+- Far Northern Coordinating Council on Developmental Disabilities
+- Grossmont Healthcare District
+- Health Plan of San Joaquin
+- Heartland Communications Facility Authority
+- Inland Counties Regional Center, Inc.
+- Inland Empire Health Plan
+- Kern Health Systems
+- Kings County In-Home Supportive Services Public Authority
+- Marin County In-Home Supportive Services Public Authority
+- North Bay Regional Center
+- North Kern-South Tulare Hospital District
+- North Los Angeles County Regional Center, Inc.
+- Orange County Health Authority
+- Peninsula Health Care District
+- Personal Assistance Services Council
+- Planning And Service Area Ii Area Agency on Aging
+- Redwood Coast Regional Center
+- Regional Center of Orange County
+- Regional Center of The East Bay
+- San Andreas Regional Center, Inc.
+- San Francisco Health Authority
+- San Joaquin County Ihss Public Authority
+- San Mateo County In-Home Supportive Services Public Authority
+- Santa Barbara Regional Health Authority
+- Santa Clara County Health Authority
+- Sierra-Sacramento Valley Emergency Medical Services Agency
+- South Central Los Angeles Regional Center for Developmentally Disabled Persons
+- Tri-City Mental Health Center
+- Tri-Counties Association for The Developmentally Disabled
+- Valley Mountain Regional Center, Inc.
+- Yolo County In-Home Supportive Services Public Authority

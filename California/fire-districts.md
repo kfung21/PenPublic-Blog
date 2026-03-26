@@ -1,0 +1,120 @@
+---
+title: California Counties
+---
+
+## Fire Protection Districts 
+- Alpine Fire Protection District
+- American Canyon Fire Protection District
+- Anderson Fire Protection District
+- Arbuckle-College City Fire Protection District
+- Arcata Fire Protection District
+- Belmont Fire Protection District
+- Belmont-San Carlos Fire Department
+- Blue Lake Fire Protection District
+- Bolinas Fire Protection District
+- Bonita-Sunnyside Fire Protection District
+- Boulder Creek Fire Protection District
+- Burney Fire District
+- Cameron Park Community Services District
+- Carmel Highlands Fire Protection District of Monterey County
+- Central Calaveras Fire And Rescue Protection District
+- Central County Fire Department
+- Central Fire Protection District of Santa Cruz County
+- Central Marin Fire Authority
+- Chino Valley Independent Fire District
+- Cloverdale Fire Protection District
+- Coastside Fire Protection District
+- Colfax Cemetery District
+- Copperopolis Fire Protection District
+- Cordelia Fire Protection District of Solano County
+- Cottonwood Fire Protection District
+- Diamond Springs/El Dorado Fire Protection District
+- Dougherty Regional Fire Authority
+- Ebbetts Pass Fire Protection District
+- Edgemont Community Services District
+- El Dorado County Fire Protection District
+- El Dorado Hills County Water District
+- Esparto Fire Protection District
+- Felton Fire Protection District
+- Fort Bragg Fire Protection Authority
+- Forestville Water District
+- Fruitridge Fire Protection District
+- Garden Valley Fire Protection District
+- Georgetown Fire Protection District
+- Gold Ridge Fire Protection District
+- Graton Fire Protection District
+- Gridley Biggs Cemetery District
+- Groveland Community Services District
+- Hamilton Branch Fire Protection District
+- Happy Valley Fire District
+- Hesperia Fire Protection District
+- Higgins Area Fire Protection District
+- Humboldt Bay Fire Joint Powers Authority
+- Idyllwild Fire Protection District
+- Kelseyville Fire Protection District
+- Kenwood Fire Protection District
+- Kentfield Fire Protection District
+- Lake County Fire Protection District
+- Lakeport County Fire Protection District
+- Lakeside Fire Protection District
+- Lake Valley Fire Protection District
+- Linda Fire Protection District
+- Linden-Peters Rural County Fire Protection District
+- Little Lake Fire Protection District
+- Mammoth Lakes Fire District
+- Meeks Bay Fire Protection District
+- Menlo Park Fire Protection District
+- Mokelumne Rural Fire District
+- Montecito Fire Protection District
+- Monterey County Regional Fire Protection District
+- Montezuma Fire Protection District
+- Murrieta Fire Protection District
+- Natomas Fire Protection District
+- Nevada County Consolidated Fire District
+- North Coast Unified Air Quality Management District
+- North County Fire Protection District of Monterey County
+- North County Fire Protection District of San Diego County
+- North Tahoe Fire Protection District
+- Northshore Fire Protection District
+- Oakdale Rural Fire Protection District
+- Ophir Hill Fire Protection District
+- Pacific Fire Protection District
+- Pajaro Valley Fire Protection Agency
+- Peardale Chicago Park Fire Protection District
+- Peninsula Fire Protection District
+- Penn Valley Fire Protection District
+- Penryn Fire Protection District
+- Placer Hills Fire Protection District
+- Rancho Adobe Fire Protection District
+- Rancho Cucamonga Fire Protection District
+- Rancho Santa Fe Fire Protection District
+- Rescue Fire Protection District
+- Ross Valley Fire Department
+- Sacramento Metropolitan Fire District
+- Sacramento Regional Fire/EMS Communications Center
+- Salida Fire Protection District
+- San Mateo Consolidated Fire Department
+- San Miguel Consolidated Fire Protection District
+- Santa Clara County Central Fire Protection District
+- Schell Vista Fire Protection District
+- Scotts Valley Fire Protection District
+- Shasta Lake Fire Protection District
+- Sonoma County Fire District
+- South Placer Fire District
+- South San Joaquin County Fire Authority
+- Stanislaus Consolidated Fire Protection District
+- Stinson Beach Fire Protection District
+- Suisun Fire Protection District
+- Tiburon Fire Protection District
+- Tracy Rural County Fire Protection District
+- Truckee Fire Protection District
+- Tuolumne Fire District
+- Ukiah Valley Fire District
+- Vacaville Fire Protection District
+- West Almanor Community Services District
+- Williams Fire Protection Authority
+- Wilton Fire Protection District
+- Winters Fire Protection District
+- Woodbridge Rural County Fire Protection District
+- Woodlake Fire District
+- Woodside Fire Protection District

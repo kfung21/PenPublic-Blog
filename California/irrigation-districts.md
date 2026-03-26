@@ -1,0 +1,43 @@
+---
+title: Irrigation Districts
+---
+
+## Irrigation Districts 
+- Alta Irrigation District
+- Angiola Water District
+- Bard Water District
+- Browns Valley Irrigation District
+- Byron-Bethany Irrigation District
+- Cawelo Water District
+- Corning Water District
+- Cottonwood Water District
+- East Contra Costa Irrigation District
+- Feather Water District
+- Henry Miller Reclamation District No. 2131
+- Jackson Valley Irrigation District
+- Kern-Tulare Water District
+- Lower Tule River Irrigation District
+- Merced Irrigation District
+- Nevada Irrigation District
+- North Delta Water Agency
+- North Kern Water Storage District
+- Oakdale Irrigation District
+- Olcese Water District
+- Palm Ranch Irrigation District
+- Patterson Irrigation District
+- Pixley Irrigation District
+- Pleasant Valley County Water District
+- Porterville Irrigation District
+- Reclamation District No. 1000
+- Reclamation District No. 1001
+- Reclamation District No. 1660
+- Reclamation District No. 3
+- Reclamation District No. 833
+- Reclamation District No. 999
+- Rosedale-Rio Bravo Water Storage District
+- San Bernardino Valley Water Conservation District
+- Shafter Wasco Irrigation District
+- South San Joaquin Irrigation District
+- Southern San Joaquin Municipal Utility District
+- West Stanislaus Irrigation District
+- Yuba County Water Agency
