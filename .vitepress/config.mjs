@@ -35,11 +35,11 @@ export default defineConfig({
     logo: {
       src: 'https://pub-e046c9c0db1744fd96ceb26cb69378ad.r2.dev/PP%20Logo.svg',
       alt: 'PenPublic',
-      link: 'https://penpublic.com'
+      link: '/'
     },
 
     nav: [
-      { text: 'Home', link: '/' },
+      { text: 'PenPublic Jobs', link: 'https://penpublic.com', target: '_self' },
       { text: 'Blog', link: '/posts/' },
       {
         text: 'Careers Wiki',
