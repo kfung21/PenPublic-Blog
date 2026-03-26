@@ -39,7 +39,7 @@ export default defineConfig({
     },
 
     nav: [
-      { text: 'Home', link: 'https://penpublic.com', target: '_self' },
+      { text: 'Home', link: '/' },
       { text: 'Blog', link: '/posts/' },
       {
         text: 'Careers Wiki',
