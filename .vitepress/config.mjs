@@ -9,6 +9,17 @@ export default defineConfig({
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&display=swap', rel: 'stylesheet' }],
+    ['script', {}, `
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new MutationObserver(() => {
+          const link = document.querySelector('.VPNavBarTitle a');
+          if (link && link.href !== 'https://penpublic.com/') {
+            link.href = 'https://penpublic.com';
+          }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
+    `],
   ],
 
   // Show "On this page" outline for ## and ### headers
@@ -23,7 +34,8 @@ export default defineConfig({
     siteTitle: 'PenPublic',
     logo: {
       src: 'https://pub-e046c9c0db1744fd96ceb26cb69378ad.r2.dev/PP%20Logo.svg',
-      alt: 'PenPublic'
+      alt: 'PenPublic',
+      link: 'https://penpublic.com'
     },
 
     nav: [
