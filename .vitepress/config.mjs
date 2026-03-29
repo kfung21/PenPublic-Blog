@@ -28,7 +28,7 @@ export default defineConfig({
     },
 
     nav: [
-      { text: 'PenPublic Jobs', link: 'https://penpublic.com' },
+      { text: 'PenPublic Jobs', link: 'https://penpublic.com', target: '_self' },
       { text: 'Blog', link: '/posts/' },
       {
         text: 'Careers Wiki',
