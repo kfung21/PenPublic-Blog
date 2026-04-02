@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: Read the Blog
       link: /posts/
+    - theme: alt
+      text: Pensions Guide
+      link: /Pensions/
 
 features:
   - icon: 🏛️
@@ -29,4 +32,12 @@ features:
     title: Job Search
     details: 15,000+ public sector jobs weekly from 200+ agencies. The largest government job aggregator in California, New York, Texas, Florida, and DC.
     link: https://penpublic.com
+  - icon: 💰
+    title: Pensions
+    details: State-by-state pension breakdowns with benefit formulas, retirement calculators, and comparisons across CalPERS, CalSTRS, NYSLRS, and more.
+    link: /Pensions/
+  - icon: ℹ️
+    title: About PenPublic
+    details: Learn about our mission to convert America's workforce to public sector careers — and why 99% of workers are better off in government.
+    link: /about
 ---
