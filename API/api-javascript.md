@@ -1159,7 +1159,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 ## Next Steps
 
-- Review the [API Overview](./api-home) for complete endpoint documentation
+- Review the [API Overview](./) for complete endpoint documentation
 - See [Excel/VBA Integration](./api-excel) for spreadsheet automation
 - Check out [Python examples](./api-python) for data science workflows
 - Check out [JavaScript examples](./api-javascript) for data science workflows

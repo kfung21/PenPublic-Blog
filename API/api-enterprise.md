@@ -52,7 +52,7 @@ Government hiring surges indicate upcoming contract opportunities 60-90 days bef
 
 Transform your business development with intelligence that predicts opportunities months in advance.
 
-**API Guide:**  [click here](./api-home)
+**API Guide:**  [click here](./)
 
 **Contact:** info@penpublic.com
 
