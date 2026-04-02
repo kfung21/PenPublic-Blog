@@ -329,6 +329,76 @@ Total contribution rate: approximately **40% of a teacher's salary** goes toward
 
 ---
 
+---
+
+## Cost-of-Living Adjustments (COLA)
+
+California public pensions include inflation protection, but it works **very differently** depending on your system.
+
+### CalPERS COLA — Compounding 2%
+
+CalPERS provides a **compounding** COLA based on the employer's contract with CalPERS. <a href="https://www.calpers.ca.gov/retirees/cost-of-living/cola">95.8% of CalPERS retirees have a 2% COLA provision</a>; the remaining 4.2% have contracts for 3%, 4%, or 5%.
+
+Each year, CalPERS compares:
+1. The **compounded rate of inflation** (using the U.S. City Average CPI) since your retirement
+2. The **compounded contracted COLA rate** (e.g. 2% per year)
+
+You receive whichever is lower, applied to your **base allowance** — the gross amount you received at the time of retirement.
+
+| Year | Compounded COLA Factor (2% provision) | Cumulative adjustment |
+|------|---------------------------------------|----------------------|
+| 1 | 1.0200 | +2.00% |
+| 5 | 1.1041 | +10.41% |
+| 10 | 1.2190 | +21.90% |
+| 20 | 1.4859 | +48.59% |
+| 30 | 1.8114 | +81.14% |
+
+A $50,000 pension grows to **$90,568/year** after 30 years of 2% compounding.
+
+**COLA Bank:** When inflation in a given year falls below your contracted cap, the unused portion accumulates in a "COLA bank." In future years when inflation exceeds the cap, CalPERS can draw from your bank to provide a COLA above the cap. This means you never "lose" inflation protection — it's deferred, not forfeited.
+
+**Purchasing Power Protection Allowance (PPPA):** If accumulated COLA has not kept pace with inflation, CalPERS issues a supplemental payment to prevent your purchasing power from falling below **75%** (state and school employers) or **80%** (public agency employers) of its original value.
+
+* see also: <a href="https://www.calpers.ca.gov/retirees/cost-of-living/cola">CalPERS — Cost-of-Living Adjustment (COLA)</a>
+* see also: <a href="https://news.calpers.ca.gov/about-your-cola-and-inflation/">CalPERS PERSpective — About Your COLA and Inflation</a>
+
+### CalSTRS COLA — Simple (Non-Compounding) 2%
+
+CalSTRS provides a fundamentally different type of inflation protection. <a href="https://www.calstrs.com/inflation-protection">The annual benefit adjustment is 2% of the member's **original retirement benefit**</a> — it does **not** compound.
+
+| Year | Annual increase (on $50K original benefit) | Cumulative pension |
+|------|-------------------------------------------|-------------------|
+| 1 | +$1,000 | $51,000 |
+| 5 | +$1,000 | $55,000 |
+| 10 | +$1,000 | $60,000 |
+| 20 | +$1,000 | $70,000 |
+| 30 | +$1,000 | $80,000 |
+
+A $50,000 CalSTRS pension grows to **$80,000/year** after 30 years — compared to $90,568 under CalPERS compounding. That **$10,568/year gap** is the cost of non-compounding.
+
+**Supplemental Benefit Maintenance Account (SBMA):** To prevent severe erosion, CalSTRS maintains a <a href="https://www.calstrs.com/supplemental-payments-calculation-and-funding-information">purchasing power floor of **85%**</a> of the pension's original value. Once your purchasing power falls below 85%, CalSTRS issues quarterly supplemental payments to make up the difference. The SBMA payment is **not** capped at 2% — it increases at the actual rate of inflation. The 85% floor is more protective than CalPERS's 75% floor, partially offsetting the disadvantage of non-compounding.
+
+Under the CalSTRS 2014 Funding Plan, the Legislature **cannot reduce** the 2% annual benefit adjustment for members who retire on or after January 1, 2014.
+
+* see also: <a href="https://www.calstrs.com/inflation-protection">CalSTRS — Inflation Protection</a>
+* see also: <a href="https://www.cft.org/article/how-calstrs-and-calpers-pensions-are-protected-inflation">CFT — How CalSTRS and CalPERS Pensions Are Protected from Inflation</a>
+* see also: <a href="https://www.calstrs.com/supplemental-payments-calculation-and-funding-information">CalSTRS — Supplemental Payments Funding and Estimation</a>
+
+### CalPERS vs CalSTRS COLA Comparison
+
+| Feature | CalPERS | CalSTRS |
+|---------|---------|---------|
+| Type | **Compounding** | **Simple (non-compounding)** |
+| Rate | 2% (95.8% of retirees) | 2% of original benefit |
+| Applied to | Base allowance (compounds each year) | Original retirement amount (fixed increment) |
+| $50K pension after 30 years | **$90,568** | **$80,000** |
+| Inflation banking | COLA Bank (unused adjustment stored) | None |
+| Purchasing power floor | 75% (PPPA) or 80% for agencies | **85%** (SBMA) |
+| Floor adjustment rate | At contracted cap | At actual inflation (uncapped) |
+
+The key tradeoff: CalPERS compounding produces higher income over time, but CalSTRS's higher floor (85% vs 75%) provides a stronger safety net during periods of high inflation.
+
+
 ## Key Formula Terms
 
 | Term | Definition |

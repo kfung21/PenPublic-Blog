@@ -432,6 +432,24 @@ All of these are overseen by <a href="https://perb.ca.gov/laws-and-regulations/"
 
 ---
 
+---
+
+## Cost-of-Living Adjustments (COLA)
+
+COLA rules vary significantly across California's pension systems:
+
+**CalPERS** provides a **compounding** COLA capped at 2% annually for 95.8% of retirees (some agencies contract for 3–5%). The adjustment is applied to the base allowance each year, and unused inflation protection accumulates in a "COLA Bank." If purchasing power falls below 75% (state/school) or 80% (agencies), a supplemental PPPA payment kicks in.
+
+**CalSTRS** provides a **simple (non-compounding)** 2% annual adjustment — a fixed increase equal to 2% of the original benefit each year. CalSTRS compensates for the lack of compounding with a more protective purchasing power floor of 85% via the Supplemental Benefit Maintenance Account (SBMA).
+
+**1937 Act County Systems** (LACERA, ACERA, SDCERA, etc.) generally provide a compounding 2% COLA similar to CalPERS, though each county's plan document governs the specifics.
+
+For detailed COLA formulas, compounding calculations, and worked examples, see [California Pension Formulas — COLA](./california-formulas#cost-of-living-adjustments-cola).
+
+* see also: <a href="https://www.calpers.ca.gov/retirees/cost-of-living/cola">CalPERS — COLA</a>
+* see also: <a href="https://www.calstrs.com/inflation-protection">CalSTRS — Inflation Protection</a>
+
+
 ## Key Pension Terms Glossary
 
 | Term | Definition |

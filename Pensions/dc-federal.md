@@ -280,6 +280,53 @@ D.C. unions (FOP for police, IAFF Local 36 for firefighters, WTU for teachers) c
 
 ---
 
+---
+
+## Cost-of-Living Adjustments (COLA)
+
+Federal and D.C. local pensions receive very different COLA treatment:
+
+### FERS — "Diet COLA"
+
+FERS COLAs are based on the <a href="https://www.opm.gov/frequently-asked-questions/retire-faq/post-retirement/how-is-the-cost-of-living-adjustment-cola-determined/">Consumer Price Index for Urban Wage Earners (CPI-W)</a>, but with a reduction when inflation exceeds 2%:
+
+| CPI-W Change | FERS COLA |
+|-------------|-----------|
+| 2% or less | Full CPI-W increase |
+| Between 2% and 3% | Capped at 2.0% |
+| Over 3% | CPI-W minus 1 percentage point |
+
+This "diet COLA" means FERS retirees consistently fall behind inflation over time. Additionally, **FERS retirees under age 62 generally do not receive COLAs** — an important consideration for FERS Special (LEO/Fire) retirees who can retire at 50.
+
+### CSRS — Full CPI
+
+CSRS retirees receive the **full CPI-W increase** with no reduction and no age restriction. This is the most generous federal COLA provision.
+
+### D.C. Local (DCRB)
+
+D.C. Teachers and Police/Fire pensions receive COLAs based on hire date:
+- **Pre-11/10/1996 hires:** Full CPI (no cap)
+- **Post-11/10/1996 hires:** Capped at 3%
+
+### COLA Comparison Across Systems
+
+| System | COLA Type | Applied to | Annual cap |
+|--------|-----------|-----------|------------|
+| CalPERS | 2% compounding | Full pension | 2% |
+| CalSTRS | 2% simple | Full pension (non-compounding) | 2% of original |
+| CSRS | Full CPI-W | Full annuity | None |
+| FERS | "Diet" CPI-W | Full annuity (if 62+) | Effectively ~1.5–2% |
+| NYSLRS/NYSTRS | 50% of CPI | **First $18,000 only** | 3% |
+| D.C. Local (pre-1996) | Full CPI | Full pension | None |
+| D.C. Local (post-1996) | CPI | Full pension | 3% |
+
+For detailed COLA formulas and worked calculations, see [D.C. & Federal Pension Formulas — COLA](./dc-federal-formulas#cola-—-cost-of-living-adjustments).
+
+* see also: <a href="https://www.opm.gov/frequently-asked-questions/retire-faq/post-retirement/how-is-the-cost-of-living-adjustment-cola-determined/">OPM — How is the COLA Determined?</a>
+* see also: <a href="https://www.congress.gov/crs-product/IF12354">CRS — The FERS "Diet COLA" and the Equal COLA Act</a>
+* see also: <a href="https://www.narfe.org/blog/2025/01/21/bill-reintroduced-to-improve-colas-for-fers-retirees/">NARFE — Equal COLA Act</a>
+
+
 ## Key Terms
 
 | Term | Definition |

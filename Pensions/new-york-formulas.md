@@ -455,6 +455,56 @@ For all tiers (since 2024), <a href="https://www.osc.ny.gov/retirement/members/f
 
 ---
 
+---
+
+## Cost-of-Living Adjustment (COLA)
+
+New York's <a href="https://www.osc.ny.gov/retirement/retirees/cost-living-adjustment">permanent COLA</a> applies to **all seven** major pension systems (ERS, PFRS, NYSTRS, NYCERS, NYCTRS, NYCPPF, FDNY) under the same statutory rules. It is far more limited than California or federal COLAs.
+
+### How NY COLA Works
+
+| Rule | Detail |
+|------|--------|
+| Rate | 50% of the annual rate of inflation (CPI), rounded up to the nearest tenth |
+| Floor | Never less than **1%** per year |
+| Ceiling | Never more than **3%** per year |
+| Base | Applied only to the **first $18,000** of the annual Single Life Allowance |
+| Maximum annual increase | **$540** (3% × $18,000), or $45/month |
+| Eligibility | Age 62 with 5+ years retired, OR age 55 with 10+ years retired, OR disability pension 5+ years |
+
+The $18,000 base has **not been increased** since COLA was enacted in 2000. In today's dollars, $18,000 in 2000 is equivalent to roughly $32,000+ — meaning the COLA base covers an increasingly small fraction of typical pensions.
+
+### Worked Example: NY COLA Over 30 Years
+
+For a retiree with a **$60,000 annual pension** and an assumed average COLA rate of 1.5%:
+
+| Year | COLA-eligible portion | Annual increase | Cumulative pension |
+|------|----------------------|-----------------|-------------------|
+| 0 | — | — | $60,000 |
+| 1 | $18,000 × 1.5% | $270 | $60,270 |
+| 5 | Compounds on $18K base | ~$1,389 total | $61,389 |
+| 10 | | ~$2,895 total | $62,895 |
+| 20 | | ~$6,210 total | $66,210 |
+| 30 | | ~$10,034 total | $70,034 |
+
+**The remaining $42,000 of this pension receives zero COLA** — no inflation protection at all. Compare this to a CalPERS retiree with the same $60,000 pension who would receive $108,680/year after 30 years of 2% compounding.
+
+### Why This Matters
+
+NY COLA is the weakest inflation protection of any major public pension system in the country:
+
+- **California (CalPERS):** 2% compounding on the **full** pension
+- **Federal (CSRS):** Full CPI-W on the **full** annuity
+- **Federal (FERS):** CPI-W "diet COLA" on the **full** annuity
+- **New York:** 50% of CPI on **first $18,000 only**
+
+This is a persistent point of frustration for NY retirees and a key focus of the <a href="https://fixtier6.org/why-fix-tier-6">"Fix Tier 6" movement</a>, which advocates for improved COLA among other reforms.
+
+* see also: <a href="https://www.osc.ny.gov/retirement/retirees/cost-living-adjustment">NYSLRS — Cost of Living Adjustment</a>
+* see also: <a href="https://www.osc.ny.gov/retirement/publications/permanent-cola">NYSLRS — Permanent COLA Publication</a>
+* see also: <a href="https://www.nystrs.org/retirees/cost-of-living-adjustment/">NYSTRS — COLA Page</a>
+
+
 ## Key Formula Terms
 
 | Term | Definition |
