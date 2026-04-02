@@ -1,3 +1,8 @@
+---
+title: API
+order: 10
+---
+
 # PenPublic API Overview
 
 The PenPublic API provides programmatic access to government job postings data, market intelligence, and hiring insights. This RESTful API enables you to integrate government job market data directly into your applications, reports, and analysis tools.

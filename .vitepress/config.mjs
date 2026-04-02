@@ -1,5 +1,187 @@
 import { defineConfig } from 'vitepress'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
+// ─── Filesystem auto-discovery ─────────────────────────────────────
+// Scans the project root for folders and .md files, then builds
+// nav and sidebar automatically. Drop a folder with an index.md
+// and it shows up everywhere — no config edits needed.
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const ROOT = path.resolve(__dirname, '..')
+
+// Folders to never include in auto-generated nav/sidebar
+const IGNORED_DIRS = new Set([
+  'node_modules', '.vitepress', 'public', 'dist',
+  'posts', 'blog',  // blog handled separately
+])
+
+/**
+ * Parse frontmatter from a markdown file.
+ * Returns an object with title, sidebar, nav, order, etc.
+ */
+function parseFrontmatter(filePath) {
+  try {
+    const content = fs.readFileSync(filePath, 'utf-8')
+    const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/)
+    if (!match) return {}
+
+    const fm = {}
+    match[1].split(/\r?\n/).forEach(line => {
+      const idx = line.indexOf(':')
+      if (idx === -1) return
+      const key = line.slice(0, idx).trim()
+      let val = line.slice(idx + 1).trim()
+
+      // Handle booleans
+      if (val === 'true') val = true
+      else if (val === 'false') val = false
+      // Handle numbers
+      else if (/^\d+$/.test(val)) val = parseInt(val, 10)
+      // Handle arrays like ['tag1', 'tag2']
+      else if (val.startsWith('[') && val.endsWith(']')) {
+        try { val = JSON.parse(val.replace(/'/g, '"')) } catch {}
+      }
+      // Strip surrounding quotes
+      else if ((val.startsWith("'") && val.endsWith("'")) ||
+               (val.startsWith('"') && val.endsWith('"'))) {
+        val = val.slice(1, -1)
+      }
+
+      fm[key] = val
+    })
+    return fm
+  } catch {
+    return {}
+  }
+}
+
+/**
+ * Convert a filename like "water-districts.md" into "Water Districts"
+ */
+function fileNameToTitle(name) {
+  return name
+    .replace(/\.md$/, '')
+    .replace(/^index$/, '')
+    .replace(/^\d{4}-\d{2}-\d{2}_/, '') // strip date prefix
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase())
+    .replace(/\bApi\b/g, 'API')
+    .replace(/\bMpo\b/g, 'MPO')
+    .replace(/\bFaq\b/g, 'FAQ')
+    .trim()
+}
+
+/**
+ * Get a display title for a markdown file.
+ * Priority: frontmatter title > filename conversion
+ */
+function getTitle(filePath, fileName) {
+  const fm = parseFrontmatter(filePath)
+  return fm.title || fileNameToTitle(fileName)
+}
+
+/**
+ * Scan a directory and return sorted sidebar items.
+ * Respects frontmatter: sidebar: false to exclude,
+ * and order: N to control sort position.
+ */
+function buildSidebarItems(dirPath, dirName) {
+  const files = fs.readdirSync(dirPath).filter(f =>
+    f.endsWith('.md') && f !== 'index.md'
+  )
+
+  return files
+    .map(file => {
+      const filePath = path.join(dirPath, file)
+      const fm = parseFrontmatter(filePath)
+
+      // Skip if frontmatter says sidebar: false
+      if (fm.sidebar === false) return null
+
+      return {
+        text: fm.title || fileNameToTitle(file),
+        link: `/${dirName}/${file.replace(/\.md$/, '')}`,
+        order: typeof fm.order === 'number' ? fm.order : 999,
+      }
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.order - b.order || a.text.localeCompare(b.text))
+    .map(({ text, link }) => ({ text, link })) // strip order from output
+}
+
+/**
+ * Auto-discover all content directories and build nav + sidebar.
+ */
+function autoDiscover() {
+  const nav = []
+  const sidebar = {}
+
+  // ── Scan top-level directories ──
+  const dirs = fs.readdirSync(ROOT).filter(name => {
+    if (IGNORED_DIRS.has(name)) return false
+    if (name.startsWith('.')) return false
+    const stat = fs.statSync(path.join(ROOT, name))
+    return stat.isDirectory()
+  })
+
+  for (const dirName of dirs) {
+    const dirPath = path.join(ROOT, dirName)
+    const indexPath = path.join(dirPath, 'index.md')
+
+    // Skip folders without an index.md
+    if (!fs.existsSync(indexPath)) continue
+
+    const indexFm = parseFrontmatter(indexPath)
+
+    // Skip if frontmatter says nav: false
+    if (indexFm.nav === false) continue
+
+    const title = indexFm.title || fileNameToTitle(dirName)
+    const sidebarItems = buildSidebarItems(dirPath, dirName)
+
+    // ── Build nav entry ──
+    // If the folder has sub-pages, make it a dropdown
+    if (sidebarItems.length > 0) {
+      nav.push({
+        text: title,
+        link: `/${dirName}/`,
+        activeMatch: `/${dirName}/`,
+        _order: typeof indexFm.order === 'number' ? indexFm.order : 999,
+      })
+    } else {
+      // Folder with only index.md — simple link
+      nav.push({
+        text: title,
+        link: `/${dirName}/`,
+        _order: typeof indexFm.order === 'number' ? indexFm.order : 999,
+      })
+    }
+
+    // ── Build sidebar entry ──
+    sidebar[`/${dirName}/`] = [
+      {
+        text: title,
+        link: `/${dirName}/`,
+        items: sidebarItems,
+      }
+    ]
+  }
+
+  // Sort nav by frontmatter order, then alphabetically
+  nav.sort((a, b) => a._order - b._order || a.text.localeCompare(b.text))
+
+  // Strip internal _order field
+  nav.forEach(item => delete item._order)
+
+  return { nav, sidebar }
+}
+
+// ─── Generate nav and sidebar ──────────────────────────────────────
+const { nav: autoNav, sidebar: autoSidebar } = autoDiscover()
+
+// ─── Final config ──────────────────────────────────────────────────
 export default defineConfig({
   title: 'PenPublic',
   description: 'The Career Platform for Public Sector Workers',
@@ -11,7 +193,6 @@ export default defineConfig({
     ['link', { href: 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&display=swap', rel: 'stylesheet' }],
   ],
 
-  // Show "On this page" outline for ## and ### headers
   outline: {
     level: [2, 3],
     label: 'On this page'
@@ -30,20 +211,13 @@ export default defineConfig({
     nav: [
       { text: 'PenPublic Jobs', link: 'https://penpublic.com', target: '_self' },
       { text: 'Blog', link: '/posts/' },
-      {
-        text: 'Careers Wiki',
-        items: [
-          { text: 'California Overview', link: '/California/' },
-          { text: 'Cities', link: '/California/cities' },
-          { text: 'Counties', link: '/California/counties' },
-          { text: 'State Agencies', link: '/California/agencies' },
-          { text: 'Federal Agencies', link: '/California/agencies-fed' },
-        ]
-      },
+      // ── Auto-discovered sections injected here ──
+      ...autoNav,
       { text: 'About', link: '/about' },
     ],
 
     sidebar: {
+      // ── Blog (manually wired to posts/ content loader) ──
       '/posts/': [
         {
           text: 'Blog',
@@ -53,67 +227,10 @@ export default defineConfig({
         }
       ],
 
-      '/California/': [
-        {
-          text: 'California',
-          link: '/California/',
-          items: [
-            { text: 'Cities', link: '/California/cities' },
-            { text: 'Counties', link: '/California/counties' },
-          ]
-        },
-        {
-          text: 'State & Federal',
-          collapsed: false,
-          items: [
-            { text: 'State Agencies', link: '/California/agencies' },
-            { text: 'Federal Agencies', link: '/California/agencies-fed' },
-          ]
-        },
-        {
-          text: 'Transportation & Infrastructure',
-          collapsed: false,
-          items: [
-            { text: 'Transportation', link: '/California/transportation' },
-            { text: 'MPOs', link: '/California/MPO' },
-            { text: 'Ports', link: '/California/ports' },
-          ]
-        },
-        {
-          text: 'Water & Environment',
-          collapsed: false,
-          items: [
-            { text: 'Water Districts', link: '/California/water-districts' },
-            { text: 'Irrigation Districts', link: '/California/irrigation-districts' },
-            { text: 'Sanitation Districts', link: '/California/sanitation-districts' },
-            { text: 'Environmental', link: '/California/environmental' },
-            { text: 'Mosquito Districts', link: '/California/mosquito-districts' },
-          ]
-        },
-        {
-          text: 'Utilities & Services',
-          collapsed: false,
-          items: [
-            { text: 'Utilities', link: '/California/utilities' },
-            { text: 'Fire Districts', link: '/California/fire-districts' },
-            { text: 'Housing Authorities', link: '/California/housing' },
-            { text: 'Parks & Recreation', link: '/California/parks-and-recreation' },
-            { text: 'Community Services', link: '/California/community-service' },
-            { text: 'Cemetery Districts', link: '/California/cemetery' },
-            { text: 'Special Districts', link: '/California/special-districts' },
-          ]
-        },
-        {
-          text: 'Education & Health',
-          collapsed: false,
-          items: [
-            { text: 'School Districts', link: '/California/schools' },
-            { text: 'Other Education', link: '/California/education-other' },
-            { text: 'Medical', link: '/California/medical' },
-          ]
-        },
-      ],
+      // ── Auto-discovered sidebars injected here ──
+      ...autoSidebar,
 
+      // ── Static pages ──
       '/about': [
         {
           text: 'About',
@@ -123,7 +240,6 @@ export default defineConfig({
           ]
         }
       ],
-
       '/faqs': [
         {
           text: 'About',

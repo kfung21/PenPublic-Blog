@@ -154,6 +154,17 @@
 
 /* --- Sidebar refinements --- */
 
+/* Left sidebar — allow text wrapping with hanging indent */
+.VPSidebarItem .link .text {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  display: block;
+  padding-left: 1em;
+  text-indent: -1em;
+  line-height: 1.4;
+}
+
 /* Left sidebar — category labels */
 .VPSidebar .group .title {
   font-family: 'DM Sans', sans-serif !important;
@@ -184,9 +195,30 @@
   font-family: 'DM Sans', sans-serif !important;
 }
 
+/* Spacing between outline items */
 .VPDocAsideOutline .outline-link {
   font-size: 0.82rem;
   transition: color 0.15s ease, border-color 0.15s ease;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  display: block;
+  padding-left: 1em;
+  text-indent: -1em;
+  line-height: 1.4;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+/* Subtle separator between h2-level items */
+.VPDocAsideOutline .root > li {
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 0.15rem;
+  margin-bottom: 0.15rem;
+}
+
+.VPDocAsideOutline .root > li:last-child {
+  border-bottom: none;
 }
 
 .VPDocAsideOutline .outline-link.active {
