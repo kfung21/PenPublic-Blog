@@ -63,6 +63,85 @@ Local agencies choose their formula through their CalPERS contract. Common class
 | **2.5% @ 57** (PEPRA) | PEPRA safety option | 57 | 2.5% |
 | **2% @ 57** (PEPRA) | PEPRA safety option | 57 | 2.0% |
 
+### Example Calculations — CalPERS Miscellaneous
+
+#### Example: Classic 2% @ 55, Age 55, 25 Years of Service, Final Comp $4,500/month
+
+<a href="https://news.calpers.ca.gov/have-you-checked-your-benefit-factor-chart/">Source: CalPERS PERSpective — Have You Checked Your Benefit Factor Chart?</a>
+
+| Component | Value |
+|-----------|-------|
+| Service credit | 25 years |
+| Benefit factor at age 55 | 2.0% |
+| Final compensation | $4,500/month ($54,000/year) |
+| **Calculation** | 25 × 2.0% × $4,500 = **$2,250/month ($27,000/year)** |
+
+This member retires at the formula's "named" age (55) and receives exactly 50% of final compensation. By waiting to 63+, the benefit factor maxes at 2.5%, which would yield $2,812/month instead.
+
+#### Example: Classic 2% @ 55, Age 63, 25.6 Years of Service, Final Comp $4,567/month
+
+<a href="https://www.calpers.ca.gov/sources/member/CBEE/learning_guides/CalPERS_Retirement_Benefits-Early_thru_Mid-Career.pdf">Source: CalPERS Retirement Benefits — Early thru Mid-Career (PDF)</a>
+
+| Component | Value |
+|-----------|-------|
+| Service credit | 25.6 years |
+| Benefit factor at age 63 | 2.5% (maximum) |
+| Final compensation | $4,567/month ($54,800/year) |
+| **Calculation** | 25.6 × 2.5% × $4,567 = **$2,923/month ($35,076/year)** |
+
+By working 6 months longer (gaining both service credit and a higher benefit factor at 63), this member receives $673/month more than the age-55 example — a 30% increase for just over half a year of additional service.
+
+#### Example: PEPRA 2% @ 62, Age 62, 30 Years of Service, Final Comp $7,500/month
+
+<a href="https://www.calpers.ca.gov/documents/state-miscellaneous-industrial-member-2-at-62-benefit-factors-pdf/download?inline=">Source: CalPERS 2% at 62 Benefit Factor Chart (PDF)</a>
+
+| Component | Value |
+|-----------|-------|
+| Service credit | 30 years |
+| Benefit factor at age 62 | 2.0% |
+| Final compensation | $7,500/month ($90,000/year) |
+| **Calculation** | 30 × 2.0% × $7,500 = **$4,500/month ($54,000/year)** |
+
+This is the PEPRA "standard" retirement — 60% of final compensation at 30 years and age 62. Note that PEPRA's pensionable compensation is capped ($159,733 with Social Security in 2026), so very high earners will hit this ceiling.
+
+#### Example: PEPRA 2% @ 62, Age 55, 20 Years of Service, Final Comp $6,000/month
+
+<a href="https://www.calpers.ca.gov/documents/state-miscellaneous-industrial-member-2-at-62-benefit-factors-pdf/download?inline=">Source: CalPERS 2% at 62 Benefit Factor Chart (PDF)</a>
+
+| Component | Value |
+|-----------|-------|
+| Service credit | 20 years |
+| Benefit factor at age 55 | 1.3% |
+| Final compensation | $6,000/month ($72,000/year) |
+| **Calculation** | 20 × 1.3% × $6,000 = **$1,560/month ($18,720/year)** |
+
+Early retirement under PEPRA carries a real cost — this member receives only 26% of final compensation compared to the 60% they'd get by waiting to 62 with 30 years. The benefit factor at 55 is 1.3% vs 2.0% at 62.
+
+#### Example: Classic Safety 3% @ 50, Age 50, 25 Years of Service, Final Comp $10,000/month
+
+| Component | Value |
+|-----------|-------|
+| Service credit | 25 years |
+| Benefit factor at age 50 | 3.0% (maximum, does not increase with age) |
+| Final compensation | $10,000/month ($120,000/year) |
+| **Calculation** | 25 × 3.0% × $10,000 = **$7,500/month ($90,000/year)** |
+
+The 3% @ 50 safety formula is the most generous in California — 75% of final compensation at just 25 years. A 30-year member gets 90%. This is the formula created by SB 400 in 1999.
+
+#### Example: Two Employers, Different Formulas
+
+<a href="https://www.calpers.ca.gov/sources/member/CBEE/learning_guides/CalPERS_Retirement_Benefits-Early_thru_Mid-Career.pdf">Source: CalPERS Retirement Benefits — Early thru Mid-Career (PDF)</a>
+
+A member retiring at age 55 who worked 20 years under 2% @ 55 for one employer and 5 years under 2% @ 62 for another. CalPERS calculates each employer's portion separately:
+
+| Employer | Formula | Service Credit | Benefit Factor at 55 | Final Comp | Pension |
+|----------|---------|---------------|---------------------|------------|---------|
+| Employer A | 2% @ 55 | 20 years | 2.0% | $5,000/mo | $2,000/mo |
+| Employer B | 2% @ 62 | 5 years | 1.3% | $5,500/mo | $358/mo |
+| **Combined** | | **25 years** | | | **$2,358/mo** |
+
+This illustrates why the formula your employer contracts for matters — the same years of service produce very different benefit factors under different formulas.
+
 ---
 
 ## CalSTRS Formulas
@@ -79,6 +158,49 @@ For CalSTRS 2% at 60 with less than 25 years, final compensation is based on the
 * see also: <a href="https://www.calstrs.com/age-factor">CalSTRS Age Factor Tables</a>
 * see also: <a href="https://www.calstrs.com/files/1105a6846/UnderstandingTheFormula2025.pdf">CalSTRS Understanding the Formula 2025 (PDF)</a>
 * see also: <a href="https://www.ctamemberbenefits.org/en/Retirement/Retirement---Benefits-Overview-of-CalSTRS-Benefits">CTA Retirement Benefits Overview</a>
+
+### Example Calculations — CalSTRS
+
+#### Example: CalSTRS 2% @ 60, Age 63, 24 Years of Service, Final Comp $6,200/month
+
+<a href="https://www.calstrs.com/files/1105a6846/UnderstandingTheFormula2025.pdf">Source: CalSTRS Understanding the Formula 2025 (PDF) — "Mariana" example</a>
+
+| Component | Value |
+|-----------|-------|
+| Service credit | 24 years |
+| Age factor at age 63 | 2.4% (maximum for 2% @ 60) |
+| Final compensation | $6,200/month |
+| **Calculation** | 24 × 2.4% × $6,200 = **$3,571/month ($42,854/year)** |
+
+By retiring at 63 instead of 60, Mariana's age factor increased from 2.0% to the 2.4% maximum — a 20% boost to her benefit for each year of service.
+
+#### Example: CalSTRS 2% @ 60, Age 60, 30 Years of Service, Final Comp $8,000/month
+
+<a href="https://www.calstrs.com/understanding-the-formula-calstrs-2-at-60">Source: CalSTRS Understanding the Formula — 2% at 60</a>
+
+| Component | Value |
+|-----------|-------|
+| Service credit | 30 years |
+| Age factor at age 60 | 2.0% |
+| Career factor (30+ years) | +0.2% (total age factor becomes 2.2%) |
+| Final compensation | $8,000/month (highest 12 months, since 25+ years of service) |
+| **Calculation** | 30 × 2.2% × $8,000 = **$5,280/month ($63,360/year)** |
+
+The career factor is a CalSTRS-only bonus — members with 30+ years of service add 0.2% to their age factor (up to the 2.4% maximum). This means a teacher retiring at 60 with 30 years gets an effective 2.2% instead of 2.0%. Also note that with 25+ years, final compensation uses the highest 12 months instead of 36.
+
+#### Example: CalSTRS 2% @ 62 (PEPRA), Age 62, 25 Years of Service, Final Comp $7,000/month
+
+<a href="https://www.calstrs.com/understanding-the-formula-calstrs-2-at-62">Source: CalSTRS Understanding the Formula — 2% at 62</a>
+
+| Component | Value |
+|-----------|-------|
+| Service credit | 25 years |
+| Age factor at age 62 | 2.0% |
+| Career factor | None (PEPRA members are not eligible) |
+| Final compensation | $7,000/month (highest 36 months, mandatory for all PEPRA) |
+| **Calculation** | 25 × 2.0% × $7,000 = **$3,500/month ($42,000/year)** |
+
+Compare this to the Classic 2% @ 60 member at the same age and service: a Classic member at 62 would have a 2.4% age factor and could be using 12-month final comp (likely higher), resulting in a significantly larger benefit. PEPRA teachers also lose the career factor bonus.
 
 ---
 
@@ -135,6 +257,78 @@ Different bargaining units within the same agency can (and often do) have **diff
 
 ---
 
+## Who Determines California Pension Formulas?
+
+California pension formulas are determined through a **combination of state statute, local bargaining, and CalPERS/CalSTRS board action** — a multi-layered process unlike the purely statutory federal or New York systems:
+
+| Element | Who Decides | Authority |
+|---------|------------|-----------|
+| **Maximum formula caps** (e.g., PEPRA 2% @ 62) | State Legislature | <a href="https://news.calpers.ca.gov/pepra-explained-addressing-the-top-questions-from-members/">PEPRA (Gov. Code §7522 et seq.)</a> |
+| **Menu of available formulas** | CalPERS | <a href="https://www.calpers.ca.gov/employers/contracts/new-pension-contracts">CalPERS contract options</a> |
+| **Which formula a local agency adopts** | Local agency governing body + bargaining unit | <a href="https://www.calpers.ca.gov/employers/contracts/new-pension-contracts">CalPERS contract amendment</a>, negotiated through MOU process |
+| **State employee formulas** | State Legislature + bargaining (MOUs ratified by Legislature) | Gov. Code; see <a href="./california#bargaining-units--state-level">California Bargaining Units</a> |
+| **Employee contribution rates (Classic)** | Statute + MOU negotiation | Varies by bargaining unit |
+| **Employee contribution rates (PEPRA)** | CalPERS actuarial valuation | <a href="https://www.calpers.ca.gov/employers/policies-and-procedures/pension-reform-impacts/public-agency-pepra-member-contribution-rates-faq">50% of normal cost per PEPRA (Gov. Code §7522.30)</a> |
+| **Employer contribution rates** | CalPERS Board (based on actuarial valuation) | <a href="https://www.calpers.ca.gov/employers/actuarial-resources/employer-contributions">CalPERS annual valuation</a> — **not negotiable** |
+| **CalSTRS contribution rates** | Teachers' Retirement Board (within limits set by AB 1469) | <a href="https://www.calstrs.com/files/be800640a/CalSTRSFundingPlan.pdf">CalSTRS Funding Plan</a> |
+
+**The key distinction from federal/New York:** California unions can and do negotiate pension formula changes at the local level through MOUs. This is why different cities have different pension tiers — the formula you get depends on what your bargaining unit negotiated with your employer.
+
+---
+
+## Contribution Rates
+
+Pensions are funded by three sources: employee contributions, employer contributions, and investment returns. The employer side is invisible on your paycheck but represents an enormous portion of total compensation that no private employer matches.
+
+### CalPERS Contribution Rates (FY 2025-26)
+
+**Employee contribution rates:**
+
+| Category | Classic Members | PEPRA Members | How Rates Are Set |
+|----------|----------------|---------------|-------------------|
+| State Miscellaneous (with SS) | ~7% of pay (varies by bargaining unit, typically with $513/mo offset) | ~8% (50% of normal cost) | <a href="https://www.calpers.ca.gov/employers/policies-and-procedures/circular-letters/200-025-25">Classic: statute + MOU; PEPRA: Gov. Code §7522.30</a> |
+| State Miscellaneous (no SS) | ~8% of pay | ~9% | Statute + MOU |
+| State Safety (Peace Officers/Firefighters) | ~10–11% of pay | ~13.25% (50% of normal cost) | <a href="https://pecg.org/2025-2028-mou/article_11-6/">MOU (e.g., PECG Article 11.6)</a> |
+| Local Miscellaneous | Varies by agency contract (typically 7–8%) | ~7.75% (varies by plan) | <a href="https://www.calpers.ca.gov/employers/policies-and-procedures/pension-reform-impacts/public-agency-pepra-member-contributions">CalPERS actuarial valuation</a> |
+| Local Safety | Varies by agency contract (typically 9–12%) | ~13–14% (varies by plan) | CalPERS actuarial valuation |
+| School Employees (classified staff) | 7% | 8% | <a href="https://www.calpers.ca.gov/employers/policies-and-procedures/circular-letters/200-027-25">Statute</a> |
+
+**Employer contribution rates (FY 2025-26):**
+
+| Category | Employer Rate (% of payroll) | Source |
+|----------|------------------------------|--------|
+| State Miscellaneous | ~30.87% | <a href="https://www.calpers.ca.gov/employers/policies-and-procedures/circular-letters/200-049-25">CalPERS Projected Employer Rates CL 200-049-25</a> |
+| State Industrial | ~19.54% | Same source |
+| State Safety (non-Peace Officer) | ~21.54% | Same source |
+| State Peace Officers & Firefighters | **~46.26%** | Same source |
+| Schools (classified staff pool) | <a href="https://www.calpers.ca.gov/employers/policies-and-procedures/circular-letters/200-027-25">26.81%</a> | CalPERS CL 200-027-25 |
+| Local agencies | Varies widely by agency and plan | <a href="https://www.calpers.ca.gov/employers/actuarial-resources/employer-contributions">CalPERS Public Agency Required Employer Contributions search tool</a> |
+
+Employer rates include both the normal cost (annual cost of benefits being earned) and payments toward any unfunded accrued liability (UAL). Rates change annually based on CalPERS actuarial valuations and are **not negotiable** — employers must pay the actuarially determined rate regardless of what bargaining units negotiate on the employee side.
+
+* see also: <a href="https://www.calpers.ca.gov/employers/actuarial-resources/employer-contributions">CalPERS — Required Employer Contributions</a>
+* see also: <a href="https://www.calstate.edu/csu-system/about-the-csu/budget/2026-27-operating-budget/Pages/Employer-Paid-Retirement-Adjustment.aspx">CSU — Employer-Paid Retirement Adjustment</a>
+* see also: <a href="https://news.calpers.ca.gov/pepra-explained-addressing-the-top-questions-from-members/">CalPERS — PEPRA Explained</a>
+
+### CalSTRS Contribution Rates (FY 2025-26)
+
+CalSTRS has a unique **three-party funding model** — members, employers, and the state all contribute:
+
+| Contributor | Rate | Set By |
+|------------|------|--------|
+| **Members (2% at 60, Classic)** | <a href="https://www.calstrs.com/contributions">10.25% of creditable earnings</a> | Statute (Education Code) |
+| **Members (2% at 62, PEPRA)** | <a href="https://www.calstrs.com/contributions">~9% (50% of normal cost)</a> | PEPRA (Gov. Code §7522.30) |
+| **Employers** (school districts) | <a href="https://www.calstrs.com/contributions">19.10% of creditable earnings</a> | <a href="https://www.calstrs.com/files/be800640a/CalSTRSFundingPlan.pdf">CalSTRS Funding Plan (AB 1469)</a> — Teachers' Retirement Board can adjust up to 1%/year, capped at 20.25% |
+| **State of California** | <a href="https://www.calstrs.com/files/be800640a/CalSTRSFundingPlan.pdf">10.828%</a> of member earnings | CalSTRS Funding Plan — Board may adjust up to 0.5%/year |
+
+Total contribution rate: approximately **40% of a teacher's salary** goes toward funding their pension from all three parties combined. This is one of the highest total pension funding rates in the country.
+
+* see also: <a href="https://www.calstrs.com/contributions">CalSTRS — Contributions</a>
+* see also: <a href="https://www.calstrs.com/files/be800640a/CalSTRSFundingPlan.pdf">CalSTRS Funding Plan Fact Sheet (PDF)</a>
+* see also: <a href="https://www.calstrs.com/as-funded-status-rises-contribution-rates-to-remain-the-same">CalSTRS — Contribution Rates Holding Steady</a>
+
+---
+
 ## Key Formula Terms
 
 | Term | Definition |
@@ -144,10 +338,12 @@ Different bargaining units within the same agency can (and often do) have **diff
 | **Benefit Factor / Age Factor** | The percentage of final compensation earned per year of service, which increases with retirement age |
 | **Final Compensation** | Highest average annual salary over 12 or 36 consecutive months (depending on formula and hire date) |
 | **Service Credit** | Total years and partial years of qualifying employment |
-| **Normal Cost** | The annual cost of pension benefits earned during the current year |
+| **Normal Cost** | The annual cost of pension benefits earned during the current year, expressed as a percentage of payroll |
+| **Employer Contribution Rate** | The percentage of payroll an employer must pay to CalPERS/CalSTRS, determined annually by actuarial valuation — includes normal cost plus unfunded liability payments |
 | **COLA** | Cost-of-living adjustment — <a href="https://legalclarity.org/how-does-calpers-work-pension-benefits-explained/">typically 2% annual cap for most CalPERS contracts</a> |
 | **COLA Bank** | Accumulated unused COLA when inflation is below the contracted cap, applied in future high-inflation years |
-| **EPMC** | Employer Paid Member Contributions — when the employer pays part of the employee's required contribution |
+| **EPMC** | Employer Paid Member Contributions — when the employer pays part or all of the employee's required contribution (common in pre-PEPRA MOUs) |
+| **UAL** | Unfunded Accrued Liability — the gap between promised benefits and current fund assets; employer rates include UAL amortization payments |
 | **Vesting** | Achieving eligibility for a pension benefit — typically 5 years of service credit |
 
 ---
