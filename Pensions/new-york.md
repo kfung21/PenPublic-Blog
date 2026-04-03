@@ -522,4 +522,33 @@ Additionally, virtually all New York public employees <a href="https://www.nasra
 
 ---
 
+## Retiree Health Insurance (NYSHIP)
+
+The <a href="https://www.cs.ny.gov/employee-benefits/">New York State Health Insurance Program (NYSHIP)</a> is one of the largest public employer health insurance programs in the nation, covering over 1.2 million employees, retirees, and their families. Administered by the NYS Department of Civil Service, NYSHIP is available to state employees and over 800 participating local government employers.
+
+### Eligibility for Retiree Coverage
+
+To continue NYSHIP health coverage into retirement, you must meet all three requirements:
+
+- **Hired before 4/1/1975:** At least 5 years of combined service with the state and/or a participating employer
+- **Hired on or after 4/1/1975:** At least 10 years of benefit-eligible service
+- **Be a member of a NYS-administered retirement system** (NYSLRS or NYSTRS) and qualified for retirement
+- **Be enrolled in NYSHIP** or be a dependent of an enrollee at the time of retirement
+
+### What Retirees Get
+
+- **Same plans as active employees** — The Empire Plan (statewide PPO with worldwide coverage) or a NYSHIP-approved HMO in your area
+- **Same premium share as active employees** — retirees pay the employee share, with the employer continuing its contribution for life
+- **Sick leave conversion** — unused sick leave at retirement converts to a monthly credit that reduces your NYSHIP premium for life
+- **Medicare coordination** — when you turn 65, Medicare becomes primary and NYSHIP becomes supplemental, often reducing your costs further
+
+### NYSHIP vs CalPERS Health
+
+Both programs provide lifetime retiree health coverage at group rates — a benefit virtually nonexistent in the private sector. NYSHIP's Empire Plan offers nationwide coverage, while CalPERS plans are mostly California-focused (except PERS Platinum PPO). Both require Medicare enrollment at 65.
+
+* see also: <a href="https://bsc.ogs.ny.gov/retirement/health-insurance">BSC — Retiree Health Insurance</a>
+* see also: <a href="https://www.cs.ny.gov/employee-benefits/nyship/shared/work-for-nys/frequently-asked-questions.cfm">NYSHIP FAQs</a>
+
+---
+
 *Last updated: April 2026. This guide is for informational purposes only. Pension laws are complex and subject to change. For individual benefit questions, contact your retirement system directly.*

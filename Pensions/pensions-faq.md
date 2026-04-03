@@ -82,6 +82,18 @@ The Projections tool shows exactly how different contribution rates affect your 
 
 **Deep dives:** [457(b) optimizer](./projections-guide#457-b-optimizer) · [How 457(b) fits in the comparison](./compare-guide#step-by-step-using-the-compare-tool)
 
+## Do government workers keep health insurance in retirement?
+
+**Yes — and the government keeps paying for most of it.** This is one of the biggest differences between public and private sector employment that most people don't know about.
+
+- **California (CalPERS Health / PEMHCA):** Nearly 1,200 agencies contract for CalPERS health. You stay in the same group plan at group rates, and your employer continues contributing toward your premium. Vesting: 5–10 years depending on hire date and agency. CalPERS is the second-largest public health purchaser in the nation.
+- **New York (NYSHIP):** 1.2 million enrollees across 800+ local governments. Retirees pay the same rate as active employees. Employer contribution continues for life. Unused sick leave converts to a monthly premium credit.
+- **Federal (FEHB):** Government pays ~72–75% of your health premium in retirement — the same share as when you were working. 5 years of continuous enrollment required. Widest plan selection in the country.
+
+In the private sector, employer health insurance almost always ends the day you leave. Government retirees keep theirs for life.
+
+**Deep dives:** [CalPERS Health (PEMHCA)](./california#calpers-health-benefits-pemhca) · [NYSHIP](./new-york#retiree-health-insurance-nyship) · [FEHB](./dc-federal#retiree-health-insurance-fehb)
+
 ## Is my pension guaranteed? Can they take it away?
 
 In most states, yes — your pension is constitutionally or statutorily protected once earned.
@@ -263,11 +275,13 @@ Government workers with pensions often have substantial retirement income (pensi
 
 ## What is the healthcare gap?
 
-If you retire before age 65, you have a gap between your retirement date and Medicare eligibility. During these years, you need to find your own health insurance — and it can be expensive.
+If you retire before age 65, you have a gap between your retirement date and Medicare eligibility. For workers **without** retiree health coverage, this means buying individual insurance at full cost — $800–2,000+/month.
 
-Options include COBRA (18 months), ACA marketplace plans (possibly with subsidies depending on income), retiree health benefits (if your agency offers them), or spousal coverage.
+The good news: if your agency contracts for CalPERS Health, NYSHIP, or you qualify for FEHB, your employer coverage continues into retirement and bridges this gap automatically. This is why retiree health eligibility is one of the most important factors when evaluating a government job.
 
-**Deep dive:** [Healthcare gap calculator](./projections-guide#healthcare-gap-analysis)
+For workers who *don't* have retiree health, options include COBRA (18 months), ACA marketplace plans (possibly with subsidies), or spousal coverage.
+
+**Deep dives:** [Healthcare gap calculator](./projections-guide#healthcare-gap-analysis) · [CalPERS Health](./california#calpers-health-benefits-pemhca) · [FEHB in retirement](./dc-federal#retiree-health-insurance-fehb)
 
 ## How do I know my retirement readiness?
 

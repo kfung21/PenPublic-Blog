@@ -116,6 +116,27 @@ Beyond the statewide and county systems, several major California cities operate
 
 Additional notable independent systems include transit authority systems like the **Los Angeles County Metropolitan Transportation Authority (LACMTA) Retirement Plan** (non-contract employees).
 
+### Independent Utility and Special District Systems
+
+Several major California utilities and special districts operate their own independent pension systems outside of CalPERS. These systems are governed by their own ordinances and boards of retirement, but most maintain reciprocal agreements with CalPERS — meaning you can move between these agencies and CalPERS employers without losing benefit coordination.
+
+| System | Agency | Notes |
+|--------|--------|-------|
+| <a href="https://www.ebmud.com/jobs/job-resources/employee-benefits-program/retirement-benefits">**EBMUD ERS**</a> — East Bay Municipal Utility District Employees' Retirement System | EBMUD (Oakland) | Classic: 2.6% @ 62 (highest 24 months); PEPRA: 2.5% @ 67 (highest 36 months). **Reciprocal with CalPERS.** Also offers 401(k), 457(b), and 401(a) plans. |
+| **SMUD** — Sacramento Municipal Utility District | SMUD (Sacramento) | Independent retirement plan; reciprocal with CalPERS |
+| **SCVWD** — Santa Clara Valley Water District | Valley Water (San Jose) | CalPERS-contracted agency (not independent), but notable as one of the largest special districts |
+| **LADWP** — (via LAWPERS) | Los Angeles DWP | LAWPERS is the pension system for DWP employees; **NOT** reciprocal with CalPERS |
+| **SFPUC** employees | San Francisco PUC | Covered under SFERS (San Francisco Employees' Retirement System); reciprocal with CalPERS |
+| **MWD** — Metropolitan Water District of Southern California | MWD (Los Angeles) | CalPERS-contracted agency |
+| **Contra Costa Water District** | CCWD (Concord) | CalPERS-contracted agency |
+| **Zone 7 Water Agency** | Zone 7 (Livermore) | ACERA (Alameda County 1937 Act system) |
+
+Many water districts, sanitation districts, and other special districts in California contract with CalPERS directly rather than operating their own systems. A few large utilities (EBMUD, SMUD, LADWP) maintain independent systems with their own benefit structures. If you're moving between agencies, always verify reciprocity status before separating — the 180-day window to establish reciprocity is strict.
+
+* see also: <a href="https://www.ebmud.com/about-us/board-directors/board-meetings/retirement-board-meetings">EBMUD Retirement Board</a>
+* see also: <a href="https://www.calaprs.org/page/members">CALAPRS — California Association of Public Retirement Systems (member list)</a>
+* see also: <a href="https://www.ebmud.com/jobs/job-resources/employee-benefits-program/retirement-benefits">EBMUD Retirement Benefits</a>
+
 * see also: <a href="https://equable.org/california-pensions-calpers-calstrs-2022/">Equable Institute — California Pensions Overview</a>
 
 ---
@@ -448,6 +469,74 @@ For detailed COLA formulas, compounding calculations, and worked examples, see [
 
 * see also: <a href="https://www.calpers.ca.gov/retirees/cost-of-living/cola">CalPERS — COLA</a>
 * see also: <a href="https://www.calstrs.com/inflation-protection">CalSTRS — Inflation Protection</a>
+
+
+## CalPERS Health Benefits (PEMHCA)
+
+The <a href="https://www.calpers.ca.gov/employers/benefit-programs/health-benefits">CalPERS Health Program</a> is one of the most valuable — and least understood — benefits of California public employment. Governed by the <a href="https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=GOV&division=5.&title=2.&part=5.&chapter=15.&article=">Public Employees' Medical and Hospital Care Act (PEMHCA)</a>, it provides group health insurance to active employees, retirees, and their families. CalPERS is the largest purchaser of public employee health benefits in California and the second largest in the nation after the federal government, covering over 1.5 million members through nearly 1,200 contracting agencies.
+
+### Why It Matters for Retirement
+
+In the private sector, employer health insurance almost always ends the day you stop working. In California public service, **health coverage continues into retirement** — at group rates, with an employer contribution, for the rest of your life. This single benefit can be worth hundreds of thousands of dollars over a 30-year retirement compared to buying individual insurance on the open market.
+
+### Who Is Eligible
+
+To continue CalPERS health benefits as a retiree, you must meet all of the following:
+
+- **Retire within 120 days** of separating from employment (separation and retirement dates cannot be the same date)
+- **Receive a monthly retirement allowance** from CalPERS, CalSTRS, or another California public retirement system
+- **Be enrolled in CalPERS health** (or be a dependent of an enrollee) at the time of separation
+- **Your last employer** must contract with CalPERS for health benefits for your bargaining unit
+
+### Vesting for Employer Contributions
+
+Eligibility to *enroll* and eligibility to receive the *employer contribution* toward your premium are two different things. Vesting rules determine how much your employer pays:
+
+**State of California and CSU employees:**
+- Hired before 1/1/1985: 100% of the state's contribution immediately
+- Hired 1985–2010: 100% after 10–20 years of service (varies by bargaining unit)
+- Many bargaining units hired after ~2011: 25-year vesting to receive 100% of the state's contribution
+
+**Local agency and school employees:**
+- Employer contribution is set by each agency's contract with CalPERS — varies widely
+- Some agencies pay 100% of the premium; others pay a flat dollar amount (PEMHCA minimum was $157/month in 2025)
+- Agencies can adopt vesting resolutions that require 10, 15, or 20+ years for full contribution
+- **Always check your agency's specific resolution** — this is one of the most important compensation details when evaluating a government job
+
+### What's Covered
+
+CalPERS offers a wide selection of health plans across all 58 California counties:
+
+- **HMOs** (Kaiser, Blue Shield, Anthem, Health Net, others depending on county)
+- **PPOs** (PERS Platinum, PERS Gold — available nationwide)
+- **EPOs** (in counties with limited HMO access)
+- **Medicare Advantage and Supplement plans** for retirees 65+
+
+Plans include medical, and some include integrated dental and vision riders. Prescription drug coverage is included in all plans. Premiums are negotiated annually by CalPERS — you benefit from the collective bargaining power of 1.5 million members.
+
+### How It Works with Medicare
+
+When you turn 65 and become Medicare-eligible, you're required to enroll in Medicare Parts A and B. Your CalPERS plan then becomes secondary coverage, and you transition to a CalPERS Medicare plan — which typically has lower premiums than the Basic (pre-65) plan. The combination of Medicare + CalPERS provides comprehensive coverage with minimal out-of-pocket costs.
+
+### CalPERS Health vs Private Sector
+
+| | CalPERS Health (Public) | Typical Private Employer |
+|--|------------------------|------------------------|
+| **Coverage in retirement** | Continues for life at group rates | Ends at separation (COBRA for 18 months, then you're on your own) |
+| **Employer contribution** | Continues into retirement (vesting applies) | Stops completely |
+| **Plan selection** | 15+ plans, negotiated annually | Employer's choice, may change or be eliminated |
+| **Medicare coordination** | Seamless transition to CalPERS Medicare plans | No employer plan to coordinate with |
+| **Dependents** | Covered (including surviving spouse) | Coverage ends |
+
+### The Healthcare Gap: CalPERS vs No CalPERS
+
+If you retire before 65 **without** CalPERS health, you face the "healthcare gap" — buying individual insurance on the ACA marketplace at full cost ($800–2,000+/month depending on age and family size). If you retire **with** CalPERS health, your employer contribution continues, and you stay in a group plan at negotiated rates. This difference alone can be worth $10,000–25,000/year.
+
+* see also: <a href="https://www.calpers.ca.gov/employers/benefit-programs/health-benefits/calpers-health-program">CalPERS — Health Program for Employers</a>
+* see also: <a href="https://www.calpers.ca.gov/employers/benefit-programs/health-benefits/health-program-contracting-agencies">CalPERS — Health Program Contracting Agencies</a>
+* see also: <a href="https://www.calpers.ca.gov/retirees/health-and-medicare/eligibility-and-enrollment">CalPERS — Retiree Eligibility & Enrollment</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/health-program-guide/download">CalPERS Health Program Guide (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/2026-health-benefit-summary/download">2026 Health Benefit Summary (PDF)</a>
 
 
 ## Social Security and the WEP/GPO Repeal

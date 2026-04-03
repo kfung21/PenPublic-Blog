@@ -361,6 +361,50 @@ The repeal passed with broad bipartisan support: 327–75 in the House (November
 * see also: <a href="https://www.narfe.org">NARFE — National Active and Retired Federal Employees Association</a>
 
 
+## Retiree Health Insurance (FEHB)
+
+The <a href="https://www.opm.gov/healthcare-insurance/healthcare/">Federal Employees Health Benefits (FEHB) Program</a> is one of the most valuable benefits of federal employment. It offers the widest selection of health plans in the country — and unlike virtually all private-sector employers, **the federal government continues to pay ~72–75% of your health insurance premium after you retire.**
+
+### Eligibility — The Two Requirements
+
+To carry FEHB coverage into retirement, you must meet **both**:
+
+1. **Retire on an immediate annuity** under FERS or CSRS (including FERS MRA+10 reduced retirement)
+2. **Be continuously enrolled in FEHB** (or covered as a family member) for the **5 years immediately before retirement** — or since your first opportunity to enroll, if less than 5 years
+
+If you fail either requirement, you lose FEHB for life. There is no second chance. If you're close to the 5-year mark, delay retirement until you meet it.
+
+### What Retirees Get
+
+- **Same plan selection as active employees** — hundreds of plan options nationwide (HMOs, PPOs, HDHP, consumer-driven plans)
+- **Same cost-sharing** — you pay 25–28% of the premium; the government pays 72–75%
+- **Family coverage continues** — spouse and dependent children under 26 remain covered
+- **Annual Open Season** — retirees can change plans every year, just like active employees
+- **Surviving spouse coverage** — if you elected a FERS/CSRS survivor benefit, your spouse can continue FEHB after your death
+
+### FEHB + Medicare at 65
+
+When you turn 65, Medicare Part A is typically free (if you paid Medicare taxes). Part B is optional but strongly recommended — when FEHB and Medicare work together, Medicare becomes the primary payer and FEHB becomes supplemental, often reducing your out-of-pocket costs significantly. Unlike CalPERS and NYSHIP, FEHB does not *require* Medicare enrollment (except for postal retirees under the new PSHB program).
+
+### FEHB vs Private Sector
+
+The comparison is stark. Most private-sector employers offer zero health benefits to retirees. The federal government continues paying 72–75% of your premium for life. A federal retiree with family FEHB coverage might pay $300–500/month; a private-sector early retiree buying comparable coverage on the individual market might pay $2,000–3,000/month.
+
+### The TSP + FEHB + Pension Package
+
+This is the federal "total retirement package" that makes the compensation comparison with private sector so compelling:
+
+- **FERS pension** — guaranteed income for life
+- **Social Security** — full benefit (WEP/GPO repealed)
+- **TSP** — 401k-equivalent with up to 5% employer match
+- **FEHB** — lifetime health insurance at employee rates
+
+No private-sector employer offers all four. Most offer only a 401(k) with partial match and health insurance that ends at separation.
+
+* see also: <a href="https://www.opm.gov/healthcare-insurance/healthcare/eligibility/">OPM — FEHB Eligibility</a>
+* see also: <a href="https://www.opm.gov/healthcare-insurance/fastfacts/thinkfehb.pdf">OPM — Thinking About Retiring? FEHB Fast Facts (PDF)</a>
+
+
 ## Key Terms
 
 | Term | Definition |
