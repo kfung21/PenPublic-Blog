@@ -230,6 +230,50 @@ export default defineConfig({
       // ── Auto-discovered sidebars injected here ──
       ...autoSidebar,
 
+      // ── Pensions: manual override for structured sidebar ──
+      '/Pensions/': [
+        {
+          text: 'Start Here',
+          items: [
+            { text: '📋 Pensions FAQ & 101', link: '/Pensions/pensions-faq' },
+          ]
+        },
+        {
+          text: 'California',
+          collapsed: false,
+          items: [
+            { text: 'Pension Systems', link: '/Pensions/california' },
+            { text: 'Pension Formulas', link: '/Pensions/california-formulas' },
+            { text: 'CSU & UC Retirement', link: '/Pensions/Retirement-Benefits-at-CSU-and-UC-Systems' },
+          ]
+        },
+        {
+          text: 'New York',
+          collapsed: false,
+          items: [
+            { text: 'Pension Systems', link: '/Pensions/new-york' },
+            { text: 'Pension Formulas', link: '/Pensions/new-york-formulas' },
+          ]
+        },
+        {
+          text: 'D.C. & Federal',
+          collapsed: false,
+          items: [
+            { text: 'Pension Systems', link: '/Pensions/dc-federal' },
+            { text: 'Pension Formulas', link: '/Pensions/dc-federal-formulas' },
+          ]
+        },
+        {
+          text: 'Retirement Tools — Guides',
+          collapsed: false,
+          items: [
+            { text: 'Calculators Guide', link: '/Pensions/calculators-guide' },
+            { text: 'Compare Guide', link: '/Pensions/compare-guide' },
+            { text: 'Projections Guide', link: '/Pensions/projections-guide' },
+          ]
+        },
+      ],
+
       // ── Static pages ──
       '/about': [
         {

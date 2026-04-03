@@ -450,6 +450,44 @@ For detailed COLA formulas, compounding calculations, and worked examples, see [
 * see also: <a href="https://www.calstrs.com/inflation-protection">CalSTRS — Inflation Protection</a>
 
 
+## Social Security and the WEP/GPO Repeal
+
+### Social Security Coverage in California
+
+Not all California public employees participate in Social Security. Whether you're covered depends on your employer's election:
+
+- **CalPERS agencies "coordinated" with Social Security** — most cities, counties, and special districts participate in both CalPERS and Social Security. Employees pay the 6.2% Social Security payroll tax and earn full Social Security credits alongside their CalPERS pension.
+- **CalPERS agencies NOT coordinated** — some agencies (including the State of California for many classifications) opted out of Social Security decades ago. These employees contribute only to CalPERS and earn no Social Security credits from that employment.
+- **CalSTRS members** — California public school teachers do **not** participate in Social Security through their teaching employment. This made CalSTRS members among the most affected by the Windfall Elimination Provision (WEP) nationwide.
+- **UC employees (UCRP)** — University of California employees are covered by Social Security in addition to UCRP.
+
+If you have Social Security credits from prior private-sector work *and* a non-Social-Security-covered government pension, the WEP and GPO historically reduced your Social Security benefits — sometimes dramatically.
+
+### The Social Security Fairness Act (January 2025)
+
+On January 5, 2025, President Biden signed the <a href="https://www.congress.gov/crs-product/IF12890">Social Security Fairness Act (P.L. 118-273)</a> into law, permanently repealing both the **Windfall Elimination Provision (WEP)** and the **Government Pension Offset (GPO)**.
+
+**What was repealed:**
+
+- **WEP (enacted 1983)** reduced Social Security retirement benefits for workers who earned a pension from employment not covered by Social Security. A CalSTRS retiree who also worked enough private-sector years to qualify for Social Security would see their Social Security check reduced — sometimes by hundreds of dollars per month.
+- **GPO (enacted 1977)** reduced Social Security spousal or survivor benefits by two-thirds of the government pension amount. A teacher's surviving spouse could lose their entire Social Security survivor benefit because of the teacher's CalSTRS pension.
+
+**What it means for California public employees:**
+
+California had more affected beneficiaries than any other state. The repeal means:
+
+- CalSTRS retirees with private-sector Social Security earnings now receive their **full, unreduced** Social Security benefit
+- Surviving spouses of CalSTRS and non-SS-coordinated CalPERS retirees now receive full Social Security survivor benefits
+- State employees and others at non-SS-coordinated agencies who also earned Social Security credits get their full benefit
+- Retroactive payments back to January 2024 were distributed by mid-2025, <a href="https://www.ssa.gov/benefits/retirement/social-security-fairness-act.html">totaling $17 billion nationwide</a>
+
+This makes the total retirement package for California public employees even stronger than before. A CalSTRS member who also has 20 years of private-sector Social Security credits now keeps both the full pension *and* full Social Security — no penalty.
+
+* see also: <a href="https://www.ssa.gov/benefits/retirement/social-security-fairness-act.html">SSA — Social Security Fairness Act Implementation</a>
+* see also: <a href="https://www.lacera.gov/who-we-are/news/victory-social-security-wepgpo-penalties-repealed">LACERA — Victory! WEP/GPO Penalties Repealed</a>
+* see also: <a href="https://www.calstrs.com">CalSTRS — Member Resources</a>
+
+
 ## Key Pension Terms Glossary
 
 | Term | Definition |

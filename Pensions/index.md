@@ -7,13 +7,8 @@ order: 2
 
 Understanding public pensions is one of the most compelling reasons to consider a government career. This section covers pension systems state by state — how benefits are calculated, what formulas exist, and the history and labor agreements that shape your retirement.
 
-## Retirement Tools — User Guides
-
-PenPublic's retirement suite has three interactive tools. These guides explain every feature, input, and result:
-
-- [Pension Calculators Guide](./calculators-guide) — how to use the pension calculator, understand benefit factors, and find your optimal retirement age
-- [Private vs Public Comparison Guide](./compare-guide) — side-by-side retirement income comparison with recession simulation
-- [Retirement Projections Guide](./projections-guide) — readiness scoring, Monte Carlo simulation, 457(b) optimization, IRA comparison, and healthcare gap analysis
+## FAQs
+**[Pensions FAQ & 101](./pensions-faq)** — The most common pension questions with short answers and links to every deep dive
 
 ## California
 
@@ -41,3 +36,11 @@ Washington, D.C. sits at the intersection of two pension universes — federal c
 
 - Texas
 - Florida
+
+## Retirement Tools — User Guides
+
+PenPublic's retirement suite has three interactive tools. These guides explain every feature, input, and result:
+
+- [Pension Calculators Guide](./calculators-guide) — how to use the pension calculator, understand benefit factors, and find your optimal retirement age
+- [Private vs Public Comparison Guide](./compare-guide) — side-by-side retirement income comparison with recession simulation
+- [Retirement Projections Guide](./projections-guide) — readiness scoring, Monte Carlo simulation, 457(b) optimization, IRA comparison, and healthcare gap analysis

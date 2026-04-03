@@ -327,6 +327,40 @@ For detailed COLA formulas and worked calculations, see [D.C. & Federal Pension 
 * see also: <a href="https://www.narfe.org/blog/2025/01/21/bill-reintroduced-to-improve-colas-for-fers-retirees/">NARFE — Equal COLA Act</a>
 
 
+## Social Security, WEP/GPO, and the Fairness Act
+
+### Social Security Coverage: FERS vs CSRS
+
+A critical difference between the two main federal pension systems:
+
+- **FERS employees** participate in Social Security. They pay the 6.2% payroll tax and earn full Social Security credits. FERS was designed as a three-legged stool: pension + Social Security + TSP.
+- **CSRS employees** generally do **not** participate in Social Security through their federal employment. CSRS was designed as a standalone pension — higher benefit factors, no Social Security integration, no TSP matching.
+
+This distinction made CSRS employees especially vulnerable to the Windfall Elimination Provision (WEP). A CSRS retiree who also earned Social Security credits from prior or concurrent private-sector work would see those Social Security benefits reduced — sometimes by $400+/month.
+
+### The Social Security Fairness Act (January 2025)
+
+On January 5, 2025, President Biden signed the <a href="https://www.congress.gov/crs-product/IF12890">Social Security Fairness Act (P.L. 118-273)</a> into law, permanently repealing both the **Windfall Elimination Provision (WEP)** and the **Government Pension Offset (GPO)** after nearly 40 years.
+
+**What was repealed:**
+
+- **WEP (enacted 1983)** reduced Social Security retirement benefits for workers who earned a pension from employment not covered by Social Security. CSRS retirees with private-sector Social Security credits were the primary federal victims.
+- **GPO (enacted 1977)** reduced Social Security spousal or survivor benefits by two-thirds of the government pension amount. Surviving spouses of CSRS retirees could lose their entire Social Security survivor benefit.
+
+**What it means for federal employees:**
+
+- **CSRS retirees** with private-sector Social Security earnings now receive their **full, unreduced** Social Security benefit — retroactive to January 2024
+- **Surviving spouses** of CSRS retirees now receive full Social Security survivor benefits without the two-thirds GPO reduction
+- **FERS employees** are generally unaffected since FERS already includes Social Security coverage — though FERS employees who previously held non-SS-covered government positions may benefit from the WEP repeal
+- By mid-2025, <a href="https://www.ssa.gov/benefits/retirement/social-security-fairness-act.html">SSA had distributed $17 billion in retroactive payments</a> to 3.1 million affected beneficiaries nationwide
+
+The repeal passed with broad bipartisan support: 327–75 in the House (November 2024) and 76–20 in the Senate (December 2024), after a discharge petition forced the bill out of committee.
+
+* see also: <a href="https://www.ssa.gov/benefits/retirement/social-security-fairness-act.html">SSA — Social Security Fairness Act Implementation</a>
+* see also: <a href="https://www.congress.gov/crs-product/IF12890">CRS — The Social Security Fairness Act of 2023</a>
+* see also: <a href="https://www.narfe.org">NARFE — National Active and Retired Federal Employees Association</a>
+
+
 ## Key Terms
 
 | Term | Definition |

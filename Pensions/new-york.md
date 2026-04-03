@@ -518,7 +518,7 @@ A growing coalition of unions — PEF, NYSUT, AFT, UFT, and dozens of others —
 
 One often-overlooked advantage of New York public pensions: **they are exempt from New York State and local income taxes.** While federal income tax applies, New York retirees keep 100% of their pension benefit at the state level — a significant benefit compared to most other states.
 
-Additionally, virtually all New York public employees <a href="https://www.nasra.org/ny">participate in Social Security</a> (unlike some states where public employees are excluded). There is no WEP/GPO offset — members receive both their full pension and full Social Security benefits.
+Additionally, virtually all New York public employees <a href="https://www.nasra.org/ny">participate in Social Security</a> (unlike some states where public employees are excluded). Because New York public employees pay into Social Security, they were generally not subject to the Windfall Elimination Provision (WEP) or Government Pension Offset (GPO) — provisions that historically reduced Social Security benefits for workers with non-Social-Security-covered government pensions. Both WEP and GPO were permanently repealed by the <a href="https://www.congress.gov/crs-product/IF12890">Social Security Fairness Act (P.L. 118-273)</a>, signed January 5, 2025. While this repeal primarily benefits states like California and Texas where many public employees don't participate in Social Security, it reinforces the advantage of New York's approach: members receive both their full pension and full Social Security benefits with no offsets.
 
 ---
 

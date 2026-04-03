@@ -72,7 +72,7 @@ For example, if you started working for the government at age 30, turning on Lin
 
 Enter the annual salary you expect to earn at retirement. The calculator will use this as your final compensation.
 
-**Salary cap warning:** For PEPRA members, there's a pensionable compensation cap (currently around $151,549 for non-Social Security members). If your salary exceeds this, the calculator will show a warning explaining that only the capped amount enters the formula — and suggest a 457(b) plan for the excess.
+**Salary cap warning:** For PEPRA members, there's a pensionable compensation cap ($159,733 for Social Security-coordinated members or $191,679 for non-Social Security members in 2026). If your salary exceeds this, the calculator will show a warning explaining that only the capped amount enters the formula — and suggest a 457(b) plan for the excess.
 
 ### 6. Click "Calculate Pension"
 
