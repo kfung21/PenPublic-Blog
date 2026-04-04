@@ -264,6 +264,22 @@ export default defineConfig({
           ]
         },
         {
+          text: 'Texas',
+          collapsed: false,
+          items: [
+            { text: 'Pension Systems', link: '/Pensions/texas' },
+            { text: 'Pension Formulas', link: '/Pensions/texas-formulas' },
+          ]
+        },
+        {
+          text: 'Florida',
+          collapsed: false,
+          items: [
+            { text: 'Pension Systems', link: '/Pensions/florida' },
+            { text: 'Pension Formulas', link: '/Pensions/florida-formulas' },
+          ]
+        },
+        {
           text: 'Retirement Tools — Guides',
           collapsed: false,
           items: [

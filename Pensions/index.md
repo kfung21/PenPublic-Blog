@@ -32,10 +32,19 @@ Washington, D.C. sits at the intersection of two pension universes — federal c
 - [D.C. & Federal Pension Systems](./dc-federal) — All eight federal and D.C. retirement systems, FERS three-legged stool, TSP, bargaining units, the FLRA, how formulas are set by statute, and the 2025–2026 labor upheaval
 - [D.C. & Federal Pension Formulas](./dc-federal-formulas) — Every FERS, CSRS, Foreign Service, and D.C. local formula, COLA rules, and worked example calculations
 
-## Coming Soon
+## Texas
 
-- Texas
-- Florida
+Texas has 93+ public retirement systems — 7 statewide and 86+ local — making it one of the most fragmented pension landscapes in the country. The two largest systems (TRS and ERS) use traditional defined benefit formulas, but TMRS (cities) and TCDRS (counties) use cash balance plans, and ERS shifted new hires to cash balance in 2022.
+
+- [Texas Pension Systems](./texas) — All 93+ systems, TRS, ERS, TMRS, TCDRS, the Dallas crisis, cash balance vs traditional DB, no collective bargaining, retiree health, and the SB 321 reform
+- [Texas Pension Formulas](./texas-formulas) — Every TRS, ERS (Groups 1–4), TMRS, and TCDRS formula, contribution rates, COLA (ad hoc only), and worked example calculations
+
+## Florida
+
+Florida has one dominant statewide system — the Florida Retirement System (FRS) — covering ~1.15 million members, plus over 500 locally administered police and fire pension funds. Unique among major states, FRS gives every employee a choice between a traditional Pension Plan (DB) and an Investment Plan (DC).
+
+- [Florida Pension Systems](./florida) — FRS structure, Pension Plan vs Investment Plan, five membership classes, DROP, 500+ local police/fire plans, the 2011 SB 2100 reform, COLA freeze, retiree health (HIS), and the Investment Plan default debate
+- [Florida Pension Formulas](./florida-formulas) — Every FRS formula by membership class (Regular, Special Risk, SMSC, EOC), contribution rates, COLA mechanics, DROP calculations, and worked example calculations
 
 ## Retirement Tools — User Guides
 
