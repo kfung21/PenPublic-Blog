@@ -10,6 +10,12 @@ Understanding public pensions is one of the most compelling reasons to consider 
 ## FAQs
 **[Pensions FAQ & 101](./pensions-faq)** — The most common pension questions with short answers and links to every deep dive
 
+## 50-State Rankings
+
+**[50-State Pension Power Rankings](./pension-power-rankings)** — All 50 states and D.C. ranked 1–51 by employee value — multiplier, COLA, employee cost, retirement age, legal protections, and retiree health. Interactive tier list with per-state grade breakdowns.
+
+**[Rankings Methodology & Analysis](./pension-power-rankings-methodology)** — How we scored every state, what separates each tier, and deep dives on California, New York, D.C./Federal, Texas, and Florida
+
 ## California
 
 California has over 80 public pension systems covering 4.6 million members.

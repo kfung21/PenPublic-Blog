@@ -236,6 +236,8 @@ export default defineConfig({
           text: 'Start Here',
           items: [
             { text: '📋 Pensions FAQ & 101', link: '/Pensions/pensions-faq' },
+            { text: '🏆 50-State Power Rankings', link: '/Pensions/pension-power-rankings' },
+            { text: 'Rankings Methodology', link: '/Pensions/pension-power-rankings-methodology' },
           ]
         },
         {
