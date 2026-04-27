@@ -17,7 +17,7 @@ Government hiring surges indicate upcoming contract opportunities 60-90 days bef
 * Weekly updates every Monday with fresh intelligence
 * RESTful API with 99.5% uptime SLA on Cloudflare infrastructure
 
-## Pricing
+<!-- ## Pricing
 
 ### Basic Plan - $1,000/month
 * 10,000 API requests/day
@@ -36,7 +36,7 @@ Government hiring surges indicate upcoming contract opportunities 60-90 days bef
 ### Enterprise Plus - Contact Us
 * High-volume access
 * Custom integrations
-* White-label options
+* White-label options -->
 
 ## Who Uses PenPublic
 
