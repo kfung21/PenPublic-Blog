@@ -20,4 +20,3 @@ Government work pays better than most people assume once pensions, healthcare, a
 
 We believe 99% of working Americans would be better off in a public sector job than where they are now — recent grads, mid-career professionals tired of layoff cycles, and current public employees making sense of their pensions.
 
-<a href="./faqs">FAQs</a>

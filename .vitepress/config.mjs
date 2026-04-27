@@ -69,7 +69,6 @@ function fileNameToTitle(name) {
     .replace(/\b\w/g, c => c.toUpperCase())
     .replace(/\bApi\b/g, 'API')
     .replace(/\bMpo\b/g, 'MPO')
-    .replace(/\bFaq\b/g, 'FAQ')
     .trim()
 }
 
@@ -298,7 +297,6 @@ export default defineConfig({
           text: 'About',
           items: [
             { text: 'About PenPublic', link: '/about' },
-            { text: 'FAQs', link: '/faqs' },
           ]
         }
       ],
@@ -307,7 +305,6 @@ export default defineConfig({
           text: 'About',
           items: [
             { text: 'About PenPublic', link: '/about' },
-            { text: 'FAQs', link: '/faqs' },
           ]
         }
       ],
