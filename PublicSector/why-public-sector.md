@@ -134,6 +134,38 @@ Uniform pay structures, transparent requirements, formal appeal rights, and coll
 
 ---
 
+## What Kinds of Careers Are in the Public Sector?
+
+Most people picture a DMV counter or a federal building. The reality is that nearly three quarters of the 20.7 million state and local employees work for **local** government [[15]](#source-15): your city, your county, your school district, and the water, transit, fire, port, and sanitation districts you have probably never thought about.
+
+Almost every private sector role has a public equivalent. A partial list:
+
+**Education:** teachers, professors, school counselors, librarians, instructional aides, speech pathologists, school psychologists, principals and district administrators
+
+**Public safety and emergency response:** police officers, sheriff's deputies, firefighters, paramedics and EMTs, 911 dispatchers, correctional officers, emergency management coordinators, code enforcement officers
+
+**Engineering and infrastructure:** civil, traffic, structural, water resources, geotechnical, and electrical engineers, land surveyors, construction inspectors, capital project managers, GIS analysts, CAD technicians
+
+**Health and human services:** public health nurses, epidemiologists, social workers, eligibility and benefits workers, environmental health specialists, mental health clinicians, health inspectors
+
+**Utilities and environment:** water and wastewater treatment operators, power system operators, environmental scientists, air quality specialists, park rangers, foresters, biologists, hydrologists
+
+**Skilled trades and operations:** electricians, mechanics, HVAC technicians, welders, heavy equipment operators, bus and rail operators, facilities and maintenance workers, groundskeepers
+
+**Technology and data:** software engineers, systems and network administrators, cybersecurity analysts, database administrators, data analysts, IT support, records and information managers
+
+**Finance and administration:** accountants, auditors, budget analysts, treasury staff, purchasing and procurement agents, payroll specialists, grant administrators, risk managers
+
+**Planning, legal, and policy:** urban and transportation planners, policy analysts, attorneys, paralegals, permit technicians, clerks, real estate and right-of-way agents
+
+**Communications, HR, and community:** public information officers, communications and social media specialists, HR analysts, recruiters, training coordinators, recreation programmers, museum and cultural staff
+
+The point is not that all of these are open near you this week. It is that "public sector" is not a job. It is close to the same range of work you would find anywhere else, attached to the pension, the benefits, and the stability described above.
+
+To see how many separate employers that spans in one state, browse the [California agency directory](/California/). Cities, counties, school districts, and hundreds of independent special districts each hire on their own.
+
+---
+
 ## Where to Start
 
 Government jobs are hard to find, and that is the only real barrier. Every city, county, special district, school district, and state department runs its own separate careers page, in its own format, with no shared search. There is no LinkedIn for this.
