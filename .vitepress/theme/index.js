@@ -3,6 +3,7 @@ import { h, onMounted } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import BlogList from './components/BlogList.vue'
 import PensionRankings from './components/PensionRankings.vue'
+import NavGroupLink from './components/NavGroupLink.vue'
 import './style.css'
 
 export default {
@@ -19,5 +20,6 @@ export default {
   enhanceApp({ app }) {
     app.component('BlogList', BlogList)
     app.component('PensionRankings', PensionRankings)
+    app.component('NavGroupLink', NavGroupLink)
   }
 }

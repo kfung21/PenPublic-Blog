@@ -100,7 +100,7 @@ function buildSidebarItems(dirPath, dirName) {
       if (fm.sidebar === false) return null
 
       return {
-        text: fm.title || fileNameToTitle(file),
+        text: fm.navText || fm.title || fileNameToTitle(file),
         link: `/${dirName}/${file.replace(/\.md$/, '')}`,
         order: typeof fm.order === 'number' ? fm.order : 999,
       }
@@ -141,12 +141,29 @@ function autoDiscover() {
     const sidebarItems = buildSidebarItems(dirPath, dirName)
 
     // ── Build nav entry ──
-    // If the folder has sub-pages, make it a dropdown
-    if (sidebarItems.length > 0) {
+    // dropdown: true in the folder's index.md renders the nav item through the
+    // NavGroupLink component: the label links to the section landing page, and
+    // hovering reveals the folder's pages (sorted by each page's `order`).
+    // Opt-in, so large sections stay as plain links.
+    if (indexFm.dropdown === true && sidebarItems.length > 0) {
+      nav.push({
+        text: title,
+        component: 'NavGroupLink',
+        props: {
+          text: title,
+          link: `/${dirName}/`,
+          items: sidebarItems,
+          activeMatch: `/${dirName}/`,
+        },
+        _dir: dirName,
+        _order: typeof indexFm.order === 'number' ? indexFm.order : 999,
+      })
+    } else if (sidebarItems.length > 0) {
       nav.push({
         text: title,
         link: `/${dirName}/`,
         activeMatch: `/${dirName}/`,
+        _dir: dirName,
         _order: typeof indexFm.order === 'number' ? indexFm.order : 999,
       })
     } else {
@@ -154,6 +171,7 @@ function autoDiscover() {
       nav.push({
         text: title,
         link: `/${dirName}/`,
+        _dir: dirName,
         _order: typeof indexFm.order === 'number' ? indexFm.order : 999,
       })
     }
@@ -168,13 +186,38 @@ function autoDiscover() {
     ]
   }
 
+  // ── Collapse duplicate navbar titles ──
+  // Two folders that resolve to the same title (e.g. "Public Sector" with a
+  // space alongside "PublicSector") would each add a navbar entry. Keep the
+  // richer one, and name the stray folder in the console so it can be deleted.
+  const seen = new Map()
+  for (const item of nav) {
+    const prior = seen.get(item.text)
+    if (!prior) {
+      seen.set(item.text, item)
+      continue
+    }
+    const keep = item.component ? item : prior
+    const drop = keep === item ? prior : item
+    console.warn(
+      `[nav] Duplicate navbar entry "${item.text}" produced by two folders: ` +
+      `"${keep._dir}" and "${drop._dir}". Showing "${keep._dir}". ` +
+      `Delete the folder "${drop._dir}" from your project root.`
+    )
+    seen.set(item.text, keep)
+  }
+  const navItems = [...seen.values()]
+
   // Sort nav by frontmatter order, then alphabetically
-  nav.sort((a, b) => a._order - b._order || a.text.localeCompare(b.text))
+  navItems.sort((a, b) => a._order - b._order || a.text.localeCompare(b.text))
 
-  // Strip internal _order field
-  nav.forEach(item => delete item._order)
+  // Strip internal fields
+  navItems.forEach(item => {
+    delete item._order
+    delete item._dir
+  })
 
-  return { nav, sidebar }
+  return { nav: navItems, sidebar }
 }
 
 // ─── Generate nav and sidebar ──────────────────────────────────────
