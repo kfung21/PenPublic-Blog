@@ -11,7 +11,7 @@
            full-width link to the landing page, which lists the same pages.
 -->
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useRoute, withBase } from 'vitepress'
 
 const props = defineProps({
@@ -22,7 +22,8 @@ const props = defineProps({
 })
 
 const route = useRoute()
-const open = ref(false)
+const open = ref(false)          // desktop hover flyout
+const expanded = ref(false)      // mobile accordion
 
 // Route paths may carry a .html suffix in dev; normalize before comparing.
 function normalize(path) {
@@ -41,6 +42,26 @@ const isActive = computed(() =>
 function isItemActive(link) {
   return current.value === normalize(withBase(link))
 }
+
+// Mobile: tapping the header toggles the accordion instead of navigating.
+// The landing page stays reachable via the "Overview" item (shown on
+// mobile only, and only when it isn't already the first child).
+function onLabelClick(e) {
+  if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    e.preventDefault()
+    expanded.value = !expanded.value
+  }
+}
+
+const showOverviewItem = computed(() =>
+  !props.items.length ||
+  normalize(withBase(props.link)) !== normalize(withBase(props.items[0].link))
+)
+
+onMounted(() => {
+  // start expanded when the reader is already inside this section
+  if (isActive.value) expanded.value = true
+})
 </script>
 
 <template>
@@ -51,7 +72,13 @@ function isItemActive(link) {
     @focusin="open = true"
     @focusout="open = false"
   >
-    <a class="PPNavGroup-label" :class="{ active: isActive }" :href="withBase(link)">
+    <a
+      class="PPNavGroup-label"
+      :class="{ active: isActive, expanded }"
+      :href="withBase(link)"
+      :aria-expanded="expanded"
+      @click="onLabelClick"
+    >
       <span>{{ text }}</span>
       <svg
         class="PPNavGroup-chevron"
@@ -64,8 +91,14 @@ function isItemActive(link) {
       </svg>
     </a>
 
-    <div class="PPNavGroup-menu" :class="{ open }">
+    <div class="PPNavGroup-menu" :class="{ open, expanded }">
       <div class="PPNavGroup-menu-inner">
+        <a
+          v-if="showOverviewItem"
+          class="PPNavGroup-item PPNavGroup-overview"
+          :class="{ active: isItemActive(link) }"
+          :href="withBase(link)"
+        >Overview</a>
         <a
           v-for="item in items"
           :key="item.link"
@@ -160,17 +193,58 @@ function isItemActive(link) {
   color: var(--vp-c-brand-1);
 }
 
+/* The Overview item only exists for the mobile accordion —
+   on desktop the label itself links to the landing page. */
+.PPNavGroup-overview {
+  display: none;
+}
+
 /*
   Mobile nav screen renders this same component. There is no hover on touch,
-  so hide the flyout and let the label behave like any other screen menu link.
+  so the header becomes an accordion: tap to expand the children (plus an
+  "Overview" link to the landing page), tap again to collapse.
 */
 @media (max-width: 767px) {
   .PPNavGroup-menu {
+    position: static;
+    padding-top: 0;
+    opacity: 1;
+    visibility: visible;
     display: none;
   }
 
-  .PPNavGroup-label {
+  .PPNavGroup-menu.expanded {
     display: block;
+  }
+
+  .PPNavGroup-menu-inner {
+    min-width: 0;
+    padding: 0 0 0 16px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .PPNavGroup-item {
+    padding: 0;
+    border-bottom: 1px solid var(--vp-c-divider);
+    border-radius: 0;
+    line-height: 44px;
+  }
+
+  .PPNavGroup-item:hover {
+    background: transparent;
+  }
+
+  .PPNavGroup-overview {
+    display: block;
+  }
+
+  .PPNavGroup-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 0;
     border-bottom: 1px solid var(--vp-c-divider);
     line-height: 48px;
@@ -179,7 +253,23 @@ function isItemActive(link) {
   }
 
   .PPNavGroup-chevron {
-    display: none;
+    display: block;
+    transition: transform 0.25s;
+  }
+
+  .PPNavGroup-label.expanded .PPNavGroup-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* the desktop hover rule also rotates the chevron; neutralize it here
+     so rotation only tracks the expanded state */
+  .PPNavGroup:hover .PPNavGroup-chevron,
+  .PPNavGroup:focus-within .PPNavGroup-chevron {
+    transform: none;
+  }
+  .PPNavGroup-label.expanded .PPNavGroup-chevron,
+  .PPNavGroup:hover .PPNavGroup-label.expanded .PPNavGroup-chevron {
+    transform: rotate(180deg);
   }
 }
 </style>

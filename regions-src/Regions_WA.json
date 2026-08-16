@@ -1,0 +1,86 @@
+[
+    {
+        "Region": "Puget Sound North",
+        "Counties": [
+            "Island",
+            "San Juan",
+            "Skagit",
+            "Snohomish",
+            "Whatcom"
+        ]
+    },
+    {
+        "Region": "Puget Sound Central",
+        "Counties": [
+            "King",
+            "Kitsap"
+        ]
+    },
+    {
+        "Region": "Puget Sound South",
+        "Counties": [
+            "Pierce",
+            "Thurston"
+        ]
+    },
+    {
+        "Region": "Olympic Peninsula",
+        "Counties": [
+            "Clallam",
+            "Grays Harbor",
+            "Jefferson",
+            "Mason"
+        ]
+    },
+    {
+        "Region": "Southwest",
+        "Counties": [
+            "Clark",
+            "Cowlitz",
+            "Lewis",
+            "Pacific",
+            "Skamania",
+            "Wahkiakum"
+        ]
+    },
+    {
+        "Region": "North Central",
+        "Counties": [
+            "Chelan",
+            "Douglas",
+            "Okanogan"
+        ]
+    },
+    {
+        "Region": "South Central",
+        "Counties": [
+            "Adams",
+            "Benton",
+            "Franklin",
+            "Grant",
+            "Kittitas",
+            "Klickitat",
+            "Yakima"
+        ]
+    },
+    {
+        "Region": "Northeast",
+        "Counties": [
+            "Ferry",
+            "Pend Oreille",
+            "Stevens"
+        ]
+    },
+    {
+        "Region": "Eastern",
+        "Counties": [
+            "Asotin",
+            "Columbia",
+            "Garfield",
+            "Lincoln",
+            "Spokane",
+            "Walla Walla",
+            "Whitman"
+        ]
+    }
+]

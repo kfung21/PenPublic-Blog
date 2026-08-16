@@ -1,0 +1,114 @@
+[
+    {
+        "Region": "Capital District",
+        "Counties": [
+            "Albany",
+            "Columbia",
+            "Greene",
+            "Rensselaer",
+            "Saratoga",
+            "Schenectady",
+            "Warren",
+            "Washington"
+        ]
+    },
+    {
+        "Region": "Central New York",
+        "Counties": [
+            "Cayuga",
+            "Cortland",
+            "Madison",
+            "Onondaga",
+            "Oswego"
+        ]
+    },
+    {
+        "Region": "Finger Lakes",
+        "Counties": [
+            "Genesee",
+            "Livingston",
+            "Monroe",
+            "Ontario",
+            "Orleans",
+            "Seneca",
+            "Wayne",
+            "Wyoming",
+            "Yates"
+        ]
+    },
+    {
+        "Region": "Hudson Valley",
+        "Counties": [
+            "Dutchess",
+            "Orange",
+            "Putnam",
+            "Rockland",
+            "Sullivan",
+            "Ulster",
+            "Westchester"
+        ]
+    },
+    {
+        "Region": "Mohawk Valley",
+        "Counties": [
+            "Fulton",
+            "Hamilton",
+            "Herkimer",
+            "Montgomery",
+            "Oneida",
+            "Schoharie"
+        ]
+    },
+    {
+        "Region": "New York City",
+        "Counties": [
+            "Bronx",
+            "Kings",
+            "New York",
+            "Queens",
+            "Richmond"
+        ]
+    },
+    {
+        "Region": "North Country",
+        "Counties": [
+            "Clinton",
+            "Essex",
+            "Franklin",
+            "Jefferson",
+            "Lewis",
+            "St. Lawrence"
+        ]
+    },
+    {
+        "Region": "Long Island",
+        "Counties": [
+            "Nassau",
+            "Suffolk"
+        ]
+    },
+    {
+        "Region": "Southern Tier",
+        "Counties": [
+            "Broome",
+            "Chemung",
+            "Chenango",
+            "Delaware",
+            "Otsego",
+            "Schuyler",
+            "Steuben",
+            "Tioga",
+            "Tompkins"
+        ]
+    },
+    {
+        "Region": "Western New York",
+        "Counties": [
+            "Allegany",
+            "Cattaraugus",
+            "Chautauqua",
+            "Erie",
+            "Niagara"
+        ]
+    }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "Region": "Hawaii Island",
+        "Counties": [
+            "Hawaii"
+        ]
+    },
+    {
+        "Region": "Oahu",
+        "Counties": [
+            "Honolulu"
+        ]
+    },
+    {
+        "Region": "Kauai",
+        "Counties": [
+            "Kauai"
+        ]
+    },
+    {
+        "Region": "Maui Nui",
+        "Counties": [
+            "Kalawao",
+            "Maui"
+        ]
+    }
+]

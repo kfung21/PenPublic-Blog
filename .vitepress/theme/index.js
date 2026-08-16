@@ -4,6 +4,7 @@ import DefaultTheme from 'vitepress/theme'
 import BlogList from './components/BlogList.vue'
 import PensionRankings from './components/PensionRankings.vue'
 import NavGroupLink from './components/NavGroupLink.vue'
+import RegionMap from './components/RegionMap.vue'
 import './style.css'
 
 export default {
@@ -21,5 +22,6 @@ export default {
     app.component('BlogList', BlogList)
     app.component('PensionRankings', PensionRankings)
     app.component('NavGroupLink', NavGroupLink)
+    app.component('RegionMap', RegionMap)
   }
 }

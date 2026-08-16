@@ -1,0 +1,39 @@
+[
+    {
+        "Region": "Northwestern",
+        "Counties": [
+            "Carson City",
+            "Churchill",
+            "Douglas",
+            "Lyon",
+            "Mineral",
+            "Pershing",
+            "Storey",
+            "Washoe"
+        ]
+    },
+    {
+        "Region": "Northeastern",
+        "Counties": [
+            "Elko",
+            "Eureka",
+            "Humboldt",
+            "Lander",
+            "White Pine"
+        ]
+    },
+    {
+        "Region": "Central",
+        "Counties": [
+            "Esmeralda",
+            "Nye"
+        ]
+    },
+    {
+        "Region": "Southern",
+        "Counties": [
+            "Clark",
+            "Lincoln"
+        ]
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "Region": "Northern",
+        "Counties": [
+            "Apache",
+            "Coconino",
+            "Mohave",
+            "Navajo",
+            "Yavapai"
+        ]
+    },
+    {
+        "Region": "Central",
+        "Counties": [
+            "Gila",
+            "Maricopa",
+            "Pinal"
+        ]
+    },
+    {
+        "Region": "Southern",
+        "Counties": [
+            "Cochise",
+            "Graham",
+            "Greenlee",
+            "Pima",
+            "Santa Cruz"
+        ]
+    },
+    {
+        "Region": "Western",
+        "Counties": [
+            "La Paz",
+            "Yuma"
+        ]
+    }
+]

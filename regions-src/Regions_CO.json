@@ -1,0 +1,106 @@
+[
+    {
+        "Region": "Denver Metro",
+        "Counties": [
+            "Adams",
+            "Arapahoe",
+            "Boulder",
+            "Broomfield",
+            "Denver",
+            "Douglas",
+            "Jefferson"
+        ]
+    },
+    {
+        "Region": "Northern Front Range",
+        "Counties": [
+            "Larimer",
+            "Weld"
+        ]
+    },
+    {
+        "Region": "Pikes Peak",
+        "Counties": [
+            "El Paso",
+            "Teller"
+        ]
+    },
+    {
+        "Region": "Southern Front Range",
+        "Counties": [
+            "Custer",
+            "Fremont",
+            "Huerfano",
+            "Las Animas",
+            "Pueblo"
+        ]
+    },
+    {
+        "Region": "Eastern Plains",
+        "Counties": [
+            "Baca",
+            "Bent",
+            "Cheyenne",
+            "Crowley",
+            "Elbert",
+            "Kiowa",
+            "Kit Carson",
+            "Lincoln",
+            "Logan",
+            "Morgan",
+            "Otero",
+            "Phillips",
+            "Prowers",
+            "Sedgwick",
+            "Washington",
+            "Yuma"
+        ]
+    },
+    {
+        "Region": "Mountains",
+        "Counties": [
+            "Chaffee",
+            "Clear Creek",
+            "Eagle",
+            "Gilpin",
+            "Grand",
+            "Jackson",
+            "Lake",
+            "Park",
+            "Pitkin",
+            "Routt",
+            "Summit"
+        ]
+    },
+    {
+        "Region": "Western Slope",
+        "Counties": [
+            "Archuleta",
+            "Delta",
+            "Dolores",
+            "Garfield",
+            "Gunnison",
+            "Hinsdale",
+            "La Plata",
+            "Mesa",
+            "Moffat",
+            "Montezuma",
+            "Montrose",
+            "Ouray",
+            "Rio Blanco",
+            "San Juan",
+            "San Miguel"
+        ]
+    },
+    {
+        "Region": "San Luis Valley",
+        "Counties": [
+            "Alamosa",
+            "Conejos",
+            "Costilla",
+            "Mineral",
+            "Rio Grande",
+            "Saguache"
+        ]
+    }
+]

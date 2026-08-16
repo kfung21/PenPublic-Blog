@@ -1,0 +1,99 @@
+[
+    {
+        "Region": "Northwest",
+        "Counties": [
+            "Clarion",
+            "Crawford",
+            "Elk",
+            "Erie",
+            "Forest",
+            "Jefferson",
+            "Lawrence",
+            "McKean",
+            "Mercer",
+            "Venango",
+            "Warren"
+        ]
+    },
+    {
+        "Region": "North Central",
+        "Counties": [
+            "Bradford",
+            "Cameron",
+            "Centre",
+            "Clearfield",
+            "Clinton",
+            "Lycoming",
+            "Montour",
+            "Northumberland",
+            "Potter",
+            "Snyder",
+            "Sullivan",
+            "Tioga",
+            "Union"
+        ]
+    },
+    {
+        "Region": "Northeast",
+        "Counties": [
+            "Carbon",
+            "Columbia",
+            "Lackawanna",
+            "Luzerne",
+            "Monroe",
+            "Pike",
+            "Susquehanna",
+            "Wayne",
+            "Wyoming"
+        ]
+    },
+    {
+        "Region": "Southwest",
+        "Counties": [
+            "Allegheny",
+            "Armstrong",
+            "Beaver",
+            "Butler",
+            "Cambria",
+            "Fayette",
+            "Greene",
+            "Indiana",
+            "Somerset",
+            "Washington",
+            "Westmoreland"
+        ]
+    },
+    {
+        "Region": "South Central",
+        "Counties": [
+            "Adams",
+            "Bedford",
+            "Blair",
+            "Cumberland",
+            "Dauphin",
+            "Franklin",
+            "Fulton",
+            "Huntingdon",
+            "Juniata",
+            "Lebanon",
+            "Mifflin",
+            "Perry",
+            "York"
+        ]
+    },
+    {
+        "Region": "Southeast",
+        "Counties": [
+            "Berks",
+            "Bucks",
+            "Chester",
+            "Delaware",
+            "Lancaster",
+            "Lehigh",
+            "Montgomery",
+            "Northampton",
+            "Philadelphia",
+            "Schuylkill"
+        ]
+    }
+]

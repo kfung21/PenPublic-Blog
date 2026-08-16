@@ -1,0 +1,105 @@
+[
+    {
+        "Region" : "Northern California", 
+        "Counties" : [
+            "Del Norte",
+            "Siskiyou",
+            "Modoc",
+            "Humboldt",
+            "Trinity",
+            "Lassen",
+            "Mendocino",
+            "Lake",
+            "Plumas",
+            "Sierra",
+            "Nevada",
+            "Shasta",
+            "Tehama",
+            "Glenn",
+            "Butte",
+            "Colusa"
+        ]
+    },
+    {
+        "Region" : "Greater Sacramento", 
+        "Counties" : [
+            "Yolo",
+            "Sutter",
+            "Yuba",
+            "Sacramento",
+            "Placer",
+            "El Dorado"
+        ]
+    },
+    {
+        "Region" : "Bay Area", 
+        "Counties" : [
+            "Sonoma",
+            "Napa",
+            "Marin",
+            "Solano",
+            "San Francisco",
+            "Contra Costa",
+            "Alameda",
+            "San Mateo",
+            "Santa Clara"
+        ]
+    },
+    {
+        "Region" : "Central Coast", 
+        "Counties" : [
+            "Monterey",
+            "San Luis Obispo",
+            "Santa Barbara",
+            "Santa Cruz",
+            "San Benito"
+        ]
+    },
+    {
+        "Region" : "San Joaquin", 
+        "Counties" : [
+            "San Joaquin",
+            "Stanislaus",
+            "Merced",
+            "Madera",
+            "Fresno",
+            "Kings",
+            "Tulare",
+            "Kern"
+        ]
+    },
+    {
+        "Region" : "Sierras", 
+        "Counties" : [
+            "Amador",
+            "Calaveras",
+            "Alpine",
+            "Tuolumne",
+            "Mariposa",
+            "Mono",
+            "Inyo"
+        ]
+    },
+    {
+        "Region" : "Los Angeles", 
+        "Counties" : [
+            "Ventura",
+            "Los Angeles",
+            "Orange"
+        ]
+    },
+    {
+        "Region" : "Inland Empire", 
+        "Counties" : [
+            "San Bernardino",
+            "Riverside"
+        ]
+    },
+    {
+        "Region" : "San Diego", 
+        "Counties" : [
+            "San Diego",
+            "Imperial"
+        ]
+    }
+]

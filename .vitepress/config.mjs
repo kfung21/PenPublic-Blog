@@ -223,6 +223,30 @@ function autoDiscover() {
 // ─── Generate nav and sidebar ──────────────────────────────────────
 const { nav: autoNav, sidebar: autoSidebar } = autoDiscover()
 
+// ─── "States" nav group ────────────────────────────────────────────
+// Pull the auto-discovered "Regions" and "California Overview" entries
+// out of the navbar and re-house them under a single "States" dropdown.
+// navText below is only the navbar label — page titles are untouched.
+const STATES_CHILDREN = [
+  { match: 'Regions',             navText: 'Regions',    link: '/Regions/' },
+  { match: 'California Overview', navText: 'California', link: '/California/' },
+]
+const consumed = new Set(STATES_CHILDREN.map(c => c.match))
+const filteredNav = autoNav.filter(item => {
+  const label = item.text || item.props?.text
+  return !consumed.has(label)
+})
+const statesGroup = {
+  text: 'States',
+  component: 'NavGroupLink',
+  props: {
+    text: 'States',
+    link: STATES_CHILDREN[0].link,   // label itself links to the first child
+    items: STATES_CHILDREN.map(({ navText, link }) => ({ text: navText, link })),
+    activeMatch: '/Regions/',
+  },
+}
+
 // ─── Final config ──────────────────────────────────────────────────
 export default defineConfig({
   title: 'PenPublic',
@@ -254,7 +278,8 @@ export default defineConfig({
       { text: 'PenPublic Jobs', link: 'https://penpublic.com', target: '_self' },
       { text: 'Blog', link: '/posts/' },
       // ── Auto-discovered sections injected here ──
-      ...autoNav,
+      ...filteredNav,
+      statesGroup,
       { text: 'About', link: '/about' },
     ],
 

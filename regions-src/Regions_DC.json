@@ -1,0 +1,60 @@
+[
+    {
+        "Region": "District of Columbia",
+        "Counties": [
+            "District of Columbia"
+        ]
+    },
+    {
+        "Region": "Northern Virginia",
+        "Counties": [
+            "Arlington",
+            "Fairfax",
+            "Loudoun",
+            "Prince William",
+            "Fauquier",
+            "Stafford",
+            "Spotsylvania",
+            "Clarke",
+            "Warren",
+            "Culpeper",
+            "Rappahannock",
+            "Alexandria",
+            "Falls Church",
+            "Fairfax City",
+            "Manassas",
+            "Manassas Park",
+            "Fredericksburg"
+        ]
+    },
+    {
+        "Region": "Suburban Maryland",
+        "Counties": [
+            "Montgomery",
+            "Prince George's",
+            "Frederick",
+            "Charles",
+            "Calvert",
+            "Howard"
+        ]
+    },
+    {
+        "Region": "Washington DC Metro",
+        "Counties": [
+            "District of Columbia",
+            "Arlington",
+            "Fairfax",
+            "Loudoun",
+            "Prince William",
+            "Montgomery",
+            "Prince George's",
+            "Frederick",
+            "Charles",
+            "Alexandria",
+            "Falls Church",
+            "Howard",
+            "Calvert",
+            "Stafford"
+        ]
+    }
+]

@@ -51,6 +51,9 @@ Local agencies choose their formula through their CalPERS contract. Common class
 | **2% @ 62** (PEPRA) | 62 | 2.5% at 67+ | Required for all new members after 1/1/2013 |
 
 * see also: <a href="https://rc-hr.com/files/2023-08/CalPERS_Retirement_Plan_Find_Out_More_2017.pdf">Riverside County CalPERS Retirement Formulas (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-miscellaneous-member-3-at-60-benefit-factors-pdf/download?inline=">CalPERS Local Miscellaneous 3% at 60 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-miscellaneous-member-27-at-55-benefit-factors-pdf/download?inline=">CalPERS Local Miscellaneous 2.7% at 55 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-miscellaneous-member-2-at-62-benefit-factors-pdf/download?inline=">CalPERS Local Miscellaneous 2% at 62 (PEPRA) Benefit Factors (PDF)</a>
 
 ### Safety Members (Police, Fire, Corrections)
 
@@ -63,7 +66,11 @@ Local agencies choose their formula through their CalPERS contract. Common class
 | **2.5% @ 57** (PEPRA) | PEPRA safety option | 57 | 2.5% |
 | **2% @ 57** (PEPRA) | PEPRA safety option | 57 | 2.0% |
 
-### Example Calculations — CalPERS Miscellaneous
+* see also: <a href="https://www.calpers.ca.gov/documents/local-safety-member-3-at-50-benefit-factors-pdf/download?inline=">CalPERS Local Safety 3% at 50 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-safety-member-3-at-55-benefit-factors-pdf/download?inline=">CalPERS Local Safety 3% at 55 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-safety-member-27-at-57-benefit-factors-pdf/download?inline=">CalPERS Local Safety 2.7% at 57 (PEPRA) Benefit Factors (PDF)</a>
+
+## CalPERS Formula Examples
 
 #### Example: Classic 2% @ 55, Age 55, 25 Years of Service, Final Comp $4,500/month
 
@@ -159,7 +166,7 @@ For CalSTRS 2% at 60 with less than 25 years, final compensation is based on the
 * see also: <a href="https://www.calstrs.com/files/1105a6846/UnderstandingTheFormula2025.pdf">CalSTRS Understanding the Formula 2025 (PDF)</a>
 * see also: <a href="https://www.ctamemberbenefits.org/en/Retirement/Retirement---Benefits-Overview-of-CalSTRS-Benefits">CTA Retirement Benefits Overview</a>
 
-### Example Calculations — CalSTRS
+## CalSTRS Formula Examples
 
 #### Example: CalSTRS 2% @ 60, Age 63, 24 Years of Service, Final Comp $6,200/month
 

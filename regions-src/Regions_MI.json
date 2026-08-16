@@ -1,0 +1,110 @@
+[
+    {
+        "Region": "Upper Peninsula",
+        "Counties": [
+            "Alger",
+            "Baraga",
+            "Chippewa",
+            "Delta",
+            "Dickinson",
+            "Gogebic",
+            "Houghton",
+            "Iron",
+            "Keweenaw",
+            "Luce",
+            "Mackinac",
+            "Marquette",
+            "Menominee",
+            "Ontonagon",
+            "Schoolcraft"
+        ]
+    },
+    {
+        "Region": "Northern",
+        "Counties": [
+            "Alcona",
+            "Alpena",
+            "Antrim",
+            "Benzie",
+            "Charlevoix",
+            "Cheboygan",
+            "Crawford",
+            "Emmet",
+            "Grand Traverse",
+            "Iosco",
+            "Kalkaska",
+            "Leelanau",
+            "Manistee",
+            "Missaukee",
+            "Montmorency",
+            "Ogemaw",
+            "Oscoda",
+            "Otsego",
+            "Presque Isle",
+            "Roscommon",
+            "Wexford"
+        ]
+    },
+    {
+        "Region": "West",
+        "Counties": [
+            "Allegan",
+            "Barry",
+            "Berrien",
+            "Cass",
+            "Ionia",
+            "Kalamazoo",
+            "Kent",
+            "Lake",
+            "Mason",
+            "Mecosta",
+            "Montcalm",
+            "Muskegon",
+            "Newaygo",
+            "Oceana",
+            "Osceola",
+            "Ottawa",
+            "St. Joseph",
+            "Van Buren"
+        ]
+    },
+    {
+        "Region": "Central",
+        "Counties": [
+            "Arenac",
+            "Bay",
+            "Clare",
+            "Clinton",
+            "Eaton",
+            "Genesee",
+            "Gladwin",
+            "Gratiot",
+            "Huron",
+            "Ingham",
+            "Isabella",
+            "Lapeer",
+            "Midland",
+            "Saginaw",
+            "Sanilac",
+            "Shiawassee",
+            "Tuscola"
+        ]
+    },
+    {
+        "Region": "Southeast",
+        "Counties": [
+            "Branch",
+            "Calhoun",
+            "Hillsdale",
+            "Jackson",
+            "Lenawee",
+            "Livingston",
+            "Macomb",
+            "Monroe",
+            "Oakland",
+            "St. Clair",
+            "Washtenaw",
+            "Wayne"
+        ]
+    }
+]

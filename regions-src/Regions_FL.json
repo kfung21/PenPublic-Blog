@@ -1,0 +1,114 @@
+[
+    {
+        "Region": "Northwest",
+        "Counties": [
+            "Bay",
+            "Calhoun",
+            "Escambia",
+            "Franklin",
+            "Gadsden",
+            "Gulf",
+            "Holmes",
+            "Jackson",
+            "Jefferson",
+            "Leon",
+            "Liberty",
+            "Okaloosa",
+            "Santa Rosa",
+            "Wakulla",
+            "Walton",
+            "Washington"
+        ]
+    },
+    {
+        "Region": "North Central",
+        "Counties": [
+            "Alachua",
+            "Bradford",
+            "Columbia",
+            "Dixie",
+            "Gilchrist",
+            "Hamilton",
+            "Lafayette",
+            "Levy",
+            "Madison",
+            "Suwannee",
+            "Taylor",
+            "Union"
+        ]
+    },
+    {
+        "Region": "Northeast",
+        "Counties": [
+            "Baker",
+            "Clay",
+            "Duval",
+            "Flagler",
+            "Nassau",
+            "Putnam",
+            "St. Johns"
+        ]
+    },
+    {
+        "Region": "Central West",
+        "Counties": [
+            "Citrus",
+            "Hernando",
+            "Hillsborough",
+            "Pasco",
+            "Pinellas"
+        ]
+    },
+    {
+        "Region": "Central",
+        "Counties": [
+            "Lake",
+            "Marion",
+            "Orange",
+            "Osceola",
+            "Polk",
+            "Seminole",
+            "Sumter",
+            "Volusia"
+        ]
+    },
+    {
+        "Region": "Central East",
+        "Counties": [
+            "Brevard",
+            "Indian River",
+            "Okeechobee",
+            "St. Lucie"
+        ]
+    },
+    {
+        "Region": "South West",
+        "Counties": [
+            "Charlotte",
+            "Collier",
+            "DeSoto",
+            "Glades",
+            "Hardee",
+            "Hendry",
+            "Highlands",
+            "Lee",
+            "Manatee",
+            "Sarasota"
+        ]
+    },
+    {
+        "Region": "South East",
+        "Counties": [
+            "Broward",
+            "Martin",
+            "Miami-Dade",
+            "Palm Beach"
+        ]
+    },
+    {
+        "Region": "Florida Keys",
+        "Counties": [
+            "Monroe"
+        ]
+    }
+]

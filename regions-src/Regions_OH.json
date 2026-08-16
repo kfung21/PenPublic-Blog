@@ -1,0 +1,115 @@
+[
+    {
+        "Region": "Northwest",
+        "Counties": [
+            "Allen",
+            "Auglaize",
+            "Crawford",
+            "Defiance",
+            "Erie",
+            "Fulton",
+            "Hancock",
+            "Hardin",
+            "Henry",
+            "Huron",
+            "Lucas",
+            "Mercer",
+            "Ottawa",
+            "Paulding",
+            "Putnam",
+            "Sandusky",
+            "Seneca",
+            "Van Wert",
+            "Williams",
+            "Wood",
+            "Wyandot"
+        ]
+    },
+    {
+        "Region": "Northeast",
+        "Counties": [
+            "Ashland",
+            "Ashtabula",
+            "Carroll",
+            "Columbiana",
+            "Cuyahoga",
+            "Geauga",
+            "Holmes",
+            "Lake",
+            "Lorain",
+            "Mahoning",
+            "Medina",
+            "Portage",
+            "Richland",
+            "Stark",
+            "Summit",
+            "Trumbull",
+            "Tuscarawas",
+            "Wayne"
+        ]
+    },
+    {
+        "Region": "Central",
+        "Counties": [
+            "Delaware",
+            "Fairfield",
+            "Fayette",
+            "Franklin",
+            "Knox",
+            "Licking",
+            "Logan",
+            "Madison",
+            "Marion",
+            "Morrow",
+            "Pickaway",
+            "Union"
+        ]
+    },
+    {
+        "Region": "Southwest",
+        "Counties": [
+            "Adams",
+            "Brown",
+            "Butler",
+            "Champaign",
+            "Clark",
+            "Clermont",
+            "Clinton",
+            "Darke",
+            "Greene",
+            "Hamilton",
+            "Highland",
+            "Miami",
+            "Montgomery",
+            "Preble",
+            "Shelby",
+            "Warren"
+        ]
+    },
+    {
+        "Region": "Southeast",
+        "Counties": [
+            "Athens",
+            "Belmont",
+            "Coshocton",
+            "Gallia",
+            "Guernsey",
+            "Harrison",
+            "Hocking",
+            "Jackson",
+            "Jefferson",
+            "Lawrence",
+            "Meigs",
+            "Monroe",
+            "Morgan",
+            "Muskingum",
+            "Noble",
+            "Perry",
+            "Pike",
+            "Ross",
+            "Scioto",
+            "Vinton",
+            "Washington"
+        ]
+    }
+]
