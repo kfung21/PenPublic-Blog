@@ -224,11 +224,12 @@ function autoDiscover() {
 const { nav: autoNav, sidebar: autoSidebar } = autoDiscover()
 
 // ─── "States" nav group ────────────────────────────────────────────
-// Pull the auto-discovered "Regions" and "California Overview" entries
-// out of the navbar and re-house them under a single "States" dropdown.
-// navText below is only the navbar label — page titles are untouched.
+// States/ holds no top-level pages (so auto-discovery skips it); its
+// content lives in subfolders like States/Regions/. Nav and sidebar for
+// it are wired here. navText is only the navbar label — page titles are
+// untouched.
 const STATES_CHILDREN = [
-  { match: 'Regions',             navText: 'Regions',    link: '/Regions/' },
+  { match: 'Regions',             navText: 'Regions',    link: '/States/Regions/' },
   { match: 'California Overview', navText: 'California', link: '/California/' },
 ]
 const consumed = new Set(STATES_CHILDREN.map(c => c.match))
@@ -243,8 +244,17 @@ const statesGroup = {
     text: 'States',
     link: STATES_CHILDREN[0].link,   // label itself links to the first child
     items: STATES_CHILDREN.map(({ navText, link }) => ({ text: navText, link })),
-    activeMatch: '/Regions/',
+    activeMatch: '/States/',
   },
+}
+const statesSidebar = {
+  '/States/Regions/': [
+    {
+      text: 'Regions',
+      link: '/States/Regions/',
+      items: buildSidebarItems(path.join(ROOT, 'States/Regions'), 'States/Regions'),
+    }
+  ],
 }
 
 // ─── Final config ──────────────────────────────────────────────────
@@ -296,6 +306,7 @@ export default defineConfig({
 
       // ── Auto-discovered sidebars injected here ──
       ...autoSidebar,
+      ...statesSidebar,
 
       // ── Pensions: manual override for structured sidebar ──
       '/Pensions/': [

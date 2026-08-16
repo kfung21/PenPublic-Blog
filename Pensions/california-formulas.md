@@ -34,7 +34,9 @@ CalPERS offers multiple retirement formulas. Which one applies to you depends on
 | **1.25% @ 65** | Older formula, some legacy members | 65 | — | — | — |
 
 * see also: <a href="https://www.calpers.ca.gov/documents/state-miscellaneous-industrial-member-2-at-55-benefit-factors-pdf/download?inline=">CalPERS 2% at 55 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/state-miscellaneous-industrial-member-2-at-60-benefit-factors-pdf/download?inline=">CalPERS 2% at 60 Benefit Factors (PDF)</a>
 * see also: <a href="https://www.calpers.ca.gov/documents/state-miscellaneous-industrial-member-2-at-62-benefit-factors-pdf/download?inline=">CalPERS 2% at 62 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/state-miscellaneous-industrial-member-125-at-65-benefit-factors-pdf/download?inline=">CalPERS 1.25% at 65 Benefit Factors (PDF)</a>
 * see also: <a href="https://www.csudh.edu/Assets/csudh-sites/hr/docs/benefits/retirement-calpers/retirement-calpers-formula.pdf">CSU Dominguez Hills Retirement Formula Summary (PDF)</a>
 
 ### Local Miscellaneous (Public Agency) Members
@@ -53,6 +55,9 @@ Local agencies choose their formula through their CalPERS contract. Common class
 * see also: <a href="https://rc-hr.com/files/2023-08/CalPERS_Retirement_Plan_Find_Out_More_2017.pdf">Riverside County CalPERS Retirement Formulas (PDF)</a>
 * see also: <a href="https://www.calpers.ca.gov/documents/local-miscellaneous-member-3-at-60-benefit-factors-pdf/download?inline=">CalPERS Local Miscellaneous 3% at 60 Benefit Factors (PDF)</a>
 * see also: <a href="https://www.calpers.ca.gov/documents/local-miscellaneous-member-27-at-55-benefit-factors-pdf/download?inline=">CalPERS Local Miscellaneous 2.7% at 55 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-miscellaneous-member-25-at-55-benefit-factors-pdf/download?inline=">CalPERS Local Miscellaneous 2.5% at 55 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-miscellaneous-member-2-at-55-benefit-factors-pdf/download?inline=">CalPERS Local Miscellaneous 2% at 55 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-miscellaneous-member-2-at-60-benefit-factors-pdf/download?inline=">CalPERS Local Miscellaneous 2% at 60 Benefit Factors (PDF)</a>
 * see also: <a href="https://www.calpers.ca.gov/documents/local-miscellaneous-member-2-at-62-benefit-factors-pdf/download?inline=">CalPERS Local Miscellaneous 2% at 62 (PEPRA) Benefit Factors (PDF)</a>
 
 ### Safety Members (Police, Fire, Corrections)
@@ -68,7 +73,10 @@ Local agencies choose their formula through their CalPERS contract. Common class
 
 * see also: <a href="https://www.calpers.ca.gov/documents/local-safety-member-3-at-50-benefit-factors-pdf/download?inline=">CalPERS Local Safety 3% at 50 Benefit Factors (PDF)</a>
 * see also: <a href="https://www.calpers.ca.gov/documents/local-safety-member-3-at-55-benefit-factors-pdf/download?inline=">CalPERS Local Safety 3% at 55 Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-safety-member-25-at-55-benefit-factors-pdf/download?inline=">CalPERS Local Safety 2.5% at 55 Benefit Factors (PDF)</a>
 * see also: <a href="https://www.calpers.ca.gov/documents/local-safety-member-27-at-57-benefit-factors-pdf/download?inline=">CalPERS Local Safety 2.7% at 57 (PEPRA) Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-safety-member-25-at-57-benefit-factors-pdf/download?inline=">CalPERS Local Safety 2.5% at 57 (PEPRA) Benefit Factors (PDF)</a>
+* see also: <a href="https://www.calpers.ca.gov/documents/local-safety-member-2-at-57-benefit-factors-pdf/download?inline=">CalPERS Local Safety 2% at 57 (PEPRA) Benefit Factors (PDF)</a>
 
 ## CalPERS Formula Examples
 

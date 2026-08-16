@@ -1,20 +1,20 @@
 // build-region-maps.mjs
 // Converts Regions_XX.json + US county GeoJSON into per-state map data
-// consumed by .vitepress/theme/components/RegionMap.vue
+// imported by .vitepress/theme/components/RegionMap.vue via import.meta.glob
 //
-// Usage:  node scripts/build-region-maps.mjs
-// Input:  regions-src/Regions_XX.json
-//         regions-src/geojson-counties-fips.json  (auto-downloaded if missing)
-// Output: public/region-maps/XX.json
+// Usage:  node States/Regions/build-region-maps.mjs
+// Input:  sources/Regions_XX.json
+//         sources/geojson-counties-fips.json  (auto-downloaded if missing)
+// Output: data/XX.json
 
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const ROOT = path.resolve(__dirname, '..')
-const SRC = path.join(ROOT, 'regions-src')
-const OUT = path.join(ROOT, 'public', 'region-maps')
+// This script lives in States/Regions/ alongside its inputs and outputs
+const SRC = path.join(__dirname, 'sources')
+const OUT = path.join(__dirname, 'data')
 const COUNTIES_URL = 'https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json'
 const COUNTIES_FILE = path.join(SRC, 'geojson-counties-fips.json')
 
@@ -168,4 +168,4 @@ for (const st of Object.keys(STATE_FIPS)) {
   const kb = (fs.statSync(outFile).size / 1024).toFixed(0)
   console.log(`${st}: ${data.regions.length} regions, ${data.counties.length} counties, ${kb} KB`)
 }
-console.log('Done → public/region-maps/')
+console.log('Done → States/Regions/data/')

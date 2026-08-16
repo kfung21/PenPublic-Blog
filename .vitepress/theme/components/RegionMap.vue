@@ -30,11 +30,15 @@ const zoomLevel = computed(() =>
   data.value ? (data.value.width / vb.value.w) : 1
 )
 
+// Map data is bundled from States/Regions/data/ — each state becomes its
+// own lazy-loaded chunk, so no public/ folder or runtime fetch is needed.
+const MAP_DATA = import.meta.glob('../../../States/Regions/data/*.json')
+
 onMounted(async () => {
   try {
-    const res = await fetch(withBase(`/region-maps/${props.state}.json`))
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    data.value = await res.json()
+    const loader = MAP_DATA[`../../../States/Regions/data/${props.state}.json`]
+    if (!loader) throw new Error('no data file for this state')
+    data.value = (await loader()).default
     vb.value = { x: 0, y: 0, w: data.value.width, h: data.value.height }
   } catch (e) {
     error.value = `Could not load map data for ${props.state}: ${e.message}`
