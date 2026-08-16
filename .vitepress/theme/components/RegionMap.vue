@@ -107,19 +107,55 @@ function resetView() {
   pinned.value = null
 }
 
-// drag pan (pointer events: mouse + touch)
+// drag pan + pinch zoom (pointer events: mouse + touch)
 let dragging = false
 let dragMoved = false
 let lastPt = null
+const pointers = new Map()   // active touch/mouse points by pointerId
+let prevPinch = null         // { dist, mid: {clientX, clientY} }
+
+function pinchState() {
+  const [a, b] = [...pointers.values()]
+  return {
+    dist: Math.hypot(a.x - b.x, a.y - b.y),
+    mid: { clientX: (a.x + b.x) / 2, clientY: (a.y + b.y) / 2 },
+  }
+}
 
 function onPointerDown(evt) {
-  dragging = true
-  dragMoved = false
-  lastPt = { x: evt.clientX, y: evt.clientY }
+  pointers.set(evt.pointerId, { x: evt.clientX, y: evt.clientY })
+  if (pointers.size === 2) {
+    // second finger down: switch from drag to pinch
+    dragging = false
+    lastPt = null
+    dragMoved = true          // a pinch is never a county click
+    prevPinch = pinchState()
+  } else if (pointers.size === 1) {
+    dragging = true
+    dragMoved = false
+    lastPt = { x: evt.clientX, y: evt.clientY }
+  }
   svgEl.value.setPointerCapture(evt.pointerId)
 }
+
 function onPointerMove(evt) {
-  if (dragging && lastPt) {
+  if (pointers.has(evt.pointerId)) {
+    pointers.set(evt.pointerId, { x: evt.clientX, y: evt.clientY })
+  }
+
+  if (pointers.size === 2 && prevPinch) {
+    // pinch: zoom around the midpoint, pan with midpoint movement
+    const now = pinchState()
+    if (prevPinch.dist > 0 && now.dist > 0) {
+      const midSvg = clientToSvg(now.mid)
+      zoomAt(now.dist / prevPinch.dist, midSvg.x, midSvg.y)
+      const rect = svgEl.value.getBoundingClientRect()
+      const dx = (now.mid.clientX - prevPinch.mid.clientX) / rect.width * vb.value.w
+      const dy = (now.mid.clientY - prevPinch.mid.clientY) / rect.height * vb.value.h
+      vb.value = { ...vb.value, x: vb.value.x - dx, y: vb.value.y - dy }
+    }
+    prevPinch = now
+  } else if (dragging && lastPt) {
     const rect = svgEl.value.getBoundingClientRect()
     const dx = (evt.clientX - lastPt.x) / rect.width * vb.value.w
     const dy = (evt.clientY - lastPt.y) / rect.height * vb.value.h
@@ -127,15 +163,26 @@ function onPointerMove(evt) {
     vb.value = { ...vb.value, x: vb.value.x - dx, y: vb.value.y - dy }
     lastPt = { x: evt.clientX, y: evt.clientY }
   }
+
   // tooltip position relative to wrapper
   if (wrapEl.value) {
     const wrect = wrapEl.value.getBoundingClientRect()
     tooltip.value = { x: evt.clientX - wrect.left, y: evt.clientY - wrect.top }
   }
 }
+
 function onPointerUp(evt) {
-  dragging = false
-  lastPt = null
+  pointers.delete(evt.pointerId)
+  if (pointers.size < 2) prevPinch = null
+  if (pointers.size === 1) {
+    // one finger lifted mid-pinch: continue as a drag with the remaining finger
+    const [p] = [...pointers.values()]
+    dragging = true
+    lastPt = { x: p.x, y: p.y }
+  } else if (pointers.size === 0) {
+    dragging = false
+    lastPt = null
+  }
   try { svgEl.value.releasePointerCapture(evt.pointerId) } catch {}
 }
 
@@ -222,6 +269,7 @@ function onCountyEnter(c, evt) {
         @pointerdown="onPointerDown"
         @pointermove="onPointerMove"
         @pointerup="onPointerUp"
+        @pointercancel="onPointerUp"
         @pointerleave="hovered = null"
         @click="onSvgClick"
       >

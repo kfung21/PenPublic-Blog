@@ -44,11 +44,16 @@ function isItemActive(link) {
 }
 
 // Mobile: tapping the header toggles the accordion instead of navigating.
+// VitePress's router intercepts anchor clicks globally, so on mobile the
+// label is rendered without an href entirely — nothing to navigate to.
 // The landing page stays reachable via the "Overview" item (shown on
 // mobile only, and only when it isn't already the first child).
+const isMobile = ref(false)
+let mq = null
 function onLabelClick(e) {
-  if (typeof window !== 'undefined' && window.innerWidth < 768) {
+  if (isMobile.value) {
     e.preventDefault()
+    e.stopPropagation()
     expanded.value = !expanded.value
   }
 }
@@ -59,6 +64,9 @@ const showOverviewItem = computed(() =>
 )
 
 onMounted(() => {
+  mq = window.matchMedia('(max-width: 767px)')
+  isMobile.value = mq.matches
+  mq.addEventListener('change', e => { isMobile.value = e.matches })
   // start expanded when the reader is already inside this section
   if (isActive.value) expanded.value = true
 })
@@ -75,7 +83,8 @@ onMounted(() => {
     <a
       class="PPNavGroup-label"
       :class="{ active: isActive, expanded }"
-      :href="withBase(link)"
+      :href="isMobile ? undefined : withBase(link)"
+      :role="isMobile ? 'button' : undefined"
       :aria-expanded="expanded"
       @click="onLabelClick"
     >
@@ -250,6 +259,7 @@ onMounted(() => {
     line-height: 48px;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
   }
 
   .PPNavGroup-chevron {
