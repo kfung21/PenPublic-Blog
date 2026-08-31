@@ -11,19 +11,22 @@ hero:
   actions:
     - theme: brand
       text: Explore Careers Wiki
-      link: /California/
+      link: /States/California/
     - theme: alt
       text: Read the Blog
       link: /posts/
     - theme: alt
       text: Pensions Guide
       link: /Pensions/
+    - theme: alt
+      text: Unemployment Data
+      link: /Unemployment/
 
 features:
   - icon: 🏛️
     title: Careers Wiki
     details: In-depth profiles of every type of public agency — cities, counties, state departments, water districts, transit authorities, and more.
-    link: /California/
+    link: /States/California/
   - icon: 📝
     title: Blog & Analysis
     details: Research-backed articles on public sector compensation, pensions, job security, and why government careers outperform the private sector.
@@ -36,6 +39,10 @@ features:
     title: Pensions
     details: State-by-state pension breakdowns with benefit formulas, retirement calculators, and comparisons across CalPERS, CalSTRS, NYSLRS, and more.
     link: /Pensions/
+  - icon: 📊
+    title: Unemployment Data
+    details: What each federal labor survey actually measures — all six unemployment rates, what the numbers leave out, and how to read them without overreaching.
+    link: /Unemployment/
   - icon: ℹ️
     title: About PenPublic
     details: Learn about our mission to convert America's workforce to public sector careers — and why 99% of workers are better off in government.

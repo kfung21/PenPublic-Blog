@@ -162,7 +162,7 @@ Almost every private sector role has a public equivalent. A partial list:
 
 The point is not that all of these are open near you this week. It is that "public sector" is not a job. It is close to the same range of work you would find anywhere else, attached to the pension, the benefits, and the stability described above.
 
-To see how many separate employers that spans in one state, browse the [California agency directory](/California/). Cities, counties, school districts, and hundreds of independent special districts each hire on their own.
+To see how many separate employers that spans in one state, browse the [California agency directory](/States/California/). Cities, counties, school districts, and hundreds of independent special districts each hire on their own.
 
 ---
 

@@ -224,13 +224,15 @@ function autoDiscover() {
 const { nav: autoNav, sidebar: autoSidebar } = autoDiscover()
 
 // ─── "States" nav group ────────────────────────────────────────────
-// States/ holds no top-level pages (so auto-discovery skips it); its
-// content lives in subfolders like States/Regions/. Nav and sidebar for
-// it are wired here. navText is only the navbar label — page titles are
-// untouched.
+// States/ has an index.md marked `nav: false`, so auto-discovery skips it
+// and does not add a second "States" navbar entry. Its content lives in
+// subfolders (States/California/, States/Regions/), which auto-discovery
+// never reaches because it only scans the top level — so nav and sidebar
+// for both are wired by hand here. navText is only the navbar label —
+// page titles are untouched.
 const STATES_CHILDREN = [
   { match: 'Regions',             navText: 'Regions',    link: '/States/Regions/' },
-  { match: 'California Overview', navText: 'California', link: '/California/' },
+  { match: 'California Overview', navText: 'California', link: '/States/California/' },
 ]
 const consumed = new Set(STATES_CHILDREN.map(c => c.match))
 const filteredNav = autoNav.filter(item => {
@@ -248,11 +250,83 @@ const statesGroup = {
   },
 }
 const statesSidebar = {
+  '/States/California/': [
+    {
+      text: 'California',
+      link: '/States/California/',
+      items: buildSidebarItems(path.join(ROOT, 'States/California'), 'States/California'),
+    }
+  ],
   '/States/Regions/': [
     {
       text: 'Regions',
       link: '/States/Regions/',
       items: buildSidebarItems(path.join(ROOT, 'States/Regions'), 'States/Regions'),
+    }
+  ],
+  '/States/': [
+    {
+      text: 'States',
+      link: '/States/',
+      items: [
+        { text: 'California', link: '/States/California/' },
+        { text: 'Regions', link: '/States/Regions/' },
+      ],
+    }
+  ],
+}
+
+// ─── "Unemployment" nav dropdown ───────────────────────────────────
+// The deep-dive lives in posts/ so the BlogList content loader picks it up,
+// which puts it outside buildSidebarItems' reach (that only scans a folder's
+// own .md files). Wire it into the Unemployment dropdown and sidebar here.
+// Add future posts to this array; folder pages are picked up automatically.
+const UNEMPLOYMENT_POSTS = [
+  {
+    text: 'The Unemployment Numbers, Broken Down',
+    link: '/posts/2026-08-30_unemployment-survey-categories',
+  },
+]
+// A folder page whose slug matches a wired post is a leftover copy of that
+// post — list it once, as the post. Strips a leading YYYY-MM-DD_ or - prefix
+// so posts/2026-08-30_foo and Unemployment/foo compare equal.
+const slugOf = link => link.split('/').pop().replace(/^\d{4}-\d{2}-\d{2}[-_]/, '')
+const wiredSlugs = new Set(UNEMPLOYMENT_POSTS.map(p => slugOf(p.link)))
+const unemploymentFolderPages = buildSidebarItems(
+  path.join(ROOT, 'Unemployment'), 'Unemployment'
+).filter(item => {
+  if (!wiredSlugs.has(slugOf(item.link))) return true
+  console.warn(
+    `[nav] Unemployment/${slugOf(item.link)}.md duplicates a post already ` +
+    `wired into the dropdown. Hidden from nav — delete the file.`
+  )
+  return false
+})
+const unemploymentItems = [
+  ...unemploymentFolderPages,
+  ...UNEMPLOYMENT_POSTS,
+]
+// Replace the auto-discovered plain link with a NavGroupLink dropdown.
+const navWithDropdowns = filteredNav.map(item =>
+  item.text === 'Unemployment'
+    ? {
+        text: 'Unemployment',
+        component: 'NavGroupLink',
+        props: {
+          text: 'Unemployment',
+          link: '/Unemployment/',
+          items: unemploymentItems,
+          activeMatch: '/Unemployment/',
+        },
+      }
+    : item
+)
+const unemploymentSidebar = {
+  '/Unemployment/': [
+    {
+      text: 'Unemployment',
+      link: '/Unemployment/',
+      items: unemploymentItems,
     }
   ],
 }
@@ -288,7 +362,7 @@ export default defineConfig({
       { text: 'PenPublic Jobs', link: 'https://penpublic.com', target: '_self' },
       { text: 'Blog', link: '/posts/' },
       // ── Auto-discovered sections injected here ──
-      ...filteredNav,
+      ...navWithDropdowns,
       statesGroup,
       { text: 'About', link: '/about' },
     ],
@@ -307,6 +381,7 @@ export default defineConfig({
       // ── Auto-discovered sidebars injected here ──
       ...autoSidebar,
       ...statesSidebar,
+      ...unemploymentSidebar,
 
       // ── Pensions: manual override for structured sidebar ──
       '/Pensions/': [

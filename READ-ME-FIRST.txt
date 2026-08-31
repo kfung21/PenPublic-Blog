@@ -1,0 +1,22 @@
+Copy the contents of this folder over your project root, keeping the
+folder structure. Nothing else in your repo is touched.
+
+OVERWRITES (4):
+  .vitepress/config.mjs                 States/California sidebar + nav,
+                                          and the Unemployment nav dropdown
+  index.md                              California links + Unemployment
+                                          hero button and feature card
+  PublicSector/why-public-sector.md     1 link on line 165
+  Unemployment/index.md                 section landing page
+
+OVERWRITES OR NEW (2):
+  States/index.md
+  posts/2026-08-30_unemployment-survey-categories.md
+
+IF IT IS STILL THERE, DELETE:
+  Unemployment/unemployment-survey-categories.md
+    The post now lives in posts/. Leaving the old copy in place
+    publishes the same article at two URLs and puts a duplicate
+    entry in the Unemployment sidebar.
+
+Verified with `npx vitepress build`.
