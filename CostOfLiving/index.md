@@ -9,9 +9,9 @@ The jobs numbers say who is working. These say what a paycheck buys. Housing and
 
 ## Home prices vs. income
 
-All three lines start at zero in 1984. The home price is the median new home. Household income is everyone in the home combined. Full-time worker pay is what one typical full-time worker earns.
+The median new home, next to what a household earns in a year and what one typical full-time worker earns in a year. All three are in dollars on the same scale.
 
-<LaborChart series="MSPUS,MEHOINUSA646N,LES1252881500Q" transform="since:1984-01" title="Home prices, household income, and full-time pay since 1984" note="Household income is annual and runs about a year behind" />
+<LaborChart series="MSPUS,MEHOINUSA646N" annual="LES1252881500Q" annual-label="Full-time worker pay per year" title="Home price vs. household income and full-time worker pay" note="Household income is annual and runs about a year behind" zero />
 
 The same comparison as a single number: how many years of income a median new home costs.
 
@@ -51,13 +51,9 @@ How much more things cost than a year ago. This is the inflation rate in the new
 
 <LaborChart series="CPIAUCSL,CPILFESL" transform="yoy" title="Consumer prices, change from a year earlier" />
 
-## Prices, incomes, and rates in dollars
+## Mortgage rates
 
-The raw numbers behind the housing charts above.
-
-<LaborChart series="MSPUS" title="Median price of a new home sold" zero />
-
-<LaborChart annual="LES1252881500Q" annual-label="Full-time worker pay per year" series="MEHOINUSA646N" title="Household income and full-time worker pay, per year" zero />
+The rate is the other half of the monthly payment.
 
 <LaborChart series="MORTGAGE30US" title="Average 30-year fixed mortgage rate" zero />
 

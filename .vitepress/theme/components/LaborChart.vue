@@ -88,7 +88,9 @@ onMounted(async () => {
         jobs.push(loadYearsOfIncome(price, inc, labels[k] || 'Years of income', mult ? +mult : 1))
       })
     }
-    if (props.annual) jobs.push(loadScaled(props.annual, 52, props.annualLabel))
+    // Yearly pay is drawn after the plain series, so a home price listed in
+    // `series` keeps the first color.
+    const tail = props.annual ? [loadScaled(props.annual, 52, props.annualLabel)] : []
     let pairs = []
     if (props.keepup) {
       const [lhs, base] = props.keepup.split('@').map(x => x.trim())
@@ -96,7 +98,7 @@ onMounted(async () => {
       const [pay, mult] = payRaw.split('*')
       pairs = await loadKeepUp(pay, cpi, base, mult ? +mult : 1)
     }
-    let loaded = (await Promise.all([...pairs, ...jobs, ...ids.value.map(loadLabor)])).slice(0, 6)
+    let loaded = (await Promise.all([...pairs, ...jobs, ...ids.value.map(loadLabor), ...tail])).slice(0, 6)
     const names = loaded.map(d => SHORT[d.id] || d.title)
     if (props.transform === 'yoy') loaded = loaded.map(yearOverYear)
     else if (props.transform.startsWith('since:')) {
