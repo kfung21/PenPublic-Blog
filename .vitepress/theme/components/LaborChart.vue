@@ -10,7 +10,7 @@
 
 import { ref, computed, onMounted } from 'vue'
 import {
-  loadLabor, loadSum, loadShare, RANGES, activeRange, RECESSIONS, SHORT,
+  loadLabor, loadSum, loadShare, loadRatio, yearOverYear, changeSince, RANGES, activeRange, RECESSIONS, SHORT,
   mi, fromMi, monthLabel, isLevel, fmtValue,
 } from './laborData.js'
 
@@ -23,6 +23,13 @@ const props = defineProps({
   sumLabel:   { type: String, default: 'Total' },
   share:      { type: String, default: '' },
   shareLabel: { type: String, default: 'Share' },
+  //   real="WAGE/CPI"  pay divided by prices, i.e. what a paycheck buys
+  real:       { type: String, default: '' },
+  realLabel:  { type: String, default: 'Pay after inflation' },
+  // Applied to every line in the chart:
+  //   transform="yoy"            percent change from a year earlier
+  //   transform="since:2020-01"  percent change since that month
+  transform:  { type: String, default: '' },
   title:  { type: String, default: '' },
   note:   { type: String, default: '' },
   zero:   { type: Boolean, default: false },  // force the y axis to start at 0
@@ -44,11 +51,20 @@ onMounted(async () => {
       const [num, den] = props.share.split('/').map(x => x.trim())
       jobs.push(loadShare(num, den, props.shareLabel))
     }
-    const loaded = (await Promise.all([...jobs, ...ids.value.map(loadLabor)])).slice(0, 6)
+    if (props.real) {
+      const [num, den] = props.real.split('/').map(x => x.trim())
+      jobs.push(loadRatio(num, den, props.realLabel))
+    }
+    let loaded = (await Promise.all([...jobs, ...ids.value.map(loadLabor)])).slice(0, 6)
+    const names = loaded.map(d => SHORT[d.id] || d.title)
+    if (props.transform === 'yoy') loaded = loaded.map(yearOverYear)
+    else if (props.transform.startsWith('since:')) {
+      loaded = loaded.map(d => changeSince(d, props.transform.slice(6)))
+    }
     sets.value = loaded.map((d, k) => ({
       ...d,
       slot: k + 1,                       // color follows the series, not its rank
-      name: SHORT[d.id] || d.title,
+      name: names[k],
       // Absolute month of every point. Never assume the months are
       // contiguous: BLS published no household survey for Oct 2025, so
       // position must come from the period, not the array index.
@@ -64,6 +80,10 @@ onMounted(async () => {
   }
 })
 
+// Changes get an explicit sign; plain levels and rates do not.
+const fv = v => props.transform && v != null
+  ? `${v > 0 ? '+' : v < 0 ? '\u2212' : ''}${Math.abs(v).toFixed(1)}%`
+  : fmtValue(v, level.value)
 const level = computed(() => sets.value.length > 0 && isLevel(sets.value[0]))
 const shown = computed(() => sets.value.filter(s => !hidden.value.has(s.id)))
 
@@ -78,7 +98,7 @@ function toggle(id) {
 const W = 900, H = 340
 const PAD = { l: 50, r: 16, t: 26, b: 26 }   // top padding holds the recession names
 // Room on the right for the "Now" label of every line.
-const padR = computed(() => 82)
+const padR = computed(() => 90)
 const plotW = computed(() => W - PAD.l - padR.value)
 const plotH = H - PAD.t - PAD.b
 
@@ -118,7 +138,7 @@ const yDom = computed(() => {
   if (!isFinite(lo)) return { lo: 0, hi: 1, step: 0.2 }
   // Rates that sit near the floor read better from zero. Series that sit far
   // from it (participation at 58 to 67) would be flattened, so they do not.
-  if (props.zero || lo < hi * 0.4) lo = 0
+  if (props.zero || (lo >= 0 && lo < hi * 0.4)) lo = 0
   const step = nice(lo, hi)
   return { lo: Math.floor(lo / step) * step, hi: Math.ceil(hi / step) * step, step }
 })
@@ -171,7 +191,7 @@ const bands = computed(() => {
 const nowLines = computed(() => {
   const out = shown.value.map(s => {
     const v = s.current[s.current.length - 1]
-    return { id: s.id, slot: s.slot, y: sy(v), ly: sy(v), label: fmtValue(v, level.value) }
+    return { id: s.id, slot: s.slot, y: sy(v), ly: sy(v), label: fv(v) }
   })
   // Labels sit in the right margin at their line's height. Where lines are
   // close together, spread the labels so they never overlap.
@@ -248,7 +268,7 @@ const tip = computed(() => {
 
 const legend = computed(() => sets.value.map(s => ({
   id: s.id, slot: s.slot, name: s.name, off: hidden.value.has(s.id),
-  last: fmtValue(s.current[s.current.length - 1], level.value),
+  last: fv(s.current[s.current.length - 1]),
 })))
 
 const through = computed(() => {
@@ -256,6 +276,14 @@ const through = computed(() => {
   const s = sets.value[0]
   return `${monthLabel(s.periods[0])} to ${monthLabel(s.periods[s.periods.length - 1])}`
 })
+const subtitle = computed(() => {
+  if (props.transform === 'yoy') return 'Percent change from a year earlier'
+  if (props.transform.startsWith('since:')) {
+    return `Percent change since ${monthLabel(props.transform.slice(6))}`
+  }
+  return level.value ? 'Persons' : 'Percent'
+})
+const zeroY = computed(() => yDom.value.lo < 0 && yDom.value.hi > 0 ? sy(0) : null)
 const hasOpen = computed(() => shown.value.some(s => s.status.some(x => x !== 2)))
 
 // What the dashes mean depends on the survey. Payroll numbers (CES) really are
@@ -284,7 +312,7 @@ const dashNote = computed(() => {
       <div class="lc-head">
         <div>
           <div class="lc-title">{{ title || sets[0].title }}</div>
-          <div class="lc-sub">{{ level ? 'Persons' : 'Percent' }} · monthly · {{ through }}</div>
+          <div class="lc-sub">{{ subtitle }} · monthly · {{ through }}</div>
         </div>
         <div class="lc-ranges" role="group" aria-label="Time range">
           <button v-for="r in ranges" :key="r.key" type="button"
@@ -314,6 +342,7 @@ const dashNote = computed(() => {
             <line :x1="PAD.l" :x2="W - padR" :y1="t.y" :y2="t.y" class="lc-grid" />
             <text :x="PAD.l - 8" :y="t.y + 4" text-anchor="end" class="lc-ax">{{ t.label }}</text>
           </template>
+          <line v-if="zeroY != null" :x1="PAD.l" :x2="W - padR" :y1="zeroY" :y2="zeroY" class="lc-zero" />
           <text v-for="t in xTicks" :key="'x' + t.label" :x="t.x" :y="H - 8"
                 text-anchor="middle" class="lc-ax">{{ t.label }}</text>
 
@@ -343,7 +372,7 @@ const dashNote = computed(() => {
           <div v-if="tip.recession" class="lc-tip-n lc-tip-rec">{{ tip.recession }}</div>
           <div v-for="r in tip.rows" :key="r.id" class="lc-tip-r">
             <i :class="`s${r.slot}`"></i><span>{{ r.name }}</span>
-            <b>{{ fmtValue(r.v, level) }}{{ r.open ? '*' : '' }}</b>
+            <b>{{ fv(r.v) }}{{ r.open ? '*' : '' }}</b>
           </div>
           <div v-if="tip.anyOpen" class="lc-tip-n">* still open to revision</div>
         </div>
@@ -395,6 +424,7 @@ svg { width: 100%; height: auto; display: block; touch-action: pan-y;
              font-variant-numeric: tabular-nums; }
 .lc-tip-rec { margin: 0 0 2px; }
 .lc-grid   { stroke: var(--vp-c-divider); stroke-width: 1; }
+.lc-zero   { stroke: var(--vp-c-text-3); stroke-width: 1; }
 .lc-ax     { font-size: 11px; fill: var(--vp-c-text-3); font-variant-numeric: tabular-nums; }
 .lc-cursor { stroke: var(--vp-c-text-3); stroke-width: 1; }
 .lc-line path { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }

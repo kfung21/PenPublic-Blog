@@ -97,6 +97,43 @@ export async function loadShare(num, den, title) {
     ([a, b]) => +(a / b * 100).toFixed(2))
 }
 
+export async function loadRatio(num, den, title) {
+  const sets = await Promise.all([loadLabor(num), loadLabor(den)])
+  return combine(sets, `RATIO:${num}/${den}`, title, 'index', ([a, b]) => a / b)
+}
+
+// --- transforms ------------------------------------------------------------
+// Prices and wages are index numbers and dollar amounts that only ever climb,
+// so the charts show how fast they are changing instead of the raw level.
+
+function remap(d, keep, fn, tag) {
+  const idx = d.periods.map((p, i) => i).filter(keep)
+  return {
+    ...d, id: `${d.id}|${tag}`, unit: 'percent', months: idx.length,
+    periods: idx.map(i => d.periods[i]),
+    current: idx.map(i => fn(i)),
+    initial: idx.map(i => fn(i)),
+    status: idx.map(i => d.status[i]),
+  }
+}
+
+// Percent change from the same month a year earlier. A month whose
+// year-ago value was never published is left out.
+export function yearOverYear(d) {
+  const at = new Map(d.periods.map((p, i) => [mi(p), i]))
+  const prev = i => at.get(mi(d.periods[i]) - 12)
+  return remap(d, i => prev(i) !== undefined,
+    i => +((d.current[i] / d.current[prev(i)] - 1) * 100).toFixed(2), 'yoy')
+}
+
+// Percent change since a base month ('YYYY-MM'). Earlier months are dropped.
+export function changeSince(d, base) {
+  const b = d.periods.findIndex(p => p >= base)
+  if (b < 0) return remap(d, () => false, () => 0, `since${base}`)
+  return remap(d, i => i >= b,
+    i => +((d.current[i] / d.current[b] - 1) * 100).toFixed(2), `since${base}`)
+}
+
 // Tech proxy: the three payroll industries that are mostly IT services,
 // cloud and web companies. Software publishers belongs here too, but FRED has
 // no national series under the id we tried (CES5051320001), so it is left out. It counts every job at those employers
@@ -135,6 +172,10 @@ export const SHORT = {
   USGOVT: 'Government payroll jobs',
   CES9091000001: 'Federal', CES9092000001: 'State', CES9093000001: 'Local',
   USPRIV: 'Private sector',
+  CPIAUCSL: 'Prices (CPI, all items)', CPILFESL: 'Prices without food and energy',
+  CUSR0000SAH1: 'Housing (shelter)', CUSR0000SEHA: 'Rent', CUSR0000SAF11: 'Groceries',
+  CUSR0000SETB01: 'Gasoline',
+  CES0500000003: 'Hourly pay', AHETPI: 'Hourly pay, non-managers',
   JTSHIR: 'Hires', JTSLDR: 'Layoffs and firings', JTSQUR: 'Quits', JTSJOR: 'Job openings',
   CES6054150001: 'Computer systems design and IT services',
   CES5051800001: 'Cloud, data processing, web hosting',
