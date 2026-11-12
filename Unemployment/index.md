@@ -9,9 +9,15 @@ Every national series we track, monthly, back to the first month it was publishe
 
 ## The unemployment rate since 1948
 
-This is the number in the news every month. It is the official rate, called U-3: unemployed people as a share of the labor force, seasonally adjusted. Shaded bands are recessions.
+This is the number in the news every month. It is the official rate, called U-3: unemployed people as a share of the labor force, seasonally adjusted. Shaded bands are recessions. The dotted line marks where the rate stands now, so you can see which other years looked the same.
 
 <LaborChart series="UNRATE" title="Unemployment rate (U-3)" />
+
+## Jobs gained and lost by sector
+
+Where the payroll change came from, split into private and public. Switch between the last month, three months, and twelve months. Not sure what a sector covers? [See what kinds of jobs are in each one.](/posts/2026-08-30_unemployment-survey-categories#the-payroll-sectors)
+
+<LaborSectors />
 
 ## People who want a job and don't have one
 
@@ -49,11 +55,23 @@ Labor force plus not in the labor force equals everyone age 16 and over.
 
 <LaborChart series="CLF16OV,CE16OV,LNS15000000" title="Labor force, employed, and not in the labor force" />
 
-## Government jobs
+## Public sector vs. private sector
 
-Federal, state, and local combined. This is one slice of the payroll total above.
+Government jobs as a share of all payroll jobs. When the line rises, the public sector is growing faster than the private sector, or shrinking slower.
 
-<LaborChart series="USGOVT" title="Government payroll jobs" />
+<LaborChart share="USGOVT/PAYEMS" share-label="Government share of all jobs" title="Public sector share of payroll jobs" />
+
+<LaborChart series="USPRIV" title="Private sector payroll jobs" />
+
+<LaborChart series="USGOVT" title="Public sector payroll jobs (federal, state, and local)" />
+
+<LaborChart series="CES9091000001,CES9092000001,CES9093000001" title="Government jobs: federal, state, and local" />
+
+## Tech jobs (proxy)
+
+BLS has no "tech" category. This adds up the four payroll industries that are mostly software, IT services, cloud, and web companies. It counts every job at those employers, including sales and HR. It misses tech workers at banks, retailers, and everywhere else, and companies like Amazon are counted under retail and warehousing. Read the direction, not the exact level.
+
+<LaborChart sum="CES6054150001,CES5051320001,CES5051800001,CES5051900001" sum-label="Tech industries (proxy)" series="CES6054150001,CES5051320001,CES5051800001,CES5051900001" title="Tech industry payroll jobs" />
 
 ## How much the numbers get revised
 

@@ -10,12 +10,19 @@
 
 import { ref, computed, onMounted } from 'vue'
 import {
-  loadLabor, RANGES, activeRange, RECESSIONS, SHORT,
+  loadLabor, loadSum, loadShare, RANGES, activeRange, RECESSIONS, SHORT,
   mi, fromMi, monthLabel, isLevel, fmtValue,
 } from './laborData.js'
 
 const props = defineProps({
-  series: { type: String, required: true },   // comma-separated ids, max 6
+  series: { type: String, default: '' },      // comma-separated ids, max 6
+  // Derived lines, drawn before `series`:
+  //   sum="A,B,C"   one line adding the series together
+  //   share="A/B"   A as a percent of B
+  sum:        { type: String, default: '' },
+  sumLabel:   { type: String, default: 'Total' },
+  share:      { type: String, default: '' },
+  shareLabel: { type: String, default: 'Share' },
   title:  { type: String, default: '' },
   note:   { type: String, default: '' },
   zero:   { type: Boolean, default: false },  // force the y axis to start at 0
@@ -29,7 +36,15 @@ const hover = ref(null)       // absolute month index under the cursor
 
 onMounted(async () => {
   try {
-    const loaded = await Promise.all(ids.value.map(loadLabor))
+    const jobs = []
+    if (props.sum) {
+      jobs.push(loadSum(props.sum.split(',').map(x => x.trim()), props.sumLabel))
+    }
+    if (props.share) {
+      const [num, den] = props.share.split('/').map(x => x.trim())
+      jobs.push(loadShare(num, den, props.shareLabel))
+    }
+    const loaded = (await Promise.all([...jobs, ...ids.value.map(loadLabor)])).slice(0, 6)
     sets.value = loaded.map((d, k) => ({
       ...d,
       slot: k + 1,                       // color follows the series, not its rank
@@ -61,8 +76,10 @@ function toggle(id) {
 
 // --- geometry -------------------------------------------------------------
 const W = 900, H = 340
-const PAD = { l: 50, r: 16, t: 14, b: 26 }
-const plotW = W - PAD.l - PAD.r
+const PAD = { l: 50, r: 16, t: 26, b: 26 }   // top padding holds the recession names
+// A single-series chart keeps room on the right for its "Now" label.
+const padR = computed(() => sets.value.length === 1 ? 70 : PAD.r)
+const plotW = computed(() => W - PAD.l - padR.value)
 const plotH = H - PAD.t - PAD.b
 
 // x window: from the earliest shown series (or the range cutoff) to the latest month
@@ -73,7 +90,7 @@ const xDom = computed(() => {
   const span = RANGES.find(r => r.key === activeRange.value)?.months ?? Infinity
   return { lo: Math.max(first, span === Infinity ? first : hi - span), hi }
 })
-const sx = m => PAD.l + ((m - xDom.value.lo) / Math.max(xDom.value.hi - xDom.value.lo, 1)) * plotW
+const sx = m => PAD.l + ((m - xDom.value.lo) / Math.max(xDom.value.hi - xDom.value.lo, 1)) * plotW.value
 
 // A range is only offered if at least one series is longer than it.
 const ranges = computed(() => {
@@ -110,7 +127,11 @@ const sy = v => PAD.t + ((yDom.value.hi - v) / (yDom.value.hi - yDom.value.lo ||
 const yTicks = computed(() => {
   const { lo, hi, step } = yDom.value, out = []
   for (let v = lo; v <= hi + step / 1e6; v += step) out.push(+v.toFixed(6))
-  return out.map(v => ({ v, y: sy(v), label: level.value ? `${+(v / 1000).toFixed(1)}M` : `${v}%` }))
+  const small = hi < 2000     // under 2 million: label in thousands
+  return out.map(v => ({
+    v, y: sy(v),
+    label: !level.value ? `${v}%` : small ? `${v}K` : `${+(v / 1000).toFixed(1)}M`,
+  }))
 })
 
 const xTicks = computed(() => {
@@ -126,13 +147,31 @@ const xTicks = computed(() => {
 
 const bands = computed(() => {
   const { lo, hi } = xDom.value
-  return RECESSIONS.map(([a, b]) => [mi(a), mi(b) + 1])
-    .filter(([a, b]) => b > lo && a < hi)
-    .map(([a, b]) => {
-      const x1 = sx(Math.max(a, lo)), x2 = sx(Math.min(b, hi))
-      return { x: x1, w: Math.max(x2 - x1, 1) }
+  const out = RECESSIONS.map(([a, b, name]) => ({ a: mi(a), b: mi(b) + 1, name }))
+    .filter(r => r.b > lo && r.a < hi)
+    .map(r => {
+      const x1 = sx(Math.max(r.a, lo)), x2 = sx(Math.min(r.b, hi))
+      return { x: x1, w: Math.max(x2 - x1, 1), cx: (x1 + x2) / 2,
+               name: r.name, half: r.name.length * 2.6 + 3, months: r.b - r.a, label: '' }
     })
+  // Name the bands, longest recessions first, skipping any that would collide.
+  const placed = []
+  for (const r of [...out].filter(r => r.name).sort((p, q) => q.months - p.months)) {
+    const clear = placed.every(q => Math.abs(q.cx - r.cx) > q.half + r.half + 4)
+    if (clear && r.cx - r.half > PAD.l && r.cx + r.half < W - padR.value) {
+      r.label = r.name
+      placed.push(r)
+    }
+  }
+  return out
 })
+
+// A horizontal line at each series' latest value, so earlier periods that
+// sat at the same level are easy to spot.
+const nowLines = computed(() => shown.value.map(s => {
+  const v = s.current[s.current.length - 1]
+  return { id: s.id, slot: s.slot, y: sy(v), label: fmtValue(v, level.value) }
+}))
 
 // Each line is split into solid (final) and dashed (provisional) runs. The
 // boundary point belongs to both runs, otherwise the line breaks.
@@ -173,7 +212,7 @@ function onMove(e) {
   const cx = (e.touches ? e.touches[0].clientX : e.clientX) - box.left
   const x = (cx / box.width) * W
   const { lo, hi } = xDom.value
-  const m = Math.round(lo + ((x - PAD.l) / plotW) * (hi - lo))
+  const m = Math.round(lo + ((x - PAD.l) / plotW.value) * (hi - lo))
   hover.value = Math.min(Math.max(m, lo), hi)
 }
 
@@ -189,8 +228,10 @@ const tip = computed(() => {
       open: v != null && s.status[i] !== 2,
     }
   }).filter(r => r.v != null).sort((a, b) => b.v - a.v)
+  const rec = RECESSIONS.find(([a, b]) => m >= mi(a) && m <= mi(b))
   return { x: sx(m), left: (sx(m) / W) * 100, period: monthLabel(fromMi(m)), rows,
-           anyOpen: rows.some(r => r.open) }
+           anyOpen: rows.some(r => r.open),
+           recession: rec ? (rec[2] ? `Recession: ${rec[2]}` : 'Recession') : '' }
 })
 
 const legend = computed(() => sets.value.map(s => ({
@@ -248,15 +289,24 @@ const dashNote = computed(() => {
         <svg :viewBox="`0 0 ${W} ${H}`" role="img" :aria-label="title || sets[0].title"
              @mousemove="onMove" @mouseleave="hover = null"
              @touchstart.passive="onMove" @touchmove.passive="onMove">
-          <rect v-for="(b, i) in bands" :key="'b' + i" :x="b.x" :y="PAD.t" :width="b.w"
-                :height="plotH" class="lc-band" />
+          <template v-for="(b, i) in bands" :key="'b' + i">
+            <rect :x="b.x" :y="PAD.t" :width="b.w" :height="plotH" class="lc-band" />
+            <text v-if="b.label" :x="b.cx" :y="PAD.t - 8" text-anchor="middle"
+                  class="lc-band-l">{{ b.label }}</text>
+          </template>
 
           <template v-for="t in yTicks" :key="'y' + t.v">
-            <line :x1="PAD.l" :x2="W - PAD.r" :y1="t.y" :y2="t.y" class="lc-grid" />
+            <line :x1="PAD.l" :x2="W - padR" :y1="t.y" :y2="t.y" class="lc-grid" />
             <text :x="PAD.l - 8" :y="t.y + 4" text-anchor="end" class="lc-ax">{{ t.label }}</text>
           </template>
           <text v-for="t in xTicks" :key="'x' + t.label" :x="t.x" :y="H - 8"
                 text-anchor="middle" class="lc-ax">{{ t.label }}</text>
+
+          <g v-for="n in nowLines" :key="'n' + n.id" :class="`lc-now s${n.slot}`">
+            <line :x1="PAD.l" :x2="W - padR" :y1="n.y" :y2="n.y" />
+          </g>
+          <text v-if="sets.length === 1 && nowLines.length === 1" :x="W - padR + 6"
+                :y="nowLines[0].y + 4" class="lc-now-l">Now {{ nowLines[0].label }}</text>
 
           <g v-for="l in lines" :key="l.id" :class="`lc-line s${l.slot}`">
             <path v-for="(r, i) in l.runs" :key="i" :d="r.d"
@@ -273,6 +323,7 @@ const dashNote = computed(() => {
         <div v-if="tip && tip.rows.length" class="lc-tip"
              :style="{ left: `clamp(0px, calc(${tip.left}% + ${tip.left > 60 ? -236 : 16}px), calc(100% - 220px))` }">
           <div class="lc-tip-h">{{ tip.period }}</div>
+          <div v-if="tip.recession" class="lc-tip-n lc-tip-rec">{{ tip.recession }}</div>
           <div v-for="r in tip.rows" :key="r.id" class="lc-tip-r">
             <i :class="`s${r.slot}`"></i><span>{{ r.name }}</span>
             <b>{{ fmtValue(r.v, level) }}{{ r.open ? '*' : '' }}</b>
@@ -282,7 +333,7 @@ const dashNote = computed(() => {
       </div>
 
       <p class="lc-key">
-        <span class="lc-swatch"></span>Recession (NBER)
+        <span class="lc-swatch"></span>Recession (NBER) · <b>Dotted</b> = where it stands now
         <template v-if="hasOpen"> · <b>Dashed</b> = {{ dashNote }}</template>
         <template v-if="note"> · {{ note }}</template>
       </p>
@@ -320,13 +371,20 @@ const dashNote = computed(() => {
 .lc-wrap { position: relative; }
 svg { width: 100%; height: auto; display: block; touch-action: pan-y;
       border: 1px solid var(--vp-c-divider); border-radius: 6px; background: var(--vp-c-bg); }
-.lc-band   { fill: var(--vp-c-text-1); opacity: .07; }
+.lc-band   { fill: var(--vp-c-text-1); opacity: .1; }
+.lc-band-l { font-size: 10px; fill: var(--vp-c-text-3); }
+.lc-now line { stroke-width: 1; stroke-dasharray: 1 4; stroke-linecap: round; opacity: .9; }
+.lc-now-l  { font-size: 11px; font-weight: 600; fill: var(--vp-c-text-1);
+             font-variant-numeric: tabular-nums; }
+.lc-tip-rec { margin: 0 0 2px; }
 .lc-grid   { stroke: var(--vp-c-divider); stroke-width: 1; }
 .lc-ax     { font-size: 11px; fill: var(--vp-c-text-3); font-variant-numeric: tabular-nums; }
 .lc-cursor { stroke: var(--vp-c-text-3); stroke-width: 1; }
 .lc-line path { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
 .lc-dot { stroke: var(--vp-c-bg); stroke-width: 2; }
 
+.lc-now.s1 line { stroke: var(--s1); } .lc-now.s2 line { stroke: var(--s2); } .lc-now.s3 line { stroke: var(--s3); }
+.lc-now.s4 line { stroke: var(--s4); } .lc-now.s5 line { stroke: var(--s5); } .lc-now.s6 line { stroke: var(--s6); }
 .lc-line.s1 path { stroke: var(--s1); } .lc-dot.s1 { fill: var(--s1); } i.s1 { background: var(--s1); }
 .lc-line.s2 path { stroke: var(--s2); } .lc-dot.s2 { fill: var(--s2); } i.s2 { background: var(--s2); }
 .lc-line.s3 path { stroke: var(--s3); } .lc-dot.s3 { fill: var(--s3); } i.s3 { background: var(--s3); }
@@ -346,7 +404,7 @@ svg { width: 100%; height: auto; display: block; touch-action: pan-y;
 
 .lc-key { font-size: 12px; color: var(--vp-c-text-3); margin: 8px 0 0; line-height: 1.5; }
 .lc-swatch { display: inline-block; width: 12px; height: 10px; margin-right: 5px;
-             background: var(--vp-c-text-1); opacity: .14; vertical-align: -1px; }
+             background: var(--vp-c-text-1); opacity: .18; vertical-align: -1px; }
 .lc-msg { font-size: 13px; color: var(--vp-c-text-3); }
 .lc-err { color: var(--vp-c-danger-1); }
 </style>

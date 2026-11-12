@@ -175,6 +175,32 @@ It produces the insured unemployment rate, which runs well below U-3 because it 
 
 ---
 
+## The Payroll Sectors
+
+The payroll survey sorts every job by what the employer does, not by what the worker does. An accountant at a hospital counts under health care. A software engineer at a bank counts under financial activities. BLS groups employers into the sectors below [[17]](#source-17).
+
+Anything publicly owned counts as government, no matter what it does. A public school teacher is local government. A nurse at a state hospital is state government [[18]](#source-18).
+
+| Sector | What kinds of employers |
+|---|---|
+| Mining and logging | Oil and gas drilling, coal and metal mines, quarries, logging crews |
+| Construction | Home builders, road and bridge contractors, electricians, plumbers, and other building trades |
+| Manufacturing | Factories of every kind: cars, food, chemicals, machinery, computer chips |
+| Trade, transportation, and utilities | Stores, wholesalers, trucking, airlines, railroads, warehouses, delivery services, private power and gas companies |
+| Information | Software publishers, phone and internet providers, film and TV, newspapers and book publishers, data centers, web search |
+| Financial activities | Banks, insurance companies, investment firms, real estate offices, rental and leasing companies |
+| Professional and business services | Law, accounting, engineering, and consulting firms, IT services, corporate head offices, temp agencies, janitorial and security contractors |
+| Private education and health | Hospitals, doctors' offices, nursing homes, home health, child care, social services, private schools and colleges |
+| Leisure and hospitality | Restaurants, bars, hotels, casinos, theme parks, gyms, sports teams, theaters |
+| Other services | Auto repair, salons, dry cleaners, churches, nonprofits, trade associations |
+| Federal government | Civilian federal agencies and the Postal Service. The military is not counted |
+| State government | State agencies, state universities, state hospitals and prisons |
+| Local government | Public K-12 schools, cities, counties, police and fire, special districts, public transit and utilities |
+
+**Tech is not a sector.** Tech companies are split across Information and Professional and business services. The tech proxy on the [dashboard](/Unemployment/#tech-jobs-proxy) adds four industries from those two sectors: computer systems design, software publishers, cloud and data processing, and web search. It counts every job at those employers and misses tech workers everywhere else.
+
+---
+
 ## Category Definitions
 
 **Unemployed.** No job during the reference week, available for work, and actively searched in the prior four weeks. Passive methods such as reading job ads do not count. People on temporary layoff awaiting recall are counted as unemployed with no search requirement [[11]](#source-11).
@@ -401,6 +427,10 @@ And if you put series from more than one program on the same chart, mark which r
 <a id="source-15">**15.**</a> [U.S. Bureau of Labor Statistics — API Signature v2](https://www.bls.gov/developers/api_signature_v2.htm) — POST signature, request parameters, and the year/period response envelope
 
 <a id="source-16">**16.**</a> [FRED — Total Unemployed Plus Discouraged Workers (U-4)](https://fred.stlouisfed.org/series/U4RATE) — BLS source codes for the alternative measures, cross-referenced against the FRED aliases
+
+<a id="source-17">**17.**</a> [U.S. Bureau of Labor Statistics — Industries at a Glance, by Supersector and NAICS Code](https://www.bls.gov/iag/tgs/iag_index_naics.htm) — Which industries fall under each payroll sector
+
+<a id="source-18">**18.**</a> [U.S. Bureau of Labor Statistics — NAICS Supersectors for the CES Program](https://www.bls.gov/sae/additional-resources/naics-supersectors-for-ces-program.htm) — Supersector groupings; all publicly owned establishments are classified in government
 
 ---
 
