@@ -5,13 +5,7 @@ order: 4
 
 # Cost of Living and Wages
 
-The jobs numbers say who is working. These say what a paycheck buys. Prices and pay are drawn as percent changes, because the raw numbers only ever go up. Housing is in dollars. Hover a chart for exact numbers.
-
-## Pay vs. prices since 2020
-
-Both lines start at zero in January 2020, just before the pandemic. The gap between them is how much more, or less, the average paycheck buys than it did then. Look at 2021 and 2022: prices caught up to pay and passed it, and it took years for pay to pull ahead again.
-
-<LaborChart series="CES0500000003,CPIAUCSL" transform="since:2020-01" title="Hourly pay and consumer prices" />
+The jobs numbers say who is working. These say what a paycheck buys. Housing and pay are in dollars. Hover a chart for exact numbers.
 
 ## Home prices vs. income
 
@@ -33,6 +27,12 @@ The same payment as a share of one typical full-time worker's monthly pay, befor
 
 <LaborChart burden="MSPUS@MORTGAGE30US/LES1252881500Q" burden-label="Payment as a share of monthly pay" title="Mortgage payment as a share of a full-time worker's pay" zero />
 
+## Pay vs. prices since 2020
+
+What one typical full-time worker earns in a year, next to what that worker would need to earn to buy what their pay bought in January 2020. When the actual line is on top, pay has beaten prices. When the needed line is on top, the paycheck buys less than it did.
+
+<LaborChart keepup="LES1252881500Q*52/CPIAUCSL@2020-01" title="Full-time worker pay vs. the pay needed to keep up with prices" />
+
 ## What a paycheck buys
 
 Hourly pay divided by prices, compared with a year earlier. Above zero, pay is beating inflation. Below zero, people with jobs are falling behind. This is the line that best matches how things feel: watch for stretches below zero.
@@ -41,7 +41,7 @@ Hourly pay divided by prices, compared with a year earlier. Above zero, pay is b
 
 ## Rent, groceries, and gas vs. pay
 
-The costs people notice most, each measured from January 2020 against hourly pay. Anything above the pay line has become harder to afford. Gasoline swings far more than the others, which is why it shapes the mood so much.
+The costs people notice most. The government publishes these as price indexes, not dollar amounts, so they are shown as the total rise since January 2020 next to the rise in hourly pay. A line at +30% means that item costs 30 percent more than it did then. Anything above the pay line has become harder to afford. Gasoline swings far more than the others, which is why it shapes the mood so much.
 
 <LaborChart series="CES0500000003,CUSR0000SEHA,CUSR0000SAF11,CUSR0000SETB01" transform="since:2020-01" title="Hourly pay vs. rent, groceries, and gasoline" />
 

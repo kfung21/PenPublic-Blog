@@ -74,7 +74,7 @@ export function fmtUnit(v, unit) {
   if (unit === 'dollars') {
     const a = Math.abs(v)
     if (a >= 1e6) return `$${(v / 1e6).toFixed(2)}M`
-    if (a >= 10000) return `$${Math.round(v / 1000)}K`
+    if (a >= 100000) return `$${Math.round(v / 1000)}K`
     if (a >= 100) return `$${Math.round(v).toLocaleString('en-US')}`
     return `$${v.toFixed(2)}`
   }
@@ -190,6 +190,29 @@ export async function loadBurden(priceId, rateId, weeklyPayId, title) {
   return { ...pay, id: `BURDEN:${pay.id}/${weeklyPayId}`, unit: 'percent', months: keep.length,
            periods: keep.map(i => pay.periods[i]), current: vals, initial: vals,
            status: keep.map(i => pay.status[i]) }
+}
+
+// Pay in dollars next to what pay would need to be to buy what it bought in
+// the base month. Returns two series: actual pay, and base-month pay grown
+// by prices. `scale` turns weekly pay into yearly (52).
+export async function loadKeepUp(payId, cpiId, base, scale = 1) {
+  const [pay, cpi] = await Promise.all([loadLabor(payId), loadLabor(cpiId)])
+  const price = carried(cpi, 2)
+  const b = pay.periods.findIndex(p => p >= base && price(mi(p)) != null)
+  if (b < 0) throw new Error(`no ${payId} data from ${base}`)
+  const cpi0 = price(mi(pay.periods[b])), pay0 = pay.current[b] * scale
+  const keep = pay.periods.map((p, i) => i).filter(i => i >= b && price(mi(pay.periods[i])) != null)
+  const shell = (id, title, vals) => ({
+    id, title, unit: 'dollars', source: pay.source, model: pay.model, months: keep.length,
+    periods: keep.map(i => pay.periods[i]), current: vals, initial: vals,
+    status: keep.map(i => pay.status[i]),
+  })
+  const round = v => scale > 1 ? Math.round(v) : +v.toFixed(2)
+  return [
+    shell(`ACTUAL:${payId}`, 'Actual pay', keep.map(i => round(pay.current[i] * scale))),
+    shell(`NEEDED:${payId}`, 'Pay needed to keep up with prices',
+      keep.map(i => round(pay0 * price(mi(pay.periods[i])) / cpi0))),
+  ]
 }
 
 // --- transforms ------------------------------------------------------------

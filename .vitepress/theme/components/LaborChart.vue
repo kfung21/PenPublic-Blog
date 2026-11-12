@@ -10,7 +10,7 @@
 
 import { ref, computed, onMounted } from 'vue'
 import {
-  loadLabor, loadSum, loadShare, loadRatio, loadPayment, loadScaled, loadYearsOfIncome, loadBurden, yearOverYear, changeSince, RANGES, activeRange, RECESSIONS, SHORT,
+  loadLabor, loadSum, loadShare, loadRatio, loadPayment, loadScaled, loadYearsOfIncome, loadBurden, loadKeepUp, yearOverYear, changeSince, RANGES, activeRange, RECESSIONS, SHORT,
   mi, fromMi, monthLabel, unitOf, fmtUnit,
 } from './laborData.js'
 
@@ -39,6 +39,9 @@ const props = defineProps({
   //   annual="WEEKLYPAY"  weekly pay x 52, in dollars per year
   annual:       { type: String, default: '' },
   annualLabel:  { type: String, default: 'Pay per year' },
+  //   keepup="PAY*52/CPI@2020-01"  actual pay vs. the pay needed to buy
+  //   what it bought in that month, both in dollars
+  keepup:       { type: String, default: '' },
   // Applied to every line in the chart:
   //   transform="yoy"            percent change from a year earlier
   //   transform="since:2020-01"  percent change since that month
@@ -86,7 +89,14 @@ onMounted(async () => {
       })
     }
     if (props.annual) jobs.push(loadScaled(props.annual, 52, props.annualLabel))
-    let loaded = (await Promise.all([...jobs, ...ids.value.map(loadLabor)])).slice(0, 6)
+    let pairs = []
+    if (props.keepup) {
+      const [lhs, base] = props.keepup.split('@').map(x => x.trim())
+      const [payRaw, cpi] = lhs.split('/').map(x => x.trim())
+      const [pay, mult] = payRaw.split('*')
+      pairs = await loadKeepUp(pay, cpi, base, mult ? +mult : 1)
+    }
+    let loaded = (await Promise.all([...pairs, ...jobs, ...ids.value.map(loadLabor)])).slice(0, 6)
     const names = loaded.map(d => SHORT[d.id] || d.title)
     if (props.transform === 'yoy') loaded = loaded.map(yearOverYear)
     else if (props.transform.startsWith('since:')) {
