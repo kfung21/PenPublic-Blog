@@ -5,6 +5,9 @@ import BlogList from './components/BlogList.vue'
 import PensionRankings from './components/PensionRankings.vue'
 import NavGroupLink from './components/NavGroupLink.vue'
 import RegionMap from './components/RegionMap.vue'
+import LaborChart from './components/LaborChart.vue'
+import LaborLatest from './components/LaborLatest.vue'
+import RevisionChart from './components/RevisionChart.vue'
 import './style.css'
 
 export default {
@@ -23,5 +26,8 @@ export default {
     app.component('PensionRankings', PensionRankings)
     app.component('NavGroupLink', NavGroupLink)
     app.component('RegionMap', RegionMap)
+    app.component('LaborChart', LaborChart)
+    app.component('LaborLatest', LaborLatest)
+    app.component('RevisionChart', RevisionChart)
   }
 }
