@@ -8,6 +8,7 @@ import RegionMap from './components/RegionMap.vue'
 import LaborChart from './components/LaborChart.vue'
 import LaborLatest from './components/LaborLatest.vue'
 import LaborSectors from './components/LaborSectors.vue'
+import CostSummary from './components/CostSummary.vue'
 import RevisionChart from './components/RevisionChart.vue'
 import './style.css'
 
@@ -30,6 +31,7 @@ export default {
     app.component('LaborChart', LaborChart)
     app.component('LaborLatest', LaborLatest)
     app.component('LaborSectors', LaborSectors)
+    app.component('CostSummary', CostSummary)
     app.component('RevisionChart', RevisionChart)
   }
 }

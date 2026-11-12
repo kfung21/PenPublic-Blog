@@ -10,7 +10,7 @@
 
 import { ref, computed, onMounted } from 'vue'
 import {
-  loadLabor, loadSum, loadShare, loadRatio, loadPayment, yearOverYear, changeSince, RANGES, activeRange, RECESSIONS, SHORT,
+  loadLabor, loadSum, loadShare, loadRatio, loadPayment, loadScaled, loadYearsOfIncome, loadBurden, yearOverYear, changeSince, RANGES, activeRange, RECESSIONS, SHORT,
   mi, fromMi, monthLabel, unitOf, fmtUnit,
 } from './laborData.js'
 
@@ -29,6 +29,16 @@ const props = defineProps({
   //   payment="PRICE@RATE"  monthly mortgage payment on a home at that price
   payment:      { type: String, default: '' },
   paymentLabel: { type: String, default: 'Monthly payment' },
+  //   burden="PRICE@RATE/WEEKLYPAY"  that payment as a percent of monthly pay
+  burden:       { type: String, default: '' },
+  burdenLabel:  { type: String, default: 'Share of pay' },
+  //   years="PRICE/INCOME"  years of income the home costs. Add a second
+  //   pair after a comma for a second line. Append *52 for weekly pay.
+  years:        { type: String, default: '' },
+  yearsLabels:  { type: String, default: '' },
+  //   annual="WEEKLYPAY"  weekly pay x 52, in dollars per year
+  annual:       { type: String, default: '' },
+  annualLabel:  { type: String, default: 'Pay per year' },
   // Applied to every line in the chart:
   //   transform="yoy"            percent change from a year earlier
   //   transform="since:2020-01"  percent change since that month
@@ -62,6 +72,20 @@ onMounted(async () => {
       const [price, rate] = props.payment.split('@').map(x => x.trim())
       jobs.push(loadPayment(price, rate, props.paymentLabel))
     }
+    if (props.burden) {
+      const [pr, weekly] = props.burden.split('/').map(x => x.trim())
+      const [price, rate] = pr.split('@').map(x => x.trim())
+      jobs.push(loadBurden(price, rate, weekly, props.burdenLabel))
+    }
+    if (props.years) {
+      const labels = props.yearsLabels.split('|')
+      props.years.split(',').forEach((pair, k) => {
+        const [price, incRaw] = pair.split('/').map(x => x.trim())
+        const [inc, mult] = incRaw.split('*')
+        jobs.push(loadYearsOfIncome(price, inc, labels[k] || 'Years of income', mult ? +mult : 1))
+      })
+    }
+    if (props.annual) jobs.push(loadScaled(props.annual, 52, props.annualLabel))
     let loaded = (await Promise.all([...jobs, ...ids.value.map(loadLabor)])).slice(0, 6)
     const names = loaded.map(d => SHORT[d.id] || d.title)
     if (props.transform === 'yoy') loaded = loaded.map(yearOverYear)
@@ -163,7 +187,7 @@ const yTicks = computed(() => {
   return out.map(v => ({
     v, y: sy(v),
     label: unit.value === 'dollars' ? (hi >= 10000 ? `$${+(v / 1000).toFixed(0)}K` : `$${v.toLocaleString('en-US')}`)
-      : unit.value === 'index' ? `${v}`
+      : unit.value === 'index' || unit.value === 'years' ? `${v}`
       : !level.value ? `${v}%` : small ? `${v}K` : `${+(v / 1000).toFixed(1)}M`,
   }))
 })
@@ -297,7 +321,7 @@ const subtitle = computed(() => {
   if (props.transform.startsWith('since:')) {
     return `Percent change since ${monthLabel(props.transform.slice(6))}`
   }
-  return { thousands: 'Persons', dollars: 'Dollars', index: 'Index' }[unit.value] || 'Percent'
+  return { thousands: 'Persons', dollars: 'Dollars', index: 'Index', years: 'Years of income' }[unit.value] || 'Percent'
 })
 const zeroY = computed(() => yDom.value.lo < 0 && yDom.value.hi > 0 ? sy(0) : null)
 const hasOpen = computed(() => shown.value.some(s => s.status.some(x => x !== 2)))
@@ -331,7 +355,7 @@ const dashNote = computed(() => {
       <div class="lc-head">
         <div>
           <div class="lc-title">{{ title || sets[0].title }}</div>
-          <div class="lc-sub">{{ subtitle }} · {{ sets[0].step === 3 ? 'quarterly' : 'monthly' }} · {{ through }}</div>
+          <div class="lc-sub">{{ subtitle }} · {{ sets[0].step >= 12 ? 'annual' : sets[0].step === 3 ? 'quarterly' : 'monthly' }} · {{ through }}</div>
         </div>
         <div class="lc-ranges" role="group" aria-label="Time range">
           <button v-for="r in ranges" :key="r.key" type="button"

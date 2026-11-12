@@ -79,6 +79,7 @@ export function fmtUnit(v, unit) {
     return `$${v.toFixed(2)}`
   }
   if (unit === 'index') return v.toFixed(1)
+  if (unit === 'years') return `${v.toFixed(1)} yrs`
   return fmtValue(v, unit === 'thousands')
 }
 
@@ -122,23 +123,73 @@ export async function loadRatio(num, den, title) {
 // `rateId`'s rate for that month. Taxes and insurance are not included.
 export async function loadPayment(priceId, rateId, title, down = 0.2) {
   const [price, rate] = await Promise.all([loadLabor(priceId), loadLabor(rateId)])
-  const rateAt = new Map(rate.periods.map((p, i) => [mi(p), rate.current[i]]))
-  const keep = [], vals = []
-  price.periods.forEach((p, i) => {
-    const m = mi(p)
-    const r = rateAt.get(m) ?? rateAt.get(m - 1) ?? rateAt.get(m - 2)
-    if (r == null || price.current[i] == null) return
-    const monthly = r / 1200, loan = price.current[i] * (1 - down)
-    keep.push(i)
+  // One point per month of the rate series, so the latest point reflects the
+  // latest rate. Prices come out quarterly: each month uses the most recent
+  // price, as long as it is no more than five months old.
+  const priceAt = new Map(price.periods.map((p, i) => [mi(p), i]))
+  const periods = [], vals = [], status = []
+  rate.periods.forEach((p, i) => {
+    const m = mi(p), r = rate.current[i]
+    let k
+    for (let back = 0; back <= 5 && k === undefined; back++) k = priceAt.get(m - back)
+    if (k === undefined || r == null || price.current[k] == null) return
+    const monthly = r / 1200, loan = price.current[k] * (1 - down)
+    periods.push(p)
     vals.push(Math.round(loan * monthly / (1 - Math.pow(1 + monthly, -360))))
+    status.push(Math.min(price.status[k], rate.status[i]))
   })
   return {
     id: `PAYMENT:${priceId}@${rateId}`, title, unit: 'dollars',
-    source: price.source, model: price.model, months: keep.length,
-    periods: keep.map(i => price.periods[i]),
-    current: vals, initial: vals,
-    status: keep.map(i => price.status[i]),
+    source: price.source, model: price.model, months: periods.length,
+    periods, current: vals, initial: vals, status,
   }
+}
+
+// A series multiplied by a constant: weekly pay x 52 = pay per year.
+export async function loadScaled(id, factor, title) {
+  const d = await loadLabor(id)
+  const f = v => v == null ? null : Math.round(v * factor)
+  return { ...d, id: `${id}x${factor}`, title, current: d.current.map(f), initial: d.initial.map(f) }
+}
+
+// Latest value of a slower series (quarterly, annual) at or before month m,
+// no older than `maxAge` months.
+function carried(d, maxAge) {
+  const at = new Map(d.periods.map((p, i) => [mi(p), i]))
+  return m => {
+    for (let back = 0; back <= maxAge; back++) {
+      const i = at.get(m - back)
+      if (i !== undefined && d.current[i] != null) return d.current[i]
+    }
+    return null
+  }
+}
+
+// How many years of income a home costs: price / annual income, at each
+// date the price is published. `perYear` turns weekly pay into yearly (52).
+export async function loadYearsOfIncome(priceId, incomeId, title, perYear = 1, maxAge = 23) {
+  const [price, income] = await Promise.all([loadLabor(priceId), loadLabor(incomeId)])
+  const inc = carried(income, maxAge)
+  const keep = price.periods.map((p, i) => i).filter(i => inc(mi(price.periods[i])) != null)
+  const vals = keep.map(i => +(price.current[i] / (inc(mi(price.periods[i])) * perYear)).toFixed(2))
+  return {
+    id: `YEARS:${priceId}/${incomeId}`, title, unit: 'years', source: price.source,
+    model: price.model, months: keep.length, periods: keep.map(i => price.periods[i]),
+    current: vals, initial: vals, status: keep.map(i => price.status[i]),
+  }
+}
+
+// The monthly mortgage payment as a percent of a typical worker's monthly
+// pay (weekly pay x 52 / 12).
+export async function loadBurden(priceId, rateId, weeklyPayId, title) {
+  const [pay, weekly] = await Promise.all([
+    loadPayment(priceId, rateId, title), loadLabor(weeklyPayId)])
+  const wk = carried(weekly, 8)
+  const keep = pay.periods.map((p, i) => i).filter(i => wk(mi(pay.periods[i])) != null)
+  const vals = keep.map(i => +(pay.current[i] / (wk(mi(pay.periods[i])) * 52 / 12) * 100).toFixed(1))
+  return { ...pay, id: `BURDEN:${pay.id}/${weeklyPayId}`, unit: 'percent', months: keep.length,
+           periods: keep.map(i => pay.periods[i]), current: vals, initial: vals,
+           status: keep.map(i => pay.status[i]) }
 }
 
 // --- transforms ------------------------------------------------------------
@@ -214,7 +265,8 @@ export const SHORT = {
   CPIAUCSL: 'Prices (CPI, all items)', CPILFESL: 'Prices without food and energy',
   CUSR0000SAH1: 'Housing (shelter)', CUSR0000SEHA: 'Rent', CUSR0000SAF11: 'Groceries',
   CUSR0000SETB01: 'Gasoline',
-  MSPUS: 'Median new home price', MORTGAGE30US: '30-year mortgage rate',
+  MSPUS: 'Median new home price',
+  MEHOINUSA646N: 'Household income', LES1252881500Q: 'Full-time worker pay', MORTGAGE30US: '30-year mortgage rate',
   CES0500000003: 'Hourly pay', AHETPI: 'Hourly pay, non-managers',
   JTSHIR: 'Hires', JTSLDR: 'Layoffs and firings', JTSQUR: 'Quits', JTSJOR: 'Job openings',
   CES6054150001: 'Computer systems design and IT services',

@@ -91,6 +91,19 @@ The top panel is the unemployment rate as it stands today. The bars underneath s
 
 Monthly national series from the Bureau of Labor Statistics, pulled through [ALFRED](https://alfred.stlouisfed.org/), the St. Louis Fed's archive of every published version of each number. Recession dates are from the [NBER](https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions).
 
+## Data sources
+
+Each link opens the exact series on FRED.
+
+| On this page | BLS program | Series |
+|---|---|---|
+| Unemployment rate, U-1 to U-6 | [Current Population Survey](https://www.bls.gov/cps/) | [UNRATE](https://fred.stlouisfed.org/series/UNRATE), [UNRATENSA](https://fred.stlouisfed.org/series/UNRATENSA), [U1RATE](https://fred.stlouisfed.org/series/U1RATE), [U2RATE](https://fred.stlouisfed.org/series/U2RATE), [U4RATE](https://fred.stlouisfed.org/series/U4RATE), [U5RATE](https://fred.stlouisfed.org/series/U5RATE), [U6RATE](https://fred.stlouisfed.org/series/U6RATE) |
+| Participation, employment, headcounts | Current Population Survey | [CIVPART](https://fred.stlouisfed.org/series/CIVPART), [EMRATIO](https://fred.stlouisfed.org/series/EMRATIO), [CLF16OV](https://fred.stlouisfed.org/series/CLF16OV), [CE16OV](https://fred.stlouisfed.org/series/CE16OV), [UNEMPLOY](https://fred.stlouisfed.org/series/UNEMPLOY), [LNS15000000](https://fred.stlouisfed.org/series/LNS15000000), [NILFWJN](https://fred.stlouisfed.org/series/NILFWJN) |
+| Payroll jobs, total and by sector | [Current Employment Statistics](https://www.bls.gov/ces/) | [PAYEMS](https://fred.stlouisfed.org/series/PAYEMS), [USPRIV](https://fred.stlouisfed.org/series/USPRIV), [USGOVT](https://fred.stlouisfed.org/series/USGOVT), [USMINE](https://fred.stlouisfed.org/series/USMINE), [USCONS](https://fred.stlouisfed.org/series/USCONS), [MANEMP](https://fred.stlouisfed.org/series/MANEMP), [USTPU](https://fred.stlouisfed.org/series/USTPU), [USINFO](https://fred.stlouisfed.org/series/USINFO), [USFIRE](https://fred.stlouisfed.org/series/USFIRE), [USPBS](https://fred.stlouisfed.org/series/USPBS), [USEHS](https://fred.stlouisfed.org/series/USEHS), [USLAH](https://fred.stlouisfed.org/series/USLAH), [USSERV](https://fred.stlouisfed.org/series/USSERV) |
+| Federal, state, local | Current Employment Statistics | [CES9091000001](https://fred.stlouisfed.org/series/CES9091000001), [CES9092000001](https://fred.stlouisfed.org/series/CES9092000001), [CES9093000001](https://fred.stlouisfed.org/series/CES9093000001) |
+| Tech proxy | Current Employment Statistics | [CES6054150001](https://fred.stlouisfed.org/series/CES6054150001), [CES5051800001](https://fred.stlouisfed.org/series/CES5051800001), [CES5051900001](https://fred.stlouisfed.org/series/CES5051900001) |
+| Hires, quits, layoffs, openings | [Job Openings and Labor Turnover Survey](https://www.bls.gov/jlt/) | [JTSHIR](https://fred.stlouisfed.org/series/JTSHIR), [JTSQUR](https://fred.stlouisfed.org/series/JTSQUR), [JTSLDR](https://fred.stlouisfed.org/series/JTSLDR), [JTSJOR](https://fred.stlouisfed.org/series/JTSJOR) |
+
 ## What may be preliminary
 
 **Payroll jobs for the latest two months.** These are first estimates. BLS revises each one in the next two monthly reports, then again once a year when it checks the survey against unemployment insurance tax records.
