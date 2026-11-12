@@ -197,7 +197,7 @@ Anything publicly owned counts as government, no matter what it does. A public s
 | State government | State agencies, state universities, state hospitals and prisons |
 | Local government | Public K-12 schools, cities, counties, police and fire, special districts, public transit and utilities |
 
-**Tech is not a sector.** Tech companies are split across Information and Professional and business services. The tech proxy on the [dashboard](/Unemployment/#tech-jobs-proxy) adds four industries from those two sectors: computer systems design, software publishers, cloud and data processing, and web search. It counts every job at those employers and misses tech workers everywhere else.
+**Tech is not a sector.** Tech companies are split across Information and Professional and business services. The tech proxy on the [dashboard](/Unemployment/#tech-jobs-proxy) adds three industries from those two sectors: computer systems design and IT services, cloud and data processing, and web search. It counts every job at those employers and misses tech workers everywhere else.
 
 ---
 

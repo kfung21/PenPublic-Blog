@@ -252,6 +252,9 @@ const hasOpen = computed(() => shown.value.some(s => s.status.some(x => x !== 2)
 const dashNote = computed(() => {
   const open = shown.value.filter(s => s.status.some(x => x !== 2))
   if (!open.length) return ''
+  if (open.some(s => s.source === 'JOLTS')) {
+    return 'can still be revised. The latest month is preliminary.'
+  }
   if (open.some(s => s.source === 'CES')) {
     return 'can still be revised. The latest two months are preliminary first estimates.'
   }

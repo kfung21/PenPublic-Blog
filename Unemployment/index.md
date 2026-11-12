@@ -13,6 +13,14 @@ This is the number in the news every month. It is the official rate, called U-3:
 
 <LaborChart series="UNRATE" title="Unemployment rate (U-3)" />
 
+## Hiring and firing
+
+Why the job market can feel bad while unemployment looks fine. Each line is a share of all jobs in one month. Hires is how many people were hired. Layoffs and firings is how many were let go. Quits is how many left on their own, which people do more when they are confident they can find something else. When hires and quits are low and layoffs are low too, people with jobs keep them and people without jobs struggle to get one.
+
+<LaborChart series="JTSHIR,JTSQUR,JTSLDR" title="Hires, quits, and layoffs as a share of all jobs" note="From the JOLTS survey, which starts in December 2000 and runs a month behind the jobs report" />
+
+<LaborChart series="JTSJOR" title="Job openings as a share of all jobs plus openings" />
+
 ## Jobs gained and lost by sector
 
 Where the payroll change came from, split into private and public. Switch between the last month, three months, and twelve months. Not sure what a sector covers? [See what kinds of jobs are in each one.](/posts/2026-08-30_unemployment-survey-categories#the-payroll-sectors)
@@ -69,9 +77,9 @@ Government jobs as a share of all payroll jobs. When the line rises, the public 
 
 ## Tech jobs (proxy)
 
-BLS has no "tech" category. This adds up the four payroll industries that are mostly software, IT services, cloud, and web companies. It counts every job at those employers, including sales and HR. It misses tech workers at banks, retailers, and everywhere else, and companies like Amazon are counted under retail and warehousing. Read the direction, not the exact level.
+BLS has no "tech" category. This adds up the three payroll industries that are mostly IT services, cloud, and web companies. Software publishers are not included yet. It counts every job at those employers, including sales and HR. It misses tech workers at banks, retailers, and everywhere else, and companies like Amazon are counted under retail and warehousing. Read the direction, not the exact level.
 
-<LaborChart sum="CES6054150001,CES5051320001,CES5051800001,CES5051900001" sum-label="Tech industries (proxy)" series="CES6054150001,CES5051320001,CES5051800001,CES5051900001" title="Tech industry payroll jobs" />
+<LaborChart sum="CES6054150001,CES5051800001,CES5051900001" sum-label="Tech industries (proxy)" series="CES6054150001,CES5051800001,CES5051900001" title="Tech industry payroll jobs" />
 
 ## How much the numbers get revised
 

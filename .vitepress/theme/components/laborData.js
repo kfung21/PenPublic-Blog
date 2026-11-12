@@ -63,7 +63,8 @@ export const monthLabel = p => `${MONTHS[+p.slice(5, 7) - 1]} ${p.slice(0, 4)}`
 
 // Rates are percents. Everything else is a level in thousands of persons.
 const RATES = new Set(['UNRATE', 'UNRATENSA', 'U1RATE', 'U2RATE', 'U4RATE',
-                       'U5RATE', 'U6RATE', 'CIVPART', 'EMRATIO'])
+                       'U5RATE', 'U6RATE', 'CIVPART', 'EMRATIO',
+                       'JTSHIR', 'JTSLDR', 'JTSQUR', 'JTSJOR'])
 export const isLevel = d => d.unit ? d.unit !== 'percent' : !RATES.has(d.id)
 
 // --- derived series --------------------------------------------------------
@@ -96,10 +97,11 @@ export async function loadShare(num, den, title) {
     ([a, b]) => +(a / b * 100).toFixed(2))
 }
 
-// Tech proxy: the four payroll industries that are mostly software, IT
-// services, cloud and web companies. It counts every job at those employers
+// Tech proxy: the three payroll industries that are mostly IT services,
+// cloud and web companies. Software publishers belongs here too, but FRED has
+// no national series under the id we tried (CES5051320001), so it is left out. It counts every job at those employers
 // and misses tech workers employed anywhere else.
-export const TECH = ['CES6054150001', 'CES5051320001', 'CES5051800001', 'CES5051900001']
+export const TECH = ['CES6054150001', 'CES5051800001', 'CES5051900001']
 export const TECH_TITLE = 'Tech industries (proxy)'
 
 export function fmtValue(v, level) {
@@ -133,8 +135,8 @@ export const SHORT = {
   USGOVT: 'Government payroll jobs',
   CES9091000001: 'Federal', CES9092000001: 'State', CES9093000001: 'Local',
   USPRIV: 'Private sector',
+  JTSHIR: 'Hires', JTSLDR: 'Layoffs and firings', JTSQUR: 'Quits', JTSJOR: 'Job openings',
   CES6054150001: 'Computer systems design and IT services',
-  CES5051320001: 'Software publishers',
   CES5051800001: 'Cloud, data processing, web hosting',
   CES5051900001: 'Web search and other information services',
 }
