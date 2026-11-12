@@ -77,8 +77,8 @@ function toggle(id) {
 // --- geometry -------------------------------------------------------------
 const W = 900, H = 340
 const PAD = { l: 50, r: 16, t: 26, b: 26 }   // top padding holds the recession names
-// A single-series chart keeps room on the right for its "Now" label.
-const padR = computed(() => sets.value.length === 1 ? 70 : PAD.r)
+// Room on the right for the "Now" label of every line.
+const padR = computed(() => 82)
 const plotW = computed(() => W - PAD.l - padR.value)
 const plotH = H - PAD.t - PAD.b
 
@@ -168,10 +168,22 @@ const bands = computed(() => {
 
 // A horizontal line at each series' latest value, so earlier periods that
 // sat at the same level are easy to spot.
-const nowLines = computed(() => shown.value.map(s => {
-  const v = s.current[s.current.length - 1]
-  return { id: s.id, slot: s.slot, y: sy(v), label: fmtValue(v, level.value) }
-}))
+const nowLines = computed(() => {
+  const out = shown.value.map(s => {
+    const v = s.current[s.current.length - 1]
+    return { id: s.id, slot: s.slot, y: sy(v), ly: sy(v), label: fmtValue(v, level.value) }
+  })
+  // Labels sit in the right margin at their line's height. Where lines are
+  // close together, spread the labels so they never overlap.
+  const GAP = 13, top = PAD.t + 4, bottom = PAD.t + plotH - 2
+  const byY = [...out].sort((p, q) => p.y - q.y)
+  byY.forEach((r, i) => { r.ly = Math.max(r.y, i ? byY[i - 1].ly + GAP : top) })
+  for (let i = byY.length - 1; i >= 0; i--) {
+    const limit = i === byY.length - 1 ? bottom : byY[i + 1].ly - GAP
+    if (byY[i].ly > limit) byY[i].ly = limit
+  }
+  return out
+})
 
 // Each line is split into solid (final) and dashed (provisional) runs. The
 // boundary point belongs to both runs, otherwise the line breaks.
@@ -308,8 +320,10 @@ const dashNote = computed(() => {
           <g v-for="n in nowLines" :key="'n' + n.id" :class="`lc-now s${n.slot}`">
             <line :x1="PAD.l" :x2="W - padR" :y1="n.y" :y2="n.y" />
           </g>
-          <text v-if="sets.length === 1 && nowLines.length === 1" :x="W - padR + 6"
-                :y="nowLines[0].y + 4" class="lc-now-l">Now {{ nowLines[0].label }}</text>
+          <g v-for="n in nowLines" :key="'nl' + n.id">
+            <circle :cx="W - padR + 8" :cy="n.ly" r="3" :class="`lc-dot-s s${n.slot}`" />
+            <text :x="W - padR + 15" :y="n.ly + 4" class="lc-now-l">Now {{ n.label }}</text>
+          </g>
 
           <g v-for="l in lines" :key="l.id" :class="`lc-line s${l.slot}`">
             <path v-for="(r, i) in l.runs" :key="i" :d="r.d"
@@ -388,6 +402,8 @@ svg { width: 100%; height: auto; display: block; touch-action: pan-y;
 
 .lc-now.s1 line { stroke: var(--s1); } .lc-now.s2 line { stroke: var(--s2); } .lc-now.s3 line { stroke: var(--s3); }
 .lc-now.s4 line { stroke: var(--s4); } .lc-now.s5 line { stroke: var(--s5); } .lc-now.s6 line { stroke: var(--s6); }
+.lc-dot-s.s1 { fill: var(--s1); } .lc-dot-s.s2 { fill: var(--s2); } .lc-dot-s.s3 { fill: var(--s3); }
+.lc-dot-s.s4 { fill: var(--s4); } .lc-dot-s.s5 { fill: var(--s5); } .lc-dot-s.s6 { fill: var(--s6); }
 .lc-line.s1 path { stroke: var(--s1); } .lc-dot.s1 { fill: var(--s1); } i.s1 { background: var(--s1); }
 .lc-line.s2 path { stroke: var(--s2); } .lc-dot.s2 { fill: var(--s2); } i.s2 { background: var(--s2); }
 .lc-line.s3 path { stroke: var(--s3); } .lc-dot.s3 { fill: var(--s3); } i.s3 { background: var(--s3); }
