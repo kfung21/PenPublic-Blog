@@ -289,7 +289,7 @@ export const SHORT = {
   CUSR0000SAH1: 'Housing (shelter)', CUSR0000SEHA: 'Rent', CUSR0000SAF11: 'Groceries',
   CUSR0000SETB01: 'Gasoline',
   MSPUS: 'Median new home price',
-  MEHOINUSA646N: 'Household income', LES1252881500Q: 'Full-time worker pay', MORTGAGE30US: '30-year mortgage rate',
+  MEHOINUSA646N: 'Household income', LES1252881500Q: 'Full-time worker pay', MORTGAGE30US: '30-year mortgage rate', FEDFUNDS: 'Federal funds rate',
   CES0500000003: 'Hourly pay', AHETPI: 'Hourly pay, non-managers',
   JTSHIR: 'Hires', JTSLDR: 'Layoffs and firings', JTSQUR: 'Quits', JTSJOR: 'Job openings',
   CES6054150001: 'Computer systems design and IT services',
