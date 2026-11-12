@@ -10,8 +10,8 @@
 
 import { ref, computed, onMounted } from 'vue'
 import {
-  loadLabor, loadSum, loadShare, loadRatio, yearOverYear, changeSince, RANGES, activeRange, RECESSIONS, SHORT,
-  mi, fromMi, monthLabel, isLevel, fmtValue,
+  loadLabor, loadSum, loadShare, loadRatio, loadPayment, yearOverYear, changeSince, RANGES, activeRange, RECESSIONS, SHORT,
+  mi, fromMi, monthLabel, unitOf, fmtUnit,
 } from './laborData.js'
 
 const props = defineProps({
@@ -26,6 +26,9 @@ const props = defineProps({
   //   real="WAGE/CPI"  pay divided by prices, i.e. what a paycheck buys
   real:       { type: String, default: '' },
   realLabel:  { type: String, default: 'Pay after inflation' },
+  //   payment="PRICE@RATE"  monthly mortgage payment on a home at that price
+  payment:      { type: String, default: '' },
+  paymentLabel: { type: String, default: 'Monthly payment' },
   // Applied to every line in the chart:
   //   transform="yoy"            percent change from a year earlier
   //   transform="since:2020-01"  percent change since that month
@@ -55,6 +58,10 @@ onMounted(async () => {
       const [num, den] = props.real.split('/').map(x => x.trim())
       jobs.push(loadRatio(num, den, props.realLabel))
     }
+    if (props.payment) {
+      const [price, rate] = props.payment.split('@').map(x => x.trim())
+      jobs.push(loadPayment(price, rate, props.paymentLabel))
+    }
     let loaded = (await Promise.all([...jobs, ...ids.value.map(loadLabor)])).slice(0, 6)
     const names = loaded.map(d => SHORT[d.id] || d.title)
     if (props.transform === 'yoy') loaded = loaded.map(yearOverYear)
@@ -74,6 +81,10 @@ onMounted(async () => {
       m0: s.ms[0],
       m1: s.ms[s.ms.length - 1],
       at: new Map(s.ms.map((m, i) => [m, i])),
+      // Months between points: 1 for monthly data, 3 for quarterly.
+      step: s.ms.length > 1
+        ? [...s.ms.slice(1).map((m, i) => m - s.ms[i])].sort((a, b) => a - b)[(s.ms.length - 1) >> 1]
+        : 1,
     }))
   } catch (e) {
     error.value = e.message
@@ -83,8 +94,9 @@ onMounted(async () => {
 // Changes get an explicit sign; plain levels and rates do not.
 const fv = v => props.transform && v != null
   ? `${v > 0 ? '+' : v < 0 ? '\u2212' : ''}${Math.abs(v).toFixed(1)}%`
-  : fmtValue(v, level.value)
-const level = computed(() => sets.value.length > 0 && isLevel(sets.value[0]))
+  : fmtUnit(v, unit.value)
+const unit = computed(() => sets.value.length ? unitOf(sets.value[0]) : 'percent')
+const level = computed(() => unit.value === 'thousands')
 const shown = computed(() => sets.value.filter(s => !hidden.value.has(s.id)))
 
 function toggle(id) {
@@ -150,7 +162,9 @@ const yTicks = computed(() => {
   const small = hi < 2000     // under 2 million: label in thousands
   return out.map(v => ({
     v, y: sy(v),
-    label: !level.value ? `${v}%` : small ? `${v}K` : `${+(v / 1000).toFixed(1)}M`,
+    label: unit.value === 'dollars' ? (hi >= 10000 ? `$${+(v / 1000).toFixed(0)}K` : `$${v.toLocaleString('en-US')}`)
+      : unit.value === 'index' ? `${v}`
+      : !level.value ? `${v}%` : small ? `${v}K` : `${+(v / 1000).toFixed(1)}M`,
   }))
 })
 
@@ -214,7 +228,7 @@ const lines = computed(() => shown.value.map(s => {
     if (s.current[i] == null || s.ms[i] < xDom.value.lo) continue
     const f = s.status[i] === 2
     // A missing month breaks the line instead of being drawn across.
-    if (cur.length && s.ms[i] !== s.ms[cur[cur.length - 1]] + 1) {
+    if (cur.length && s.ms[i] - s.ms[cur[cur.length - 1]] > s.step) {
       runs.push({ final: curFinal, idx: cur })
       cur = [i]
     } else if (curFinal !== null && f !== curFinal) {
@@ -252,7 +266,9 @@ const tip = computed(() => {
   const m = hover.value
   if (m == null) return null
   const rows = shown.value.map(s => {
-    const i = s.at.get(m)
+    // Quarterly data: a hover between two points shows the earlier one.
+    let i
+    for (let k = 0; k < s.step && i === undefined; k++) i = s.at.get(m - k)
     const v = i === undefined ? null : s.current[i]
     return {
       id: s.id, slot: s.slot, name: s.name, v,
@@ -281,7 +297,7 @@ const subtitle = computed(() => {
   if (props.transform.startsWith('since:')) {
     return `Percent change since ${monthLabel(props.transform.slice(6))}`
   }
-  return level.value ? 'Persons' : 'Percent'
+  return { thousands: 'Persons', dollars: 'Dollars', index: 'Index' }[unit.value] || 'Percent'
 })
 const zeroY = computed(() => yDom.value.lo < 0 && yDom.value.hi > 0 ? sy(0) : null)
 const hasOpen = computed(() => shown.value.some(s => s.status.some(x => x !== 2)))
@@ -298,6 +314,9 @@ const dashNote = computed(() => {
   if (open.some(s => s.source === 'CES')) {
     return 'can still be revised. The latest two months are preliminary first estimates.'
   }
+  if (!open.some(s => s.source === 'CPS' || s.source === 'CPI')) {
+    return 'recent figures that can still be revised.'
+  }
   return 'last five years. Not preliminary, but the seasonal adjustment is recalculated '
        + 'each January and can shift a month slightly.'
 })
@@ -312,7 +331,7 @@ const dashNote = computed(() => {
       <div class="lc-head">
         <div>
           <div class="lc-title">{{ title || sets[0].title }}</div>
-          <div class="lc-sub">{{ subtitle }} · monthly · {{ through }}</div>
+          <div class="lc-sub">{{ subtitle }} · {{ sets[0].step === 3 ? 'quarterly' : 'monthly' }} · {{ through }}</div>
         </div>
         <div class="lc-ranges" role="group" aria-label="Time range">
           <button v-for="r in ranges" :key="r.key" type="button"

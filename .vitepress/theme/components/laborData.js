@@ -65,7 +65,22 @@ export const monthLabel = p => `${MONTHS[+p.slice(5, 7) - 1]} ${p.slice(0, 4)}`
 const RATES = new Set(['UNRATE', 'UNRATENSA', 'U1RATE', 'U2RATE', 'U4RATE',
                        'U5RATE', 'U6RATE', 'CIVPART', 'EMRATIO',
                        'JTSHIR', 'JTSLDR', 'JTSQUR', 'JTSJOR'])
-export const isLevel = d => d.unit ? d.unit !== 'percent' : !RATES.has(d.id)
+export const unitOf = d => d.unit || (RATES.has(d.id) ? 'percent' : 'thousands')
+export const isLevel = d => unitOf(d) === 'thousands'
+
+// Format a value by its unit: percent, thousands (of persons), dollars, index.
+export function fmtUnit(v, unit) {
+  if (v == null) return 'n/a'
+  if (unit === 'dollars') {
+    const a = Math.abs(v)
+    if (a >= 1e6) return `$${(v / 1e6).toFixed(2)}M`
+    if (a >= 10000) return `$${Math.round(v / 1000)}K`
+    if (a >= 100) return `$${Math.round(v).toLocaleString('en-US')}`
+    return `$${v.toFixed(2)}`
+  }
+  if (unit === 'index') return v.toFixed(1)
+  return fmtValue(v, unit === 'thousands')
+}
 
 // --- derived series --------------------------------------------------------
 // Built in the browser from the pulled files, matched month by month. Only
@@ -100,6 +115,30 @@ export async function loadShare(num, den, title) {
 export async function loadRatio(num, den, title) {
   const sets = await Promise.all([loadLabor(num), loadLabor(den)])
   return combine(sets, `RATIO:${num}/${den}`, title, 'index', ([a, b]) => a / b)
+}
+
+// Monthly principal-and-interest payment on a home bought at `priceId`'s
+// price with `down` paid up front and the rest borrowed for 30 years at
+// `rateId`'s rate for that month. Taxes and insurance are not included.
+export async function loadPayment(priceId, rateId, title, down = 0.2) {
+  const [price, rate] = await Promise.all([loadLabor(priceId), loadLabor(rateId)])
+  const rateAt = new Map(rate.periods.map((p, i) => [mi(p), rate.current[i]]))
+  const keep = [], vals = []
+  price.periods.forEach((p, i) => {
+    const m = mi(p)
+    const r = rateAt.get(m) ?? rateAt.get(m - 1) ?? rateAt.get(m - 2)
+    if (r == null || price.current[i] == null) return
+    const monthly = r / 1200, loan = price.current[i] * (1 - down)
+    keep.push(i)
+    vals.push(Math.round(loan * monthly / (1 - Math.pow(1 + monthly, -360))))
+  })
+  return {
+    id: `PAYMENT:${priceId}@${rateId}`, title, unit: 'dollars',
+    source: price.source, model: price.model, months: keep.length,
+    periods: keep.map(i => price.periods[i]),
+    current: vals, initial: vals,
+    status: keep.map(i => price.status[i]),
+  }
 }
 
 // --- transforms ------------------------------------------------------------
@@ -175,6 +214,7 @@ export const SHORT = {
   CPIAUCSL: 'Prices (CPI, all items)', CPILFESL: 'Prices without food and energy',
   CUSR0000SAH1: 'Housing (shelter)', CUSR0000SEHA: 'Rent', CUSR0000SAF11: 'Groceries',
   CUSR0000SETB01: 'Gasoline',
+  MSPUS: 'Median new home price', MORTGAGE30US: '30-year mortgage rate',
   CES0500000003: 'Hourly pay', AHETPI: 'Hourly pay, non-managers',
   JTSHIR: 'Hires', JTSLDR: 'Layoffs and firings', JTSQUR: 'Quits', JTSJOR: 'Job openings',
   CES6054150001: 'Computer systems design and IT services',
