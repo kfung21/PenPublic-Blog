@@ -21,6 +21,16 @@ Why the job market can feel bad while unemployment looks fine. Each line is a sh
 
 <LaborChart series="JTSJOR" title="Job openings as a share of all jobs plus openings" />
 
+## Competition for jobs
+
+How many unemployed people there are for every open job. At 1.0 there is one job seeker per opening. Above 1.0, people are competing for too few jobs. In 2009 it passed six.
+
+<LaborChart ratio="UNEMPLOY/JTSJOL" ratio-label="Unemployed people per job opening" title="Unemployed people per job opening" zero note="Openings data starts in December 2000 and runs a month behind" />
+
+The number of working-age people. The government does not publish ages 22 to 60, so this is ages 20 to 54, the closest it offers. More people means more workers competing, but also more customers and more jobs, so read it next to the chart above.
+
+<LaborChart sum="LNU00000036,LNU00000060" sum-label="Ages 20 to 54" series="LNU00000060" title="Working-age population" note="Not seasonally adjusted. Small jumps each January are population estimate updates, not real changes" />
+
 ## Jobs gained and lost by sector
 
 Where the payroll change came from, split into private and public. Switch between the last month, three months, and twelve months. Not sure what a sector covers? [See what kinds of jobs are in each one.](/posts/2026-08-30_unemployment-survey-categories#the-payroll-sectors)
@@ -102,7 +112,8 @@ Each link opens the exact series on FRED.
 | Payroll jobs, total and by sector | [Current Employment Statistics](https://www.bls.gov/ces/) | [PAYEMS](https://fred.stlouisfed.org/series/PAYEMS), [USPRIV](https://fred.stlouisfed.org/series/USPRIV), [USGOVT](https://fred.stlouisfed.org/series/USGOVT), [USMINE](https://fred.stlouisfed.org/series/USMINE), [USCONS](https://fred.stlouisfed.org/series/USCONS), [MANEMP](https://fred.stlouisfed.org/series/MANEMP), [USTPU](https://fred.stlouisfed.org/series/USTPU), [USINFO](https://fred.stlouisfed.org/series/USINFO), [USFIRE](https://fred.stlouisfed.org/series/USFIRE), [USPBS](https://fred.stlouisfed.org/series/USPBS), [USEHS](https://fred.stlouisfed.org/series/USEHS), [USLAH](https://fred.stlouisfed.org/series/USLAH), [USSERV](https://fred.stlouisfed.org/series/USSERV) |
 | Federal, state, local | Current Employment Statistics | [CES9091000001](https://fred.stlouisfed.org/series/CES9091000001), [CES9092000001](https://fred.stlouisfed.org/series/CES9092000001), [CES9093000001](https://fred.stlouisfed.org/series/CES9093000001) |
 | Tech proxy | Current Employment Statistics | [CES6054150001](https://fred.stlouisfed.org/series/CES6054150001), [CES5051800001](https://fred.stlouisfed.org/series/CES5051800001), [CES5051900001](https://fred.stlouisfed.org/series/CES5051900001) |
-| Hires, quits, layoffs, openings | [Job Openings and Labor Turnover Survey](https://www.bls.gov/jlt/) | [JTSHIR](https://fred.stlouisfed.org/series/JTSHIR), [JTSQUR](https://fred.stlouisfed.org/series/JTSQUR), [JTSLDR](https://fred.stlouisfed.org/series/JTSLDR), [JTSJOR](https://fred.stlouisfed.org/series/JTSJOR) |
+| Working-age population | Current Population Survey | [LNU00000036](https://fred.stlouisfed.org/series/LNU00000036), [LNU00000060](https://fred.stlouisfed.org/series/LNU00000060) |
+| Hires, quits, layoffs, openings | [Job Openings and Labor Turnover Survey](https://www.bls.gov/jlt/) | [JTSJOL](https://fred.stlouisfed.org/series/JTSJOL), [JTSHIR](https://fred.stlouisfed.org/series/JTSHIR), [JTSQUR](https://fred.stlouisfed.org/series/JTSQUR), [JTSLDR](https://fred.stlouisfed.org/series/JTSLDR), [JTSJOR](https://fred.stlouisfed.org/series/JTSJOR) |
 
 ## What may be preliminary
 

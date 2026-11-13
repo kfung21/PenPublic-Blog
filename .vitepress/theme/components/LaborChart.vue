@@ -23,6 +23,9 @@ const props = defineProps({
   sumLabel:   { type: String, default: 'Total' },
   share:      { type: String, default: '' },
   shareLabel: { type: String, default: 'Share' },
+  //   ratio="A/B"  A divided by B, as a plain number (people per job opening)
+  ratio:      { type: String, default: '' },
+  ratioLabel: { type: String, default: 'Ratio' },
   //   real="WAGE/CPI"  pay divided by prices, i.e. what a paycheck buys
   real:       { type: String, default: '' },
   realLabel:  { type: String, default: 'Pay after inflation' },
@@ -66,6 +69,12 @@ onMounted(async () => {
     if (props.share) {
       const [num, den] = props.share.split('/').map(x => x.trim())
       jobs.push(loadShare(num, den, props.shareLabel))
+    }
+    if (props.ratio) {
+      const [num, den] = props.ratio.split('/').map(x => x.trim())
+      jobs.push(loadRatio(num, den, props.ratioLabel).then(d => ({
+        ...d, current: d.current.map(v => +v.toFixed(2)), initial: d.initial.map(v => +v.toFixed(2)),
+      })))
     }
     if (props.real) {
       const [num, den] = props.real.split('/').map(x => x.trim())
@@ -333,6 +342,7 @@ const subtitle = computed(() => {
   if (props.transform.startsWith('since:')) {
     return `Percent change since ${monthLabel(props.transform.slice(6))}`
   }
+  if (props.ratio) return 'People per opening'
   return { thousands: 'Persons', dollars: 'Dollars', index: 'Index', years: 'Years of income' }[unit.value] || 'Percent'
 })
 const zeroY = computed(() => yDom.value.lo < 0 && yDom.value.hi > 0 ? sy(0) : null)

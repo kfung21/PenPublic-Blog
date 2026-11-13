@@ -291,6 +291,7 @@ export const SHORT = {
   MSPUS: 'Median new home price',
   MEHOINUSA646N: 'Household income', LES1252881500Q: 'Full-time worker pay', MORTGAGE30US: '30-year mortgage rate', FEDFUNDS: 'Federal funds rate',
   CES0500000003: 'Hourly pay', AHETPI: 'Hourly pay, non-managers',
+  JTSJOL: 'Job openings', LNU00000060: 'Ages 25 to 54', LNU00000036: 'Ages 20 to 24',
   JTSHIR: 'Hires', JTSLDR: 'Layoffs and firings', JTSQUR: 'Quits', JTSJOR: 'Job openings',
   CES6054150001: 'Computer systems design and IT services',
   CES5051800001: 'Cloud, data processing, web hosting',
