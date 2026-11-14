@@ -19,6 +19,12 @@ The federal funds rate is the rate the Federal Reserve sets. Mortgage rates are 
 
 <LaborChart series="FEDFUNDS,MORTGAGE30US" title="Federal funds rate and the 30-year mortgage rate" zero />
 
+## Inflation
+
+How much more things cost than a year ago. This is the inflation rate in the news. The second line leaves out food and energy, which swing the most. When the first line is well above the second, gas and groceries are doing the damage.
+
+<LaborChart series="CPIAUCSL,CPILFESL" transform="yoy" title="Consumer prices, change from a year earlier" />
+
 ## The monthly payment
 
 Price and rate together. This is the monthly payment on that home with 20 percent down and a 30-year fixed loan at that month's average rate. It covers principal and interest only, not property tax or insurance. Home prices come out once a quarter, so each month uses the latest price available.
@@ -34,12 +40,6 @@ The same payment as a share of one typical full-time worker's monthly pay, befor
 What one typical full-time worker earns in a year, next to what that worker would need to earn to buy what their pay bought in January 2020. When the actual line is on top, pay has beaten prices. When the needed line is on top, the paycheck buys less than it did.
 
 <LaborChart keepup="LES1252881500Q*52/CPIAUCSL@2020-01" title="Full-time worker pay vs. the pay needed to keep up with prices" />
-
-## Inflation
-
-How much more things cost than a year ago. This is the inflation rate in the news. The second line leaves out food and energy, which swing the most. When the first line is well above the second, gas and groceries are doing the damage.
-
-<LaborChart series="CPIAUCSL,CPILFESL" transform="yoy" title="Consumer prices, change from a year earlier" />
 
 ## The bottom line
 
